@@ -10,7 +10,7 @@ div#page {
     background-color: #fff;
     position: absolute;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 

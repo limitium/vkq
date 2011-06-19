@@ -1,2 +1,14 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+window.name = 'fXD';
+
+VK.init(function() {
+    // API initialization succeeded
+    // Your code here
+    console.log(arguments);
+    console.log(VK.api('getProfiles', function() {
+        console.log(arguments);
+
+    }));
+    VK.api('getUserSettings', function(data) {
+        console.log(data)
+    });
+});
