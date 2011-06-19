@@ -1,0 +1,77 @@
+<%= form_for(@queen) do |f| %>
+  <% if @queen.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@queen.errors.count, "error") %> prohibited this queen from being saved:</h2>
+
+      <ul>
+      <% @queen.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :uid %><br />
+    <%= f.text_field :uid %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :domain %><br />
+    <%= f.text_field :domain %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :bdate %><br />
+    <%= f.text_field :bdate %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.text_field :photo %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_medium %><br />
+    <%= f.text_field :photo_medium %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_big %><br />
+    <%= f.text_field :photo_big %>
+  </div>
+  <div class="field">
+    <%= f.label :university_name %><br />
+    <%= f.text_field :university_name %>
+  </div>
+  <div class="field">
+    <%= f.label :faculty %><br />
+    <%= f.text_field :faculty %>
+  </div>
+  <div class="field">
+    <%= f.label :faculty_name %><br />
+    <%= f.text_field :faculty_name %>
+  </div>
+  <div class="field">
+    <%= f.label :graduation %><br />
+    <%= f.text_field :graduation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

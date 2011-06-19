@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  uid: 1
+  first_name: MyString
+  last_name: MyString
+  domain: MyString
+  sex: MyString
+  bdate: MyString
+  city: MyString
+  country: MyString
+  photo: MyString
+  photo_medium: MyString
+  photo_big: MyString
+  university_name: MyString
+  faculty: MyString
+  faculty_name: MyString
+  graduation: MyString
+
+two:
+  uid: 1
+  first_name: MyString
+  last_name: MyString
+  domain: MyString
+  sex: MyString
+  bdate: MyString
+  city: MyString
+  country: MyString
+  photo: MyString
+  photo_medium: MyString
+  photo_big: MyString
+  university_name: MyString
+  faculty: MyString
+  faculty_name: MyString
+  graduation: MyString
