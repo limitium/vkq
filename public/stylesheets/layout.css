@@ -1,13 +1,16 @@
 @charset "utf-8";
 
-body{
+body {
     background-color: #EFEFEF;
 }
 
-div#page{
-    width:800px;
-    height:600px;
-    border: 1px solid black
+div#page {
+    width: 800px;
+    height: 600px;
+    background-color: #fff;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 
