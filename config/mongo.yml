@@ -1,0 +1,20 @@
+defaults: &defaults
+  host: dbh11.mongolab.com
+  port: 27117
+  database: vkqueen
+  username: queen
+  password: qweqwe123
+  
+development:
+  <<: *defaults  
+
+
+test:
+  <<: *defaults
+  database: vkqueen
+  username: <%= ENV['MONGO_USERNAME'] %>
+  password: <%= ENV['MONGO_PASSWORD'] %>
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
