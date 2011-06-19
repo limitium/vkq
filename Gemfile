@@ -10,6 +10,7 @@ gem 'mongo'
 gem 'mongo_mapper'
 gem 'mongo_ext'
 
+gem 'jquery-rails'
 # Use unicorn as the web server
 # gem 'unicorn'
 
