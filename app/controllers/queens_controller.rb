@@ -4,7 +4,6 @@ class QueensController < ApplicationController
   def index
     @queens = Queen.all
 
-    @p = params.to_hash
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @queens }
