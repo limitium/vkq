@@ -4,6 +4,7 @@ VK.init(function() {
     $(document).ready(function() {
         console.log('app start');
         getFriends();
+         VK.External.showSettingsBox(128);
     });
 }, function() {
     alert('Ошибка инициализации JS VK API');
