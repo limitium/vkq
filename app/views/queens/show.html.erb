@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>id:</b>
+  <%= @queen.id %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%= @queen.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @queen.last_name %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= @queen.photo %>
+</p>
+
+
+<%= link_to 'Edit', edit_queen_path(@queen) %> |
+<%= link_to 'Back', queens_path %>

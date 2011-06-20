@@ -1,0 +1,29 @@
+<h1>Listing queens</h1>
+
+<table>
+  <tr>
+    <th>Uid</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Photo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @queens.each do |queen| %>
+  <tr>
+    <td><%= queen.id %></td>
+    <td><%= queen.first_name %></td>
+    <td><%= queen.last_name %></td>
+    <td><%= queen.photo %></td>
+    <td><%= link_to 'Show', queen %></td>
+    <td><%= link_to 'Edit', edit_queen_path(queen) %></td>
+    <td><%= link_to 'Destroy', queen, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Queen', new_queen_path %>

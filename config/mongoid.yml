@@ -1,0 +1,27 @@
+defaults: &defaults
+  host: dbh11.mongolab.com
+  port: 27117
+  database: vkqueen
+  username: queen
+  password: qweqwe123
+  paramterize_keys: false
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+#  host: <%= ENV['MONGOID_HOST'] %>
+#  port: <%= ENV['MONGOID_PORT'] %>
+#  username: <%= ENV['MONGOID_USERNAME'] %>
+#  password: <%= ENV['MONGOID_PASSWORD'] %>
+#  database: <%= ENV['MONGOID_DATABASE'] %>
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
