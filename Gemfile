@@ -7,7 +7,7 @@ gem 'rails', '3.0.7'
 
 gem 'bson_ext'
 gem 'mongo'
-gem 'mongo_mapper'
+gem 'mongoid'
 gem 'mongo_ext'
 
 gem 'jquery-rails'

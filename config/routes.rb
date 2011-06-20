@@ -1,4 +1,6 @@
 Vkq::Application.routes.draw do
+  resources :queens
+
   get "main/page"
 
   resources :queens
