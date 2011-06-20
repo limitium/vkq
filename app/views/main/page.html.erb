@@ -1,2 +1,17 @@
-<h1>Main#page</h1>
-<p>Find me in app/views/main/page.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>id:</b>
+  <%= params[:user_id] %>
+  <%= params[:user_id].class %>
+  <%= @queen.id %>
+  <%= @queen.class %>
+  <% if @queen.nil? %>
+      blya
+  <% else %>
+      aeeeeeeeeeee
+  <% end %>
+</p>
+
+
+

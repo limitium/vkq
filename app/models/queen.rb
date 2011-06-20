@@ -17,4 +17,7 @@ class Queen
   key :faculty_name, String
   key :graduation, String
 
+
 end
+
+Queen.ensure_index [[:uid, 1]], :unique => true

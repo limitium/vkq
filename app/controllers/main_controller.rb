@@ -7,16 +7,13 @@ class MainController < ApplicationController
     params[:api_settings] # bit mask
     params[:hash] #my add params
 
-    @queen = Queen.find(params[:user_id])
-
-    if !@queen
+    @queen = Queen.first(:uid => params[:user_id].to_i)
+        NilClass
+    if @queen.nil?
       @queen = Queen.new({:uid => params[:user_id]})
       @queen.save
     end
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @queen }
-    end
+
   end
 
 end
