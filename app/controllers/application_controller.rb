@@ -7,13 +7,23 @@ class ApplicationController < ActionController::Base
     begin
       @queen = Queen.find(params[:user_id])
     rescue Mongoid::Errors::DocumentNotFound
-      @queen = Queen.new(:_id => params[:user_id])
-      @queen.save
-      @update_profile = true;
+      sign_up
+    ensure
+      sign_in
     end
   end
 
   def check_vk
+
+  end
+
+  def sign_up
+    @queen = Queen.new(:_id => params[:user_id])
+    @update_profile = true
+    @queen.save
+  end
+
+  def sign_in
 
   end
 
