@@ -11,6 +11,10 @@
 </head>
 <body>
 <div id="page">
+  <%= @update_profile %>
+  <% if @update_profile %>
+      force update profile
+  <% end %>
   <%= yield %>
 </div>
 </body>

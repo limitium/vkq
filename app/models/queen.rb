@@ -5,4 +5,5 @@ class Queen
   field :last_name, :type => String
   field :photo, :type => String
   key :_id
+  index :_id, :unique => true
 end
