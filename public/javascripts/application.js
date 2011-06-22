@@ -1,3 +1,3 @@
-new VKQ().run(function(){
-
+VKQ.run(function() {
+    VKQ.updateProfile();
 });

@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6abd69a0-1b2b-4bbd-87c8-d4448ebf56d0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/VKapp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/vk_api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/vkq.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vkq.iml" afterPath="$PROJECT_DIR$/.idea/vkq.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/queen.rb" afterPath="$PROJECT_DIR$/app/models/queen.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/application.js" afterPath="$PROJECT_DIR$/public/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/vkq.js" afterPath="$PROJECT_DIR$/public/javascripts/vkq.js" />
     </list>
     <ignored path="vkq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +48,7 @@
       <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.085">
+            <state line="1" column="22" selection-start="43" selection-end="43" vertical-scroll-proportion="0.028333334">
               <folding />
             </state>
           </provider>
@@ -83,7 +75,7 @@
       <file leaf-file-name="vkq.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/vkq.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="8" selection-start="306" selection-end="307" vertical-scroll-proportion="-7.92">
+            <state line="22" column="4" selection-start="656" selection-end="656" vertical-scroll-proportion="-14.56">
               <folding />
             </state>
           </provider>
@@ -101,7 +93,7 @@
       <file leaf-file-name="VKapp.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/VKapp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="8" selection-start="6786" selection-end="6786" vertical-scroll-proportion="0.0">
+            <state line="261" column="10" selection-start="7973" selection-end="7973" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -110,7 +102,7 @@
       <file leaf-file-name="vk_api.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/vk_api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="377" column="17" selection-start="12459" selection-end="12462" vertical-scroll-proportion="-8.88">
+            <state line="106" column="71" selection-start="4236" selection-end="4236" vertical-scroll-proportion="473.92">
               <folding />
             </state>
           </provider>
@@ -152,8 +144,8 @@
         <option value="$PROJECT_DIR$/public/javascripts/VKapp.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/public/javascripts/vk_api.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/vkq.js" />
         <option value="$PROJECT_DIR$/app/models/queen.rb" />
+        <option value="$PROJECT_DIR$/public/javascripts/vkq.js" />
         <option value="$PROJECT_DIR$/public/javascripts/application.js" />
       </list>
     </option>
@@ -659,20 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="2" selection-start="29" selection-end="401" vertical-scroll-proportion="-10.461538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/vk_api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="377" column="17" selection-start="12459" selection-end="12462" vertical-scroll-proportion="-8.88">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="71" selection-start="1863" selection-end="1863" vertical-scroll-proportion="-17.24">
@@ -689,21 +667,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/VKapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="8" selection-start="6786" selection-end="6786" vertical-scroll-proportion="0.0">
+        <state line="261" column="10" selection-start="7973" selection-end="7973" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/vk_api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="71" selection-start="4236" selection-end="4236" vertical-scroll-proportion="473.92">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="2" selection-start="29" selection-end="401" vertical-scroll-proportion="-10.461538">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/vkq.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="306" selection-end="307" vertical-scroll-proportion="-7.92">
+        <state line="22" column="4" selection-start="656" selection-end="656" vertical-scroll-proportion="-14.56">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.085">
+        <state line="1" column="22" selection-start="43" selection-end="43" vertical-scroll-proportion="0.028333334">
           <folding />
         </state>
       </provider>
