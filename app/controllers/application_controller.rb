@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def check_user
     params[:user_id] ||= "1111" #should be checked at checkVK!!!!
     begin
-      @queen = Queen.find(params[:user_id])
+      @queen = Queen.find(params[:viewer_id])
     rescue Mongoid::Errors::DocumentNotFound
       sign_up
     ensure
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_up
-    @queen = Queen.new(:_id => params[:user_id])
+    @queen = Queen.create(:_id => params[:viewer_id])
     @update_profile = true
     @queen.save
   end
