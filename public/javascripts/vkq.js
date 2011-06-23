@@ -2,8 +2,10 @@ VKQ = {
 
     run: function(runner) {
         try {
-            parent.frames.length == 0 &&
-            throw "Где фреймы нах?"
+            if (parent.frames.length == 0) {
+                throw "Где фреймы нах?"
+            }
+
             console.log('vkq starting');
             VK.init(function() {
                 console.log('VK init');
@@ -14,7 +16,7 @@ VKQ = {
                 });
             });
         } catch(e) {
-            alert("http://vkontakte.ru/app" + VKQ.api_id);
+            alert("http://vkontakte.ru/app" + api_id);
 //            window.location.href = "http://vkontakte.ru/app" + VKQ.api_id;
         }
     },
