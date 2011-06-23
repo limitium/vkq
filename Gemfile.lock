@@ -65,6 +65,7 @@ GEM
       activesupport (= 3.0.7)
       bundler (~> 1.0)
       railties (= 3.0.7)
+    rails-firephp (0.0.1)
     railties (3.0.7)
       actionpack (= 3.0.7)
       activesupport (= 3.0.7)
@@ -86,3 +87,4 @@ DEPENDENCIES
   mongo_ext
   mongoid
   rails (= 3.0.7)
+  rails-firephp (~> 0.0.1)

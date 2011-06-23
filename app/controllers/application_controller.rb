@@ -14,11 +14,12 @@ class ApplicationController < ActionController::Base
   end
 
   def check_vk
+    firebug "hello world!"
+
     params[:viewer_id] ||= "1111"
-    @tt1 = params[:auth_key]
-    @tt2 = Digest::MD5.hexdigest("2384663_" + params[:viewer_id] + "_R4abU0gbz59Y9JKo3lqI")
-#should be checked at checkVK!!!!
-#    redirect_to "http://vkontakte.ru/app2384663" unless request.referer == "http://vkontakte.ru/app2384663";
+
+    to_vk unless request.referer == "http://vkontakte.ru/app2384663"
+    to_vk unless params[:auth_key] == Digest::MD5.hexdigest("2384663_" + params[:viewer_id] + "_R4abU0gbz59Y9JKo3lqI")
   end
 
   def sign_up
@@ -31,5 +32,16 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def to_vk
+    @tt1 = "to vk"
+#    redirect_to "http://vkontakte.ru/app2384663"
+  end
+
+  helper_method :firebug
+  private
+  def firebug(message, type = :debug)
+    request.env['firebug.logs'] ||= []
+    request.env['firebug.logs'] << [type.to_sym, message.to_s]
+  end
 end
 

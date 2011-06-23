@@ -11,6 +11,8 @@ gem 'mongoid'
 gem 'mongo_ext'
 
 gem 'jquery-rails'
+
+gem "rails-firephp", "~> 0.0.1"
 # Use unicorn as the web server
 # gem 'unicorn'
 
