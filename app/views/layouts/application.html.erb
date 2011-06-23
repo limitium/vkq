@@ -8,17 +8,17 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 
-  <%= @update_profile %>
-  <% if @update_profile %>
-      <script type="text/javascript">
-          alert("update nah")
-      </script>
-  <% end %>
+  <script type="text/javascript">
+      VKQ.api_id = 2384663;
+      <% if @update_profile %>
+      alert("update nah")
+      <% end %>
+  </script>
 
 </head>
 <body>
 <div id="page">
-
+<%= @rr %>
   <%= yield %>
 </div>
 </body>

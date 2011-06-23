@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def check_user
-    params[:user_id] ||= "1111" #should be checked at checkVK!!!!
+    params[:viewer_id] ||= "1111" #should be checked at checkVK!!!!
     begin
       @queen = Queen.find(params[:viewer_id])
     rescue Mongoid::Errors::DocumentNotFound
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_vk
-
+    @rr = request.referer;
   end
 
   def sign_up
