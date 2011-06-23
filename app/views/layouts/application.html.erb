@@ -7,7 +7,7 @@
 
 
   <script type="text/javascript">
-      api_id = 2384663;
+      api_id = <%= VKQ_CONFIG["app_id"] %>;
       <% if @update_profile %>
       alert("update nah")
       <% end %>
@@ -21,8 +21,8 @@
 </head>
 <body>
 <div id="page">
-<%= @tt1 %>
-<%= @tt2 %>
+  <%= @tt1 %>
+  <%= @tt2 %>
   <%= yield %>
 </div>
 </body>
