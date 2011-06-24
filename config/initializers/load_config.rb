@@ -1,0 +1,1 @@
+VKQ_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/vkq_config.yml")
