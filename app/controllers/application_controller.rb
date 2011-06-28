@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def filter_vk
-    to_vk unless request.referer == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
+    to_vk unless request.referer[0,30] == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
   end
 
   def filter_user
