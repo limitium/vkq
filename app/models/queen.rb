@@ -19,7 +19,16 @@ class Queen
   field :home_phone
   field :education
 
+  field :salt
+
 
   key :_id
   index :_id, :unique => true
+
+  def self.authenticate_with_salt(id, cookie_salt)
+    if !id.nil?
+      user = find(id)
+      (user && user.salt == cookie_salt) ? user : nil
+    end
+  end
 end

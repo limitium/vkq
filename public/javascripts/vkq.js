@@ -16,7 +16,7 @@ VKQ = {
                 });
             });
         } catch(e) {
-            alert("http://vkontakte.ru/app" + api_id);
+            console.log("from client to http://vkontakte.ru/app" + api_id);
 //            window.location.href = "http://vkontakte.ru/app" + VKQ.api_id;
         }
     },
