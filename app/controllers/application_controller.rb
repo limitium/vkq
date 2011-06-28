@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
   end
 
   def to_vk
-    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
+#    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
   end
 
   def signed_in?

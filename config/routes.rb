@@ -1,7 +1,20 @@
 Vkq::Application.routes.draw do
-#  resources :queens
-  get "/queens" => "queens#index"
-  post "/queen/update" => "queens#update"
+  resources :queens
+  get "/photos/new" => "queens#index"
+  post "/photos" => "queens#create"
+  get "/photos/:id" => "queens#show"
+  get "/photos/:id/edit" => "queens#edit"
+  post "/photos/:id" => "queens#update"
+  delete "/photos/:id" => "queens#destroy"
+#  get "/queens" => "queens#index"
+#  get "/queens/new" => "queen#new"
+#  get "/queens/:id" => "queen#show"
+#  get "/queens/:id/edit" => "queen#edit"
+#  delete "/queens/:id" => "queen#destroy"
+#  put "/queens/:id" => "queen#update"
+#
+#
+#  post "/queen/update" => "queens#update"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -32,8 +32,9 @@ VKQ = {
 
     updateProfile: function() {
         this.getProfile(function(data) {
-            $.post('/queen/update', {
-                queen:data.response.pop()
+            var profileData = data.response.pop();
+            $.post('/queen/update/' + profileData.uid, {
+                queen: profileData
             }, function() {
                 console.log(arguments);
                 console.log("updated profile");
