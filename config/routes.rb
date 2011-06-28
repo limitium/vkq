@@ -1,7 +1,7 @@
 Vkq::Application.routes.draw do
   resources :queens
 
-  xhr "queen/update" => "queen#update"
+  put "queen/update" => "queen#update"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
