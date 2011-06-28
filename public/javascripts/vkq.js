@@ -31,8 +31,13 @@ VKQ = {
     },
 
     updateProfile: function() {
-        this.getProfile(function() {
-            console.log(arguments)
-        })
+        this.getProfile(function(data) {
+            $.post('/queen/update', {
+                queen:data.response.pop()
+            }, function() {
+                console.log(arguments);
+                console.log("updated profile");
+            });
+        });
     }
 };

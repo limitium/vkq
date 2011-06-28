@@ -1,10 +1,7 @@
 Vkq::Application.routes.draw do
   resources :queens
 
-  get "main/page"
-
-  resources :queens
-
+  xhr "queen/update" => "queen#update"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -54,7 +51,7 @@ Vkq::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "main#page"
+  root :to => "queen#index"
 
   # See how all your routes lay out with "rake routes"
 
