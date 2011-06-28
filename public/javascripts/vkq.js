@@ -33,7 +33,7 @@ VKQ = {
     updateProfile: function() {
         this.getProfile(function(data) {
             var profileData = data.response.pop();
-            $.post('/queen/update/' + profileData.uid, {
+            $.post('/queens/' + profileData.uid, {
                 queen: profileData
             }, function() {
                 console.log(arguments);

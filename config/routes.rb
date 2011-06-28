@@ -1,11 +1,11 @@
 Vkq::Application.routes.draw do
   resources :queens
-  get "/photos/new" => "queens#index"
-  post "/photos" => "queens#create"
-  get "/photos/:id" => "queens#show"
-  get "/photos/:id/edit" => "queens#edit"
-  post "/photos/:id" => "queens#update"
-  delete "/photos/:id" => "queens#destroy"
+  get "/queens/new" => "queens#index"
+  post "/queens" => "queens#create"
+  get "/queens/:id" => "queens#show"
+  get "/queens/:id/edit" => "queens#edit"
+  post "/queens/:id" => "queens#update"
+  delete "/queens/:id" => "queens#destroy"
 #  get "/queens" => "queens#index"
 #  get "/queens/new" => "queen#new"
 #  get "/queens/:id" => "queen#show"
