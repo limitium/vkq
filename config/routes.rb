@@ -1,4 +1,6 @@
 Vkq::Application.routes.draw do
+  resources :votes
+
   resources :queens
   get "/queens/new" => "queens#index"
   post "/queens" => "queens#create"

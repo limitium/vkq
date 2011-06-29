@@ -22,6 +22,21 @@ VKQ = {
     },
 
     getProfile: function(callback) {
+    	console.log('fetch profile');
+			var fields_param = '"fields": "uid, first_name, last_name, nickname, domain, sex, bdate, city, country, photo, photo_rec, photo_medium_rec, photo_big, rate, contacts, education"';
+			// Code in VKScript lang
+			var code =
+			'var profile = API.getProfiles({"uids": ' + VK.params.viewer_id + ', ' + fields_param + '})[0];' +
+			'profile.country_name = API.getCountryById({"cids":profile.country})[0].name;' +
+			'profile.city_name = API.getCityById({"cids":profile.city})[0].name;' +
+			'return profile;';
+
+			VK.api('execute', {'code': code}, function(data) {
+				callback(data.response);
+			});
+    	
+    	
+    return;	
         VK.api('getProfiles', {
             uids: VK.params.viewer_id,
             fields: "uid, first_name, last_name, nickname, domain, sex, bdate, city, country, photo, photo_rec, photo_medium_rec, photo_big, rate, contacts, education"
@@ -31,10 +46,9 @@ VKQ = {
     },
 
     updateProfile: function() {
-        this.getProfile(function(data) {
-            var profileData = data.response.pop();
-            $.post('/queens/' + profileData.uid, {
-                queen: profileData
+        this.getProfile(function(profile) {
+            $.post('/queens/' + profile.uid, {
+                queen: profile
             }, function() {
                 console.log(arguments);
                 console.log("updated profile");
