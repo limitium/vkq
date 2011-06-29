@@ -27,15 +27,16 @@ VKQ = {
 			// Code in VKScript lang
 			var code =
 			'var profile = API.getProfiles({"uids": ' + VK.params.viewer_id + ', ' + fields_param + '})[0];' +
-			//'profile.country_name = [0].name;' +
-			//'profile.city_name = API.getCityById({"cids":profile.city})[0].name;';
-			//'profile.country_name = API.places.getCountryById({"cids":profile.country})[0];' +
-			'profile.country_name = "asd";' +
-			'return {"profile":profile,"country":123};';
+			'var country_name = profile.country ? API.getCountryById({"cids":profile.country})[0].name : ""' +
+			'var city_name = profile.city ? API.getCityById({"cids":profile.city})[0].name : ""' +			
+			'return {"profile":profile,"country_name":country_name,"city_name":city_name};';
 
 
 			VK.api('execute', {'code': code}, function(data) {
-				callback(data.response);
+				var profile = data.response.profile;
+				profile.country_name = data.response.country_name
+				profile.city_name = data.response.city_name
+				callback(profile);
 			});
     },
 
