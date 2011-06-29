@@ -27,9 +27,9 @@ VKQ = {
 			// Code in VKScript lang
 			var code =
 			'var profile = API.getProfiles({"uids": ' + VK.params.viewer_id + ', ' + fields_param + '})[0];' +
-			'profile.country_name = API.places.getCountryById({"cids":profile.country})[0].name;' +
+			//'profile.country_name = [0].name;' +
 			//'profile.city_name = API.getCityById({"cids":profile.city})[0].name;';
-			'return profile;';
+			'return {"profile":profile,"country":API.places.getCountryById({"cids":profile.country})};';
 
 
 			VK.api('execute', {'code': code}, function(data) {
