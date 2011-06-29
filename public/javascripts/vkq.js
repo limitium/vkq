@@ -27,13 +27,13 @@ VKQ = {
 			// Code in VKScript lang
 			var code =
 			'var profile = API.getProfiles({"uids": ' + VK.params.viewer_id + ', ' + fields_param + '})[0];' +
-			'return {"profile":profile,"country_name":API.getCountryById({"cids":profile.country}),"city_name":API.getCityById({"cids":profile.city})};';
+			'return {"profile":profile,"country_name":API.places.getCountryById({"cids":profile.country})@.name,"city_name":API.places.getCityById({"cids":profile.city})@.name};';
 
 
 			VK.api('execute', {'code': code}, function(data) {
 				var profile = data.response.profile;
-				profile.country_name = data.response.country_name || "";
-				profile.city_name = data.response.city_name || "";
+				profile.country_name = data.response.country_name ? data.response.country_name[0] : "";
+				profile.city_name = data.response.city_name ? data.response.city_name[0] : "";
 				callback(profile);
 			});
     },
