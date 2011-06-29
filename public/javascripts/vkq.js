@@ -26,16 +26,15 @@ VKQ = {
 			var fields_param = '"fields": "uid, first_name, last_name, nickname, domain, sex, bdate, city, country, photo, photo_rec, photo_medium_rec, photo_big, rate, contacts, education"';
 			// Code in VKScript lang
 			var code =
-			'var profile = API.getProfiles({"uids": ' + VK.params.viewer_id + ', ' + fields_param + '})[0];' +
-			'profile.country_name = API.getCountryById({"cids":profile.country})[0].name;' +
-			'profile.city_name = API.getCityById({"cids":profile.city})[0].name;' +
-			'return profile;';
+			'var profile = API.getProfiles({"uids": ' + VK.params.viewer_id + ', ' + fields_param + '})[0];';
+			//'profile.country_name = API.getCountryById({"cids":profile.country})[0].name;' +
+			//'profile.city_name = API.getCityById({"cids":profile.city})[0].name;';
+
 
 			VK.api('execute', {'code': code}, function(data) {
 				callback(data.response);
 			});
-    	
-    	
+
     return;	
         VK.api('getProfiles', {
             uids: VK.params.viewer_id,
