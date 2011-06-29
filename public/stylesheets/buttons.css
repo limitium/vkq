@@ -1,0 +1,98 @@
+button {
+    background-color: transparent;
+    border: 0 none;
+    border-collapse: collapse;
+}
+
+.shadow_extensible_button, .extensible_button, .non_extensible_button {
+    background-color: transparent;
+    border: 0 solid #000000;
+    cursor: pointer;
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.shadow_extensible_button:hover, .extensible_button:hover, .non_extensible_button:hover {
+    text-decoration: none;
+}
+
+button span {
+    position: relative;
+}
+
+button span span, button span span span {
+    position: static;
+}
+
+.button_01 {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.button_01 span {
+    display: block;
+    float: left;
+    height: 28px;
+    padding: 0 0 0 7px;
+    text-decoration: none;
+}
+
+.button_01 span span {
+    padding: 0 7px 0 0;
+}
+
+.button_green span {
+    background: url("/images/buttons/green/border_l_hover.png") no-repeat scroll left top transparent;
+}
+
+.button_red span {
+    background: url("/images/buttons/red/border_l_hover.png") no-repeat scroll left top transparent;
+}
+
+.button_green span span {
+    background: url("/images/buttons/green/border_r_hover.png") no-repeat scroll right top transparent;
+}
+
+.button_red span span {
+    background: url("/images/buttons/red/border_r_hover.png") no-repeat scroll right top transparent;
+}
+
+.button_green span span span {
+    background: url("/images/buttons/green/btn_bg_hover.png") repeat-x scroll left top transparent;
+}
+
+.button_red span span span {
+    background: url("/images/buttons/red/btn_bg_hover.png") repeat-x scroll left top transparent;
+}
+
+.button_01 span span span {
+    font: bold 11px/28px Arial, Helvetica, sans-serif;
+    padding: 0 14px;
+    color: #FFFFFF;
+    text-shadow: 0 1px 1px #6B9311;
+}
+
+.button_01:hover {
+    text-decoration: none;
+}
+
+.button_01:hover span, .button_01_selected span {
+    background: url("/images/buttons/green/border_l.png") no-repeat scroll left top transparent;
+}
+
+.button_01:hover span span, .button_01_selected span span {
+    background: url("/images/buttons/green/border_r.png") no-repeat scroll right top transparent;
+}
+
+.button_01:hover span span span, .button_01_selected span span span {
+    background: url("/images/buttons/green/btn_bg.png") repeat-x scroll left top transparent;
+    color: #636363;
+} 

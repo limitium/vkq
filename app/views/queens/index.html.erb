@@ -1,29 +1,34 @@
 <h1>Listing queens</h1>
 
-<table>
-  <tr>
-    <th>Uid</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Photo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @queens.each do |queen| %>
-  <tr>
-    <td><%= queen.id %></td>
-    <td><%= queen.first_name %></td>
-    <td><%= queen.last_name %></td>
-    <td><%= queen.photo %></td>
-    <td><%= link_to 'Show', queen %></td>
-    <td><%= link_to 'Edit', edit_queen_path(queen) %></td>
-    <td><%= link_to 'Destroy', queen, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Queen', new_queen_path %>
+<ul class="rating_list">
+  <% @queens.each_with_index do |queen, index| %>
+      <li>
+        <div class="position">
+          <%= index + 1 %>
+        </div>
+        <div class="rating">
+          <%= queen.rating %>
+        </div>
+        <div class="photo">
+          <%= link_to(image_tag(queen.photo_medium_rec, :alt=>"#{queen.first_name} #{queen.last_name}"), queen) %>
+        </div>
+        <div class="name">
+          <%= link_to "#{queen.first_name} #{queen.last_name}", queen %>
+          <button class="button_01 button_green" type="submit">
+            <span class="border_l">
+                <span class="border_r">
+                    <span class="btn_bg">+</span>
+                </span>
+            </span>
+        </button>
+          <button class="button_01 button_red" type="submit">
+            <span class="border_l">
+                <span class="border_r">
+                    <span class="btn_bg">-</span>
+                </span>
+            </span>
+        </button>
+        </div>
+      </li>
+  <% end %>
+</ul>

@@ -1,0 +1,13 @@
+.rating_list li div {
+    display: inline-block;
+}
+
+.rating_list li div.rating {
+    font-family: "Trebuchet", sans-serif;
+    font-size: 20pt;
+    color: #759E1A;
+}
+.rating_list li div.position{
+    font-family: "Trebuchet", sans-serif;
+    font-size: 24pt;
+}
