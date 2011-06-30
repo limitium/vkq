@@ -40,15 +40,14 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.xml
   def create
-  	params[:vote][:voter] = "14647796"
+#  	params[:vote][:voter] = "14647796"
     @vote = Vote.new(params[:vote])
-    
-
-    
-    if @vote.save        
-	     render :json => @vote, :status => :created, :location => @vote 
+    if @vote.save
+        @vote.rated.rating = @vote.rated.rating.to_i + @vote.value
+        @vote.rated.save
+	     render :json => @vote.rated.rating
     else        
-         render :json => @vote.errors, :status => :unprocessable_entity 
+       render :json => @vote.errors, :status => :unprocessable_entity
     end
   end
 
