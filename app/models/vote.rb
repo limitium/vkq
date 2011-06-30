@@ -7,4 +7,10 @@ class Vote
   
   index :rated
   index :voter
+	
+
+  referenced_in :voter, :class_name => 'Queen', :inverse_of => :votes
+  referenced_in :rated, :class_name => 'Queen', :inverse_of => :rates
+
+
 end

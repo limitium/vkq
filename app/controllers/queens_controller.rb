@@ -2,7 +2,7 @@ class QueensController < ApplicationController
   # GET /queens
   # GET /queens.xml
   def index
-    @queens = Queen.order_by([:rating, :desc])
+    @queens = Queen.all
 
     respond_to do |format|
       format.html # index.html.erb

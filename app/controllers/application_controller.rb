@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     @queen.salt = Digest::SHA2.hexdigest("#{Time.now.utc}--#{Vkq::Application.config.secret_token}")
     @queen.save
     cookies.permanent.signed[:remember_token] = [@queen._id, @queen.salt]
-    self.current_user = @queen
+    self.current_queen = @queen
   end
 
   def to_vk
@@ -49,15 +49,15 @@ class ApplicationController < ActionController::Base
   end
 
   def signed_in?
-    !current_user.nil?
+    !current_queen.nil?
   end
 
-  def current_user=(user)
-    @current_user = user
+  def current_queen=(user)
+    @current_queen = user
   end
 
-  def current_user
-    @current_user ||= user_from_remember_token
+  def current_queen
+    @current_queen ||= user_from_remember_token
   end
 
 

@@ -40,16 +40,15 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.xml
   def create
+  	params[:vote][:voter] = "14647796"
     @vote = Vote.new(params[:vote])
+    
 
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to(@vote, :notice => 'Vote was successfully created.') }
-        format.xml  { render :xml => @vote, :status => :created, :location => @vote }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @vote.errors, :status => :unprocessable_entity }
-      end
+    
+    if @vote.save        
+	     render :json => @vote, :status => :created, :location => @vote 
+    else        
+         render :json => @vote.errors, :status => :unprocessable_entity 
     end
   end
 

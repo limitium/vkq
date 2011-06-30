@@ -47,5 +47,16 @@ VKQ = {
                 console.log("updated profile");
             });
         });
+    },
+    
+    vote: function(queen, val, callback){
+    	$.post('/votes', {
+                vote: {
+                	rated: queen,
+                	value: val
+                }
+            }, function(response) {
+                callback(response);
+            });
     }
 };
