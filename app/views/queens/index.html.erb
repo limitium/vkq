@@ -14,20 +14,16 @@
         </div>
         <div class="name">
           <%= link_to "#{queen.first_name} #{queen.last_name}", queen %>
-          <button class="button_01 button_green" type="button">
-            <span class="border_l">
-                <span class="border_r">
-                    <span class="btn_bg">+</span>
-                </span>
-            </span>
-        </button>
-          <button class="button_01 button_red" type="button">
-            <span class="border_l">
-                <span class="border_r">
-                    <span class="btn_bg">-</span>
-                </span>
-            </span>
-        </button>
+          <div class="button_blue">
+            <button class="rating_up" type="button">
+              Поднять
+            </button>
+          </div>
+          <div class="button_blue">
+            <button class="rating_down" type="button">
+              Опустить
+            </button>
+          </div>
         </div>
       </li>
   <% end %>
