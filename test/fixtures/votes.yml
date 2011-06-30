@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rated: 1
+  voter: 1
+  value: 1
+
+two:
+  rated: 1
+  voter: 1
+  value: 1
