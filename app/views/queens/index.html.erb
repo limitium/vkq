@@ -2,7 +2,7 @@
 
 <ul class="rating_list">
   <% @queens.each_with_index do |queen, index| %>
-      <li>
+      <li queen="<%= queen._id %>">
         <div class="position">
           <%= index + 1 %>
         </div>
@@ -14,14 +14,14 @@
         </div>
         <div class="name">
           <%= link_to "#{queen.first_name} #{queen.last_name}", queen %>
-          <button class="button_01 button_green" type="submit">
+          <button class="button_01 button_green" type="button">
             <span class="border_l">
                 <span class="border_r">
                     <span class="btn_bg">+</span>
                 </span>
             </span>
         </button>
-          <button class="button_01 button_red" type="submit">
+          <button class="button_01 button_red" type="button">
             <span class="border_l">
                 <span class="border_r">
                     <span class="btn_bg">-</span>
