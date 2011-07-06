@@ -28,7 +28,7 @@
         <div class="position">
           <%= index + 1 %>
         </div>
-        <div class="rating">
+        <div class="rating_<%= queen._id %>">
           <%= queen.rating %>
         </div>
         <div class="photo">
@@ -36,13 +36,13 @@
         </div>
         <div class="name">
           <%= link_to "#{queen.first_name} #{queen.last_name}", queen %>
-          <div class="button_blue">
-            <button class="rating_up" type="button">
+          <div class="button_blue vote">
+            <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
               Поднять
             </button>
           </div>
           <div class="button_blue">
-            <button class="rating_down" type="button">
+            <button queen="<%= queen._id %>" class="vote_button rating_down" type="button">
               Опустить
             </button>
           </div>
