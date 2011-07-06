@@ -1,25 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>id:</b>
-  <%= @queen.id %>
-</p>
-
-<p>
-  <b>First name:</b>
-  <%= @queen.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @queen.last_name %>
-</p>
-
-<p>
-  <b>Photo:</b>
-  <%= @queen.photo %>
-</p>
-
-
-<%= link_to 'Edit', edit_queen_path(@queen) %> |
+ <div queen="<%= @queen._id %>">
+    <div class="rating">
+      <%= @queen.rating %>
+    </div>
+    <div class="photo">
+      <%= image_tag @queen.photo_big, :alt=>"#{@queen.first_name} #{@queen.last_name}" %>
+    </div>
+    <div class="name">
+      <%= "#{@queen.first_name} #{@queen.last_name}" %>
+      <div class="button_blue">
+        <button class="rating_up" type="button">
+          Поднять
+        </button>
+      </div>
+      <div class="button_blue">
+        <button class="rating_down" type="button">
+          Опустить
+        </button>
+      </div>
+    </div>
+    <div class="achives">
+    	<h2>Ачивки<h2/>
+    	<ul>
+    	<li>04.06.2011 - 1 <%= @queen.faculty_name %> <%= @queen.graduation %></li>
+    	</ul>
+    </div>
+    <div class="position">
+    	<h2>Позиция<h2/>
+    	<ul>
+    	<li><%= @queen.faculty_name %> <%= @queen.graduation %> - 1</li>   
+    	<li><%= @queen.university_name %> <%= @queen.graduation %> - 4</li>
+    	<li><%= @queen.faculty_name %> - 10</li>    	    	 	
+    	<li><%= @queen.university_name %>  - 55</li>    	
+    	<li><%= @queen.city_name %> - 122</li>
+    	<li><%= @queen.country_name %> - 40306</li>
+    	</ul>
+    </div>
+    <%= link_to "ВК профиль", "http://vkontakte.ru/#{@queen.domain}" %>
+  </div>      
 <%= link_to 'Back', queens_path %>

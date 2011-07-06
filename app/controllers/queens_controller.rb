@@ -57,15 +57,10 @@ class QueensController < ApplicationController
   # PUT /queens/1.xml
   def update
     @queen = Queen.find(params[:id])
-
-    respond_to do |format|
-      if @queen.update_attributes(params[:queen])
-        format.html { redirect_to(@queen, :notice => 'Queen was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @queen.errors, :status => :unprocessable_entity }
-      end
+    if @queen.update_attributes(params[:queen])
+      render :json => @queen
+    else
+      render :json => @queen.errors, :status => :unprocessable_entity
     end
   end
 

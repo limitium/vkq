@@ -16,6 +16,7 @@ a:hover {
     border: 1px solid #45688E;
 }
 
+
 .button_blue, .button_gray {    
     -moz-border-radius: 2px 2px 2px 2px;
     -webkit-border-radius: 2px 2px 2px 2px;
@@ -53,7 +54,42 @@ a:hover {
     position: relative;
 }
 
+
 .button_blue button:hover {
     background-position: 0 -8px;
+}
+
+
+.feed_tab, .feed_tab_selected, .feed_tab_over {
+    cursor: pointer;
+    float: right;
+    padding: 3px 0 2px 5px;
+}
+.feed_tab2 {
+    padding: 3px 6px 4px;
+}
+.feed_tab:hover .feed_tab2 {
+    background-color: #E1E7ED;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+}
+.feed_tab_selected .feed_tab2 {
+    background-color: #597DA3;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+}
+.feed_tab3 {
+    color: #45688E;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 5px;
+}
+.feed_tab3_nav {
+    padding-right: 2px;
+}
+.feed_tab_selected .feed_tab3 {
+    color: #FFFFFF;
 }
 

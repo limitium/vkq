@@ -1,5 +1,27 @@
 <h1>Listing queens</h1>
 
+<div class="feed_tab filter f_sex" sex="1">
+  <div class="feed_tab1">
+    <div class="feed_tab2">
+      <div class="feed_tab3 feed_tab3_nav">
+        <nobr>Королева</nobr>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="feed_tab_selected filter f_sex" sex="2">
+  <div class="feed_tab1">
+    <div class="feed_tab2">
+      <div class="feed_tab3 feed_tab3_nav">
+        <nobr>Король</nobr>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <ul class="rating_list">
   <% @queens.each_with_index do |queen, index| %>
       <li queen="<%= queen._id %>">
@@ -10,7 +32,7 @@
           <%= queen.rating %>
         </div>
         <div class="photo">
-          <%= link_to(image_tag(queen.photo_medium_rec, :alt=>"#{queen.first_name} #{queen.last_name}"), queen) %>
+          <%= link_to(image_tag(queen[index==0 ? "photo_medium_rec" :"photo_rec"], :alt=>"#{queen.first_name} #{queen.last_name}"), queen) %>
         </div>
         <div class="name">
           <%= link_to "#{queen.first_name} #{queen.last_name}", queen %>
