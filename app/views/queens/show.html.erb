@@ -24,28 +24,62 @@
       </button>
     </div>
     </h4>
+	
+   <div class="module achive_module">
+  <a class="module_header" href="/friends?id=14647796?section=all">
+  <div class="header_top clear_fix">
+    <span class="right_link fl_r">детализация</span>
+    Позиция
+  </div>
+</a>
+  <div class="achive_list module_body clear_fix">
+  	
+<div class="clear_fix miniblock">
+  <div class="label fl_l">Выпуск факультет:</div>
+  <div class="labeled fl_l">1 - <a  href=""><%= @queen.graduation %> <%= @queen.faculty_name %></a></div>
+</div>
+<div class="clear_fix miniblock">
+  <div class="label fl_l">Выпуск Университет:</div>
+  <div class="labeled fl_l">63 - <a  href=""><%= @queen.university_name %>'<%= @queen.graduation %></a></div>
+</div>
+<div class="clear_fix miniblock">
+  <div class="label fl_l">Факультет:</div>
+  <div class="labeled fl_l">34 - <a  href=""><%= @queen.faculty_name %></a></div>
+</div>
+<div class="clear_fix miniblock">
+  <div class="label fl_l">Университет:</div>
+  <div class="labeled fl_l">63 - <a  href=""><%= @queen.university_name %>'<%= @queen.graduation %></a></div>
+</div>
+<div class="clear_fix miniblock">
+  <div class="label fl_l">Город:</div>
+  <div class="labeled fl_l">452 - <a  href=""><%= @queen.city_name %></a></div>
+</div>
+<div class="clear_fix miniblock">
+  <div class="label fl_l">Страна:</div>
+  <div class="labeled fl_l">25415 - <a  href=""><%= @queen.country_name %></a></div>
+</div>
 
-
-    <div class="position">
-      <h4>Позиция</h4>
-      <ul>
-        <li><%= @queen.faculty_name %> <%= @queen.graduation %> - 1</li>
-        <li><%= @queen.university_name %> <%= @queen.graduation %> - 4</li>
-        <li><%= @queen.faculty_name %> - 10</li>
-        <li><%= @queen.university_name %>  - 55</li>
-        <li><%= @queen.city_name %> - 122</li>
-        <li><%= @queen.country_name %> - 40306</li>
+  	</div>
+	</div>
+	
+	   <div class="module achive_module">
+  <a class="module_header" href="/friends?id=14647796?section=all">
+  <div class="header_top clear_fix">
+    Ачивки
+  </div>
+  <div class="p_header_bottom">
+    <span class="fl_r">Все</span>
+    1 всего
+  </div>
+</a>
+  <div class="module_body clear_fix">
+	<ul>
+        <li>TOP-1 06.2011 <%= @queen.faculty_name %> <%= @queen.graduation %></li>
       </ul>
-    </div>
-
-        <div class="achives">
-      <h4>Ачивки</h4>
-      <ul>
-        <li>04.06.2011 - 1 <%= @queen.faculty_name %> <%= @queen.graduation %></li>
-      </ul>
-    </div>
-    <%= link_to "ВК профиль", "http://vkontakte.ru/#{@queen.domain}" %>
-    <%= link_to 'Back', queens_path %>
+  	</div>
+	</div>
+	
+	
   </div>
 </div>
 

@@ -1,3 +1,60 @@
 .wide_column .name{
     font-size: 12px;
 }
+.module_header {
+    background: none repeat scroll 0 0 #F1F1F1;
+    display: block;
+}
+.module_header .header_top {
+    text-decoration: none;
+}
+
+.module_header .header_top {
+    background: none repeat scroll 0 0 #E1E7ED;
+    border-bottom: 1px solid #D8DFE5;
+    border-top: 1px solid #D3DAE0;
+    color: #45688E;
+    font-weight: bold;
+    outline: medium none;
+    padding: 3px 8px;
+}
+.module_header .header_top .right_link {
+    color: #AAB7C5;
+    font-weight: bold;
+}
+.module_header span {
+    font-weight: normal;
+}
+.p_header_bottom {
+    background: none repeat scroll 0 0 #F1F1F1;
+    border-bottom: 1px solid #EEEEEE;
+    color: #777777;
+    padding: 3px 8px;
+}
+.module_header:hover {
+	text-decoration:none;
+}
+.module_header .header_top .fl_r:hover, .module_header .header_bottom .fl_r:hover {
+    text-decoration: underline;
+}
+.p_header_bottom .fl_r {
+    color: #2B587A;
+}
+h4 b {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding: 0 6px;
+}
+.miniblock {
+    padding-top: 3px;
+}
+.label {
+    color: #777777;
+    width: 120px;
+}
+.labeled {
+    overflow: hidden;
+    width: 265px;
+}
+.achive_list{
+    line-height: 140%;
+}
