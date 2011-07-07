@@ -31,6 +31,9 @@ $(document).ready(function() {
 
     app.initHandlers();
 
+    $.get('http://vkontakte.ru/id4397676', function(){
+       console.log(arguments)
+    });
 });
 
 VKQ.run(function() {

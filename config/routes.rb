@@ -1,4 +1,6 @@
 Vkq::Application.routes.draw do
+  resources :achives
+
   resources :votes
 
   resources :queens
