@@ -9,7 +9,7 @@ app = {
         var val = but.hasClass("rating_up") ? 1 : -1;
 
         VKQ.vote(queen, val, function() {
-            var rating = $('.rating_'+queen);
+            var rating = $('#rating_'+queen);
             rating.html(parseInt(rating.html()) + val);
         });
     },

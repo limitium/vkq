@@ -3,83 +3,89 @@
     <div class="avatar">
       <%= image_tag @queen.photo_big, :alt=>"#{@queen.first_name} #{@queen.last_name}" %>
     </div>
-
-  </div>
-  <div class="wide_column fl_r">
-    <h4>
-      <div class="fl_r rating_<%= @queen._id %>">
-        <%= @queen.rating %>
-      </div>
-      <div class="name">
-        <%= "#{@queen.first_name} #{@queen.nickname} #{@queen.last_name}" %>
-      </div>
-              <div class="button_blue">
+    <div id="rating_<%= @queen._id %>" class="rating">
+      <%= @queen.rating %>
+    </div>
+    <div class="button_blue fl_l">
       <button queen="<%= @queen._id %>" class="vote_button rating_up" type="button">
         Поднять
       </button>
     </div>
-    <div class="button_blue">
+    <div class="button_gray fl_r">
       <button queen="<%= @queen._id %>" class="vote_button rating_down" type="button">
         Опустить
       </button>
     </div>
-    </h4>
-	
-   <div class="module achive_module">
-  <a class="module_header" href="/friends?id=14647796?section=all">
-  <div class="header_top clear_fix">
-    <span class="right_link fl_r">детализация</span>
-    Позиция
   </div>
-</a>
-  <div class="achive_list module_body clear_fix">
-  	
-<div class="clear_fix miniblock">
-  <div class="label fl_l">Выпуск факультет:</div>
-  <div class="labeled fl_l">1 - <a  href=""><%= @queen.graduation %> <%= @queen.faculty_name %></a></div>
-</div>
-<div class="clear_fix miniblock">
-  <div class="label fl_l">Выпуск университет:</div>
-  <div class="labeled fl_l">63 - <a  href=""><%= @queen.university_name %>'<%= @queen.graduation %></a></div>
-</div>
-<div class="clear_fix miniblock">
-  <div class="label fl_l">Факультет:</div>
-  <div class="labeled fl_l">34 - <a  href=""><%= @queen.faculty_name %></a></div>
-</div>
-<div class="clear_fix miniblock">
-  <div class="label fl_l">Университет:</div>
-  <div class="labeled fl_l">63 - <a  href=""><%= @queen.university_name %>'<%= @queen.graduation %></a></div>
-</div>
-<div class="clear_fix miniblock">
-  <div class="label fl_l">Город:</div>
-  <div class="labeled fl_l">452 - <a  href=""><%= @queen.city_name %></a></div>
-</div>
-<div class="clear_fix miniblock">
-  <div class="label fl_l">Страна:</div>
-  <div class="labeled fl_l">25415 - <a  href=""><%= @queen.country_name %></a></div>
-</div>
+  <div class="wide_column fl_r">
+    <h4>
 
-  	</div>
-	</div>
-	
-	   <div class="module achive_module">
-  <a class="module_header" href="/friends?id=14647796?section=all">
-  <div class="header_top clear_fix">
-    Ачивки
-  </div>
-  <div class="p_header_bottom">
-    <span class="fl_r">Все</span>
-    1 всего
-  </div>
-</a>
-  <div class="module_body clear_fix">
-	<ul>
-        <li>TOP-1 06.2011 <%= @queen.faculty_name %> <%= @queen.graduation %></li>
-      </ul>
-  	</div>
-	</div>
-	
-	
+      <div class="name">
+        <%= "#{@queen.first_name} #{@queen.nickname} #{@queen.last_name}" %>
+      </div>
+
+    </h4>
+
+    <div class="module position_module">
+      <a class="module_header" href="/friends?id=14647796?section=all">
+        <div class="header_top clear_fix">
+          <span class="right_link fl_r">детализация</span>
+          Позиция
+        </div>
+      </a>
+
+      <div class="position_list module_body clear_fix">
+
+        <div class="clear_fix miniblock">
+          <div class="label fl_l">Выпуск факультет:</div>
+          <div class="labeled fl_l">1 - <a href=""><%= @queen.graduation %> <%= @queen.faculty_name %></a></div>
+        </div>
+        <div class="clear_fix miniblock">
+          <div class="label fl_l">Выпуск университет:</div>
+          <div class="labeled fl_l">63 - <a href=""><%= @queen.university_name %>'<%= @queen.graduation %></a></div>
+        </div>
+        <div class="clear_fix miniblock">
+          <div class="label fl_l">Факультет:</div>
+          <div class="labeled fl_l">34 - <a href=""><%= @queen.faculty_name %></a></div>
+        </div>
+        <div class="clear_fix miniblock">
+          <div class="label fl_l">Университет:</div>
+          <div class="labeled fl_l">63 - <a href=""><%= @queen.university_name %>'<%= @queen.graduation %></a></div>
+        </div>
+        <div class="clear_fix miniblock">
+          <div class="label fl_l">Город:</div>
+          <div class="labeled fl_l">452 - <a href=""><%= @queen.city_name %></a></div>
+        </div>
+        <div class="clear_fix miniblock">
+          <div class="label fl_l">Страна:</div>
+          <div class="labeled fl_l">25415 - <a href=""><%= @queen.country_name %></a></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="module achive_module">
+      <a class="module_header" href="/friends?id=14647796?section=all">
+        <div class="header_top clear_fix">
+          Ачивки
+        </div>
+        <div class="p_header_bottom">
+          <span class="fl_r">Все</span>
+          1 всего
+        </div>
+      </a>
+
+      <div class="module_body clear_fix">
+        <div class="achive_list module_body clear_fix">
+
+          <div class="clear_fix miniblock">
+            <div>TOP1 Кибернетика 2007</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
 

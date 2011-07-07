@@ -55,7 +55,7 @@ h4 b {
     overflow: hidden;
     width: 265px;
 }
-.achive_list{
+.position_list, .achive_list{
     line-height: 140%;
     padding: 10px 6px 15px;
 }
