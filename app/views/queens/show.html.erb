@@ -3,10 +3,14 @@
     <div class="avatar">
       <%= image_tag @queen.photo_big, :alt=>"#{@queen.first_name} #{@queen.last_name}" %>
     </div>
-    <div id="rating_<%= @queen._id %>" class="rating">
-      <%= @queen.rating %>
-    </div>
-    <div class="button_blue fl_l">
+    <div style="cursor: default;" class="rate_line stage0">
+  <div id="rating_<%= @queen._id %>" class="rating rate_text"><%= @queen.rating %></div>
+  <div>
+    <div style="width: 0px;" class="rate_left fl_l"></div>
+    <div style="width: 200px;" class="rate_right fl_r"></div>
+  </div>
+</div>
+    <div class="button_blue">
       <button queen="<%= @queen._id %>" class="vote_button rating_up" type="button">
         Поднять
       </button>
@@ -16,6 +20,28 @@
         Опустить
       </button>
     </div>
+    
+        <div class="module achive_module">
+      <a class="module_header" href="/friends?id=14647796?section=all">
+        <div class="header_top clear_fix">
+          Ачивки
+        </div>
+        <div class="p_header_bottom">
+          <span class="fl_r">Все</span>
+          1 всего
+        </div>
+      </a>
+
+      <div class="module_body clear_fix">
+        <div class="achive_list module_body clear_fix">
+
+          <div class="clear_fix miniblock">
+            <div>TOP1 Кибернетика 2007</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
   <div class="wide_column fl_r">
     <h4>
@@ -64,26 +90,7 @@
       </div>
     </div>
 
-    <div class="module achive_module">
-      <a class="module_header" href="/friends?id=14647796?section=all">
-        <div class="header_top clear_fix">
-          Ачивки
-        </div>
-        <div class="p_header_bottom">
-          <span class="fl_r">Все</span>
-          1 всего
-        </div>
-      </a>
 
-      <div class="module_body clear_fix">
-        <div class="achive_list module_body clear_fix">
-
-          <div class="clear_fix miniblock">
-            <div>TOP1 Кибернетика 2007</div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 	
 

@@ -59,3 +59,35 @@ h4 b {
     line-height: 140%;
     padding: 10px 6px 15px;
 }
+
+.module{
+	padding-top:8px;
+}
+
+.rate_line {
+    cursor: pointer;
+    height: 35px;
+    margin-bottom: 12px;
+    padding-top: 10px;
+}
+.rate_line .rate_text {
+    color: #8BA1BC;
+    /*padding-top: 2px;    */
+    position: absolute;
+    text-align: center;
+    width: 200px;
+    font-size:30px;
+    z-index: 2;
+}
+.rate_line .rate_left {
+    background-color: #DAE2E8;
+    border-top: 1px solid #C0CCD9;
+    height: 34px;
+    z-index: -1;
+}
+.rate_line .rate_right {
+    background-color: #F7F7F7;
+    border-top: 1px solid #E6E6E6;
+    height: 34px;
+    z-index: -1;
+}
