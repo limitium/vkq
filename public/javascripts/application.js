@@ -30,11 +30,7 @@ app = {
 $(document).ready(function() {
 
     app.initHandlers();
-                console.log(1);
-    $.get('http://vkontakte.ru/id4397676', function(){
-        console.log(arguments)
-    });
-    console.log(2);
+
 });
 
 VKQ.run(function() {
