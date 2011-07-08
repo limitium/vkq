@@ -10,6 +10,9 @@ Vkq::Application.routes.draw do
   get "/queens/:id/edit" => "queens#edit"
   post "/queens/:id" => "queens#update"
   delete "/queens/:id" => "queens#destroy"
+  
+  get "/queens/:id/achives" => "queens#achives", :as => :queen_achives
+  get "/queens/:id/stats" => "queens#stats", :as => :queen_stats
 #  get "/queens" => "queens#index"
 #  get "/queens/new" => "queen#new"
 #  get "/queens/:id" => "queen#show"

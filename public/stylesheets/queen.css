@@ -76,7 +76,8 @@ h4 b {
     position: absolute;
     text-align: center;
     width: 200px;
-    font-size:30px;
+    font-size:22pt;
+    font-weight: bold;
     z-index: 2;
 }
 .rate_line .rate_left {
