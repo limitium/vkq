@@ -1,0 +1,11 @@
+<div id="rating_<%= @queen._id %>" class="rating rate_text"><%= @queen.rating %></div>
+
+
+<%= @pluses %>
+
+
+<% @votes.each do |vote| %>
+    <div><%= vote.voter.nickname %></div>
+<% end %>
+
+

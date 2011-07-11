@@ -6,7 +6,7 @@ class QueensController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @queens }
+      format.xml { render :xml => @queens }
     end
   end
 
@@ -17,8 +17,15 @@ class QueensController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @queen }
+      format.xml { render :xml => @queen }
     end
+  end
+
+  # GET /queens/1/stats
+  def stats
+    @queen = Queen.find params[:id]
+    @pluses = Vote.count :conditions => {:rated=>@queen._id, :value => 1}
+    @votes =  @queen.rates
   end
 
   # GET /queens/new
@@ -28,7 +35,7 @@ class QueensController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @queen }
+      format.xml { render :xml => @queen }
     end
   end
 
@@ -45,10 +52,10 @@ class QueensController < ApplicationController
     respond_to do |format|
       if @queen.save
         format.html { redirect_to(@queen, :notice => 'Queen was successfully created.') }
-        format.xml  { render :xml => @queen, :status => :created, :location => @queen }
+        format.xml { render :xml => @queen, :status => :created, :location => @queen }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @queen.errors, :status => :unprocessable_entity }
+        format.xml { render :xml => @queen.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -72,7 +79,7 @@ class QueensController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(queens_url) }
-      format.xml  { head :ok }
+      format.xml { head :ok }
     end
   end
 end
