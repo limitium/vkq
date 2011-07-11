@@ -3,6 +3,7 @@ app = {
         $('.filter').click(app.onFilterClick);
         $('button.vote_button').click(app.onVoteClick);
     },
+
     onVoteClick: function() {
         var but = $(this);        
         var queen = but.attr('queen');
@@ -13,12 +14,12 @@ app = {
             rating.html(parseInt(rating.html()) + val);
         });
     },
+
     onFilterClick: function() {
         var filter = $(this);
         $.each(filter.attr('class').split(/\s/), function(i, cls) {
             var matches = cls.match(/f_(\w+)/);
             if (matches) {
-
                 console.log(filter.attr(matches[1]));
             }
         })
@@ -33,11 +34,11 @@ $(document).ready(function() {
 
 });
 
-VKQ.run(function() {
-
+VKQ.run(app.api_id, function() {
+    if(app.update_profile){
+        VKQ.updateProfile();
+    }
     console.log(VK);
-    VKQ.updateProfile();
-
 });
 
 

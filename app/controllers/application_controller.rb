@@ -34,13 +34,13 @@ class ApplicationController < ActionController::Base
 
   def sign_up
     @queen = Queen.create(:_id => params[:viewer_id])
-    @update_profile = true
   end
 
   def sign_in
     @queen.salt = Digest::SHA2.hexdigest("#{Time.now.utc}--#{Vkq::Application.config.secret_token}")
     @queen.save
     cookies.permanent.signed[:remember_token] = [@queen._id, @queen.salt]
+    @update_profile = true
     self.current_queen = @queen
   end
 

@@ -1,6 +1,6 @@
 VKQ = {
 
-    run: function(runner) {
+    run: function(api_id, runner) {
         try {
             if (parent.frames.length == 0) {
                 throw "Где фреймы нах?"
@@ -17,7 +17,7 @@ VKQ = {
             });
         } catch(e) {
             console.log("from client to http://vkontakte.ru/app" + api_id);
-//            window.location.href = "http://vkontakte.ru/app" + VKQ.api_id;
+//            window.location.href = "http://vkontakte.ru/app" + api_id;
         }
     },
 
