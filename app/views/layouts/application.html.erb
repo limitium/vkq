@@ -5,7 +5,7 @@
   <script type="text/javascript">
       server = {
       	api_id: <%= VKQ_CONFIG["app_id"] %>,
-      	queen: <%= @current_queen.to_json %>,
+      	queen: <%= @current_queen._id %>,
         update_profile: <%= @update_profile.to_json %>
       };
   </script>
