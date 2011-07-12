@@ -1,6 +1,5 @@
 class Queen
   include Mongoid::Document
-  include Mongoid::Timestamps
   identity :type => Integer
 
   field :first_name

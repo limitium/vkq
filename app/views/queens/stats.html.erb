@@ -3,7 +3,7 @@
   <%= @queen.rating %>
 </div>
 
-Плюсов <%= @pluses %>
+голосов <%= @total %> плюсов <%= @pluses %> (<%=sprintf('%.1f', @pluses.fdiv(@total)*100) %>%)
 
 Голоса
 <% @rates.each do |rate| %>

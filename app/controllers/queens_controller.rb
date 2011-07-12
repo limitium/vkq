@@ -25,6 +25,7 @@ class QueensController < ApplicationController
   def stats
     @queen = Queen.find params[:id]
     @pluses = Vote.count :conditions => {:rated_id=>@queen._id, :value=>1}
+    @total = Vote.count :conditions => {:rated_id=>@queen._id}
     @rates = @queen.rates
   end
 
