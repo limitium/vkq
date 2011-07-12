@@ -32,10 +32,10 @@
           <%= queen.rating %>
         </div>
         <div class="photo">
-          <%= link_to(image_tag(queen[index==0 ? "photo_medium_rec" :"photo_rec"], :alt=>"#{queen.first_name} #{queen.last_name}"), queen) %>
+          <%= ava_link queen, index==0 ? "photo_medium_rec" :"photo_rec" %>
         </div>
         <div class="name">
-          <%= link_to "#{queen.first_name} #{queen.nickname} #{queen.last_name}", queen %>
+          <%= name_link queen %>
           <div class="button_blue vote">
             <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
               Поднять

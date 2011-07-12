@@ -1,11 +1,11 @@
 class QueensController < ApplicationController
   # GET /queens
   # GET /queens.xml
-  def index
+  def list
     @queens = Queen.order_by(:rating=>:desc)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # list.html.erb
       format.xml { render :xml => @queens }
     end
   end
@@ -24,40 +24,8 @@ class QueensController < ApplicationController
   # GET /queens/1/stats
   def stats
     @queen = Queen.find params[:id]
-    @pluses = Vote.count :conditions => {:rated=>@queen._id, :value => 1}
-    @votes =  @queen.rates
-  end
-
-  # GET /queens/new
-  # GET /queens/new.xml
-  def new
-    @queen = Queen.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml { render :xml => @queen }
-    end
-  end
-
-  # GET /queens/1/edit
-  def edit
-    @queen = Queen.find(params[:id])
-  end
-
-  # POST /queens
-  # POST /queens.xml
-  def create
-    @queen = Queen.new(params[:queen])
-
-    respond_to do |format|
-      if @queen.save
-        format.html { redirect_to(@queen, :notice => 'Queen was successfully created.') }
-        format.xml { render :xml => @queen, :status => :created, :location => @queen }
-      else
-        format.html { render :action => "new" }
-        format.xml { render :xml => @queen.errors, :status => :unprocessable_entity }
-      end
-    end
+    @pluses = Vote.count :conditions => {:rated_id=>@queen._id, :value=>1}
+    @rates = @queen.rates
   end
 
   # PUT /queens/1
@@ -71,15 +39,4 @@ class QueensController < ApplicationController
     end
   end
 
-  # DELETE /queens/1
-  # DELETE /queens/1.xml
-  def destroy
-    @queen = Queen.find(params[:id])
-    @queen.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(queens_url) }
-      format.xml { head :ok }
-    end
-  end
 end

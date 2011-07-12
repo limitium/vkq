@@ -1,9 +1,11 @@
 class Vote
   include Mongoid::Document
+  include Mongoid::Timestamps::Created
   field :rated, :type => Integer
   field :voter, :type => Integer
   field :value, :type => Integer
-  field :timestamp, :type => Integer
+
+
   
   index :rated
   index :voter

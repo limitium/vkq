@@ -1,11 +1,21 @@
-<div id="rating_<%= @queen._id %>" class="rating rate_text"><%= @queen.rating %></div>
+Ратинг
+<div id="rating_<%= @queen._id %>" class="rating rate_text">
+  <%= @queen.rating %>
+</div>
 
+Плюсов <%= @pluses %>
 
-<%= @pluses %>
-
-
-<% @votes.each do |vote| %>
-    <div><%= vote.voter.nickname %></div>
+Голоса
+<% @rates.each do |rate| %>
+    <div class="photo">
+      <%= ava_link rate.voter %>
+    </div>
+    <div class="name">
+      <%= name_link rate.voter %>
+    </div>
+    <div class="name">
+      <%= rate.value>0 ? "+" :"-" %>
+    </div>
 <% end %>
 
 

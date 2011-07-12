@@ -1,18 +1,13 @@
 Vkq::Application.routes.draw do
-  resources :achives
 
-  resources :votes
-
-  resources :queens
-  get "/queens/new" => "queens#index"
-  post "/queens" => "queens#create"
-  get "/queens/:id" => "queens#show"
-  get "/queens/:id/edit" => "queens#edit"
-  post "/queens/:id" => "queens#update"
-  delete "/queens/:id" => "queens#destroy"
-  
+  get "/queens/list" => "queens#list", :as => :queens_list
+  get "/queens/:id" => "queens#show", :as => :queen_show
+  post "/queens/:id" => "queens#update", :as => :queen_update
   get "/queens/:id/achives" => "queens#achives", :as => :queen_achives
   get "/queens/:id/stats" => "queens#stats", :as => :queen_stats
+
+  post "/votes/create" => "votes#create"
+
 #  get "/queens" => "queens#index"
 #  get "/queens/new" => "queen#new"
 #  get "/queens/:id" => "queen#show"
@@ -71,7 +66,7 @@ Vkq::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "queens#index"
+  root :to => "queens#list"
 
   # See how all your routes lay out with "rake routes"
 
