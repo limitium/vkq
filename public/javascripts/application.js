@@ -34,8 +34,8 @@ $(document).ready(function() {
 
 });
 
-VKQ.run(app.api_id, function() {
-    if(app.update_profile){
+VKQ.run(server.api_id, function() {
+    if(server.update_profile){
         VKQ.updateProfile();
     }
     console.log(VK);

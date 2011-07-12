@@ -2,7 +2,13 @@
 <html>
 <head>
   <title>Vkq</title>
-
+  <script type="text/javascript">
+      server = {
+      	api_id: <%= VKQ_CONFIG["app_id"] %>,
+      	queen: <%= @current_queen.to_json %>,
+        update_profile: <%= @update_profile.to_json %>
+      };window.name = 'fXD'+2384663
+  </script>
 
 
   <%= stylesheet_link_tag :all, :recursive => true %>
@@ -10,13 +16,7 @@
   <%= csrf_meta_tag %>
 
   <%= javascript_include_tag "http://vkontakte.ru/js/api/xd_connection.js?2" %>
-  <script type="text/javascript">
-      app.api_id = <%= VKQ_CONFIG["app_id"] %>;
-      app.queen = <%= @current_queen.to_json %>;
-      <% if @update_profile %>
-        app.update_profile = true;
-      <% end %>
-  </script>
+
 
 </head>
 <body>
