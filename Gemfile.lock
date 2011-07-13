@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/tacid/russian.git
+  revision: 544a5e931a9044d941ff6f6746b10722f2fdb326
+  specs:
+    russian (0.2.8.pre)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -91,3 +97,4 @@ DEPENDENCIES
   mongoid
   rails (= 3.0.7)
   rails-firephp (~> 0.0.1)
+  russian!

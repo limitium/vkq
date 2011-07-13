@@ -5,8 +5,7 @@ body {
 }
 
 div#page {
-    width: 625px;
-    height: 600px;
+    width: 625px;    
     background-color: #fff;
     position: absolute;
     overflow-x: hidden;
