@@ -28,13 +28,14 @@ app = {
 };
 
 
-$(document).ready(function() {
-
-    app.initHandlers();
-
-});
+//$(document).ready(function() {
+//
+//
+//
+//});
 
 VKQ.run(server.api_id, function() {
+    app.initHandlers();
     if(server.update_profile){
         VKQ.updateProfile();
     }
