@@ -26,7 +26,9 @@ class Queen
   field :graduation, :type => Integer
 
   field :rating, :type => Integer
-  field :salt
+  field :salt,
+        field :updated_at, :type => Integer
+  field :created_at, :type => Integer
 
   attr_accessible :first_name, :last_name, :nickname, :domain, :sex, :bdate, :city, :city_name, :country, :country_name, :photo, :photo_rec, :photo_medium_rec, :photo_big, :rate, :mobile_phone, :home_phone, :faculty, :faculty_name, :university, :university_name, :graduation
   key :_id
