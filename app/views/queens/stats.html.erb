@@ -1,16 +1,17 @@
-  <div class="side_panel narrow_column fl_l">
+<table>
+	<tr>
+<td class="side_panel top">
   	<div class="section_block">
   	  	Ратинг
 <div id="rating_<%= @queen._id %>" class="rating rate_text">
   <%= @queen.rating %>
 </div>
 
-голосов <%= @total %> плюсов <%= @pluses %> (<%= @total>0?sprintf('%.1f', @pluses.fdiv(@total)*100):0 %>%)
+голосов <%= @total %> из них плюсов <%= @pluses %> (<%= @total>0?sprintf('%.1f', @pluses.fdiv(@total)*100):0 %>%)
 
-Голоса
 </div>
-  </div>	
-  <div class="main_panel fl_r">
+  </td>	
+  <td class="main_panel top">
   	<table id="rates">
   	<% @rates.each do |rate| %>
   	<tr <%= rate.value>0 ? "" :"class=minus" %> >
@@ -27,17 +28,18 @@
   				<%= time_ago_in_words Time.at(rate.created_at)%> назад
   				</div>
   		</td>
-  		<td class="photo">
-  			<%= rate.value>0 ? "+" :"-" %>
+  		<td>
+  			<div class="rate_<%= rate.value>0 ? "minus" :"plus" %>">
+  			</div>
   		</td>
   		<td class="photo">
-  			
+  			<%= rate.voter.rating %>
   		</td>
     </tr>
 <% end %>
 </table>
-
-  </div>
-
+</td>
+</tr>
+</table>
 
 

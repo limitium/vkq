@@ -1,8 +1,10 @@
 GIT
   remote: git://github.com/tacid/russian.git
-  revision: 544a5e931a9044d941ff6f6746b10722f2fdb326
+  revision: ab75584c14766d20187350dadc6e7663538f2c10
+  branch: rails3
   specs:
     russian (0.2.8.pre)
+      i18n (~> 0.4)
 
 GEM
   remote: http://rubygems.org/

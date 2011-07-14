@@ -5,7 +5,7 @@ gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem "russian", :git => 'git://github.com/tacid/russian.git'
+gem "russian", :git => 'git://github.com/tacid/russian.git', :branch=>'rails3'
 
 gem 'bson_ext'
 gem 'mongo'

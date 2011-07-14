@@ -12,6 +12,9 @@ color: #45688E;
  font-weight: bold;
  }
  
+ .top{
+ 	 vertical-align: top;
+ }
 #rates{
  	   width: 100%;
  	   }
@@ -43,3 +46,12 @@ width: 125px;
 #rates .minus {
 	background: none repeat scroll 0 0 #F5F9FB;
 }
+.rate_plus,.rate_minus{
+	background: url("/images/buttons/plusminus.gif") no-repeat scroll 0 0 transparent;
+    height: 16px;
+    width: 20px;
+}
+.rate_minus{
+	background-position:0 -16px;
+}
+  			
