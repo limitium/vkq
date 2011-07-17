@@ -31,6 +31,9 @@
   		<td>
   			<div class="rate_<%= rate.value>0 ? "minus" :"plus" %>">
   			</div>
+            <div class="rate_value">
+                <%= rate.value.abs %>
+  			</div>
   		</td>
   		<td class="photo">
   			<%= rate.voter.rating %>
