@@ -1,48 +1,52 @@
 <table>
-	<tr>
-<td class="side_panel top">
-  	<div class="section_block">
-  	  	Ратинг
-<div id="rating_<%= @queen._id %>" class="rating rate_text">
-  <%= @queen.rating %>
-</div>
+  <tr>
+    <td class="side_panel top">
+      <div class="section_block">
+        Ратинг
+        <div id="rating_<%= @queen._id %>" class="rating rate_text">
+          <%= @queen.rating %>
+        </div>
 
-голосов <%= @total %> из них плюсов <%= @pluses %> (<%= @total>0?sprintf('%.1f', @pluses.fdiv(@total)*100):0 %>%)
+        голосов <%= @total %> из них плюсов <%= @pluses %>
+        (<%= @total>0 ? sprintf('%.1f', @pluses.fdiv(@total)*100) : 0 %>%)
 
-</div>
-  </td>	
-  <td class="main_panel top">
-  	<table id="rates">
-  	<% @rates.each do |rate| %>
-  	<tr <%= rate.value>0 ? "" :"class=minus" %> >
-  		<td class="stats_photo">
-  			<div>
-  			<%= ava_link rate.voter %>
-  			</div>
-  		</td>
-  		<td class="stats_from">
-  			<div class="name wrapped">
-  			<%= name_link rate.voter %>
-  			</div>
-  			<div class="date">
-  				<%= time_ago_in_words Time.at(rate.created_at)%> назад
-  				</div>
-  		</td>
-  		<td>
-  			<div class="rate_<%= rate.value>0 ? "minus" :"plus" %>">
-  			</div>
-            <div class="rate_value">
-                <%= rate.value.abs %>
-  			</div>
-  		</td>
-  		<td class="photo">
-  			<%= rate.voter.rating %>
-  		</td>
-    </tr>
-<% end %>
-</table>
-</td>
-</tr>
+      </div>
+    </td>
+    <td class="main_panel top">
+      <table id="rates">
+        <% @rates.each do |rate| %>
+            <tr <%= rate.value>0 ? "" :"class=minus" %> >
+              <td class="stats_photo">
+                <div>
+                  <%= ava_link rate.voter %>
+                </div>
+              </td>
+              <td class="stats_from">
+                <div class="name wrapped">
+                  <%= name_link rate.voter %>
+                </div>
+                <div class="date">
+                  <%= time_ago_in_words Time.at(rate.created_at) %> назад
+                </div>
+              </td>
+              <td class="voter_value">
+                <div class="rate_<%= rate.value>0 ? "minus" :"plus" %>">
+                </div>
+                <div class="rate_value">
+                  <%= rate.value.abs %>
+                </div>
+              </td>
+              <td class="voter_stat">
+                <div class="label">Рейтинг:</div>
+                <div class="labeled">
+                  <%= rate.voter.rating %>
+                </div>
+              </td>
+            </tr>
+        <% end %>
+      </table>
+    </td>
+  </tr>
 </table>
 
 

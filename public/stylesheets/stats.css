@@ -1,66 +1,94 @@
 .main_panel {
-    border-left: 1px solid #D9E1E7;    
-    width: 468px;
+    border-left: 1px solid #D9E1E7;
+    width: 438px;
 }
+
 .side_panel {
     background-color: #F7F7F7;
     padding: 10px;
-    width: 136px;
+    width: 166px;
 }
-.section_block{
-color: #45688E;
- font-weight: bold;
- }
- 
- .top{
- 	 vertical-align: top;
- }
-#rates{
- 	   width: 100%;
- 	   }
+
+.section_block {
+    color: #45688E;
+    font-weight: bold;
+}
+
+.top {
+    vertical-align: top;
+}
+
+#rates {
+    width: 100%;
+}
+
 #rates td {
     border-bottom: 1px solid #EEEEEE;
     cursor: pointer;
     padding: 10px 0;
 }
 
- #rates .stats_photo{
- 	width: 60px;
- 	padding-left: 10px;
- }
- .stats_photo div {
+#rates .stats_photo {
+    width: 60px;
+    padding-left: 10px;
+}
+
+.stats_photo div {
     height: 50px;
     overflow: hidden;
 }
-#rates .stats_from{
-width: 125px;
+
+#rates .stats_from {
+    width: 125px;
 }
+
 #rates .stats_from .name {
     overflow: hidden;
     width: 125px;
 }
+
 #rates .date {
     color: #777777;
     font-size: 9px;
 }
+
 #rates .minus {
-	background: none repeat scroll 0 0 #F5F9FB;
+    background: none repeat scroll 0 0 #F5F9FB;
 }
-.rate_plus,.rate_minus{
-	background: url("/images/buttons/plusminus.gif") no-repeat scroll 0 0 transparent;
+
+.rate_plus, .rate_minus {
+    background: url("/images/buttons/plusminus.gif") no-repeat scroll 0 0 transparent;
     height: 16px;
     width: 20px;
-    display:inline-block;
+    display: inline-block;
 }
-.rate_minus{
-	background-position:0 -16px;
+
+.rate_minus {
+    background-position: 0 -16px;
 }
-.rate_value{
-    font-weight:bold;
-    font-size:24px;
-    font-style:italic;
-    color: #2B587A;
+
+.rate_value {
+    font-weight: bold;
+    font-size: 24px;
+    font-style: italic;
     color: #5F7D9D;
-    display:inline-block;
+    display: inline-block;
 }
-  			
+
+.voter_value {
+    width: 100px;
+}
+
+.voter_stat .label {
+
+    width: 60px;
+    color: #808080;
+    float: left;
+    position: absolute;
+}
+
+.voter_stat .labeled {
+    margin-bottom: 3px;
+    padding-left: 60px;
+    width: 60px;
+}

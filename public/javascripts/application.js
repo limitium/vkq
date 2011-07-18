@@ -5,12 +5,12 @@ app = {
     },
 
     onVoteClick: function() {
-        var but = $(this);        
+        var but = $(this);
         var queen = but.attr('queen');
         var val = but.hasClass("rating_up") ? 1 : -1;
 
         VKQ.vote(queen, val, function() {
-            var rating = $('#rating_'+queen);
+            var rating = $('#rating_' + queen);
             rating.html(parseInt(rating.html()) + val);
         });
     },
@@ -36,9 +36,13 @@ app = {
 
 VKQ.run(server.api_id, function() {
     app.initHandlers();
-    if(server.update_profile){
+
+    VKQ.updateWindow();
+
+    if (server.update_profile) {
         VKQ.updateProfile();
     }
+
     console.log(VK);
 });
 

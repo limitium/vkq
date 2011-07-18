@@ -23,20 +23,20 @@ VKQ = {
     },
 
     getProfile: function(callback) {
-    	console.log('fetch profile');
-			var fields_param = '"fields": "uid, first_name, last_name, nickname, domain, sex, bdate, city, country, photo, photo_rec, photo_medium_rec, photo_big, rate, contacts, education"';
+        console.log('fetch profile');
+        var fields_param = '"fields": "uid, first_name, last_name, nickname, domain, sex, bdate, city, country, photo, photo_rec, photo_medium_rec, photo_big, rate, contacts, education"';
 
-			var code =
-			'var profile = API.getProfiles({"uids": ' + VK.params.viewer_id + ', ' + fields_param + '})[0];' +
-			'return {"profile":profile,"country_name":API.places.getCountryById({"cids":profile.country})@.name,"city_name":API.places.getCityById({"cids":profile.city})@.name};';
+        var code =
+                'var profile = API.getProfiles({"uids": ' + VK.params.viewer_id + ', ' + fields_param + '})[0];' +
+                        'return {"profile":profile,"country_name":API.places.getCountryById({"cids":profile.country})@.name,"city_name":API.places.getCityById({"cids":profile.city})@.name};';
 
-            // Check empty city and country
-			VK.api('execute', {'code': code}, function(data) {
-				var profile = data.response.profile;
-				profile.country_name = data.response.country_name ? data.response.country_name[0] : "";
-				profile.city_name = data.response.city_name ? data.response.city_name[0] : "";
-				callback(profile);
-			});
+        // Check empty city and country
+        VK.api('execute', {'code': code}, function(data) {
+            var profile = data.response.profile;
+            profile.country_name = data.response.country_name ? data.response.country_name[0] : "";
+            profile.city_name = data.response.city_name ? data.response.city_name[0] : "";
+            callback(profile);
+        });
     },
 
     updateProfile: function() {
@@ -49,15 +49,20 @@ VKQ = {
             });
         });
     },
-    
-    vote: function(queen, val, callback){
-    	$.post('/votes', {
-                vote: {
-                	rated: queen,
-                	value: val
-                }
-            }, function(response) {
-                callback(response);
-            });
+
+    vote: function(queen, val, callback) {
+        $.post('/votes', {
+            vote: {
+                rated: queen,
+                value: val
+            }
+        }, function(response) {
+            callback(response);
+        });
+    },
+
+    updateWindow: function() {
+        var page = $('#page');
+        VK.External.resizeWindow(page.width(), page.height());
     }
 };

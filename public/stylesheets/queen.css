@@ -48,12 +48,20 @@ h4 b {
     padding-top: 3px;
 }
 .label {
-    color: #777777;
-    width: 120px;
+    /*color: #777777;*/
+    /*width: 120px;*/
+     color: #808080;
+    float: left;
+    position: absolute;
+    width: 113px;
 }
 .labeled {
-    overflow: hidden;
-    width: 265px;
+    /*overflow: hidden;*/
+    /*width: 265px;*/
+
+    margin-bottom: 3px;
+    padding-left: 113px;
+    /*width: 145px;*/
 }
 .position_list, .achive_list{
     line-height: 140%;
