@@ -6,7 +6,7 @@
         <div id="rating_<%= @queen._id %>" class="rating rate_text">
           <%= @queen.rating %>
         </div>
-
+        Сила голоса <%= @queen.force %>
         голосов <%= @total %> из них плюсов <%= @pluses %>
         (<%= @total>0 ? sprintf('%.1f', @pluses.fdiv(@total)*100) : 0 %>%)
 

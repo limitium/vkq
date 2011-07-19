@@ -146,3 +146,32 @@ h4 {
 .fl_r {
     float: right;
 }
+
+#header_wrap1 {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #F3F3F3;
+    border-style: solid;
+    border-width: 0 0;
+}
+#header {
+    background: none repeat scroll 0 0 #F7F7F7;
+    border: 1px solid #D9E0E7;
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 8px 10px;
+    position: relative;
+}
+#header h1 {
+    color: #333333;
+    font-size: 11px;
+    margin: 0;
+    overflow: hidden;
+}
+#header b {
+    color: #AAB7C5;
+}

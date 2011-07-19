@@ -97,7 +97,15 @@
 <!-- Put this div tag to the place, where the Comments block will be -->
 <div id="vk_comments"></div>
 <script type="text/javascript">
-VK.Widgets.Comments("vk_comments", {limit: 100, width: "397", attach: "*"});
+VK.Widgets.Comments("vk_comments", {
+    limit: 100,
+    width: "397",
+    attach: "*",
+    onChange: function(){
+        VKQ.updateWindow();
+    },
+    <%= "show_#{@queen._id}"%>
+});
 </script>
 
   </div>
