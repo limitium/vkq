@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def filter_vk
-    to_vk unless request.referer[0,30] == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
+    to_vk unless request.referer[0, 30] == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
   end
 
   def filter_user
@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
   def check_params
     to_vk unless params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
     # remove this on product
-    params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
+    # params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
+    return true
   end
 
   def sign_in_or_up
@@ -33,7 +34,8 @@ class ApplicationController < ActionController::Base
 
 
   def sign_up
-    @queen = Queen.create(:_id => params[:viewer_id])
+    @queen = Queen.create()
+    @queen._id = params[:viewer_id]
   end
 
   def sign_in
