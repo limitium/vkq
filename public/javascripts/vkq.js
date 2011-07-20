@@ -41,7 +41,7 @@ VKQ = {
 
     updateProfile: function(callback) {
         this.getProfile(function(profile) {
-            callback && callback(data.response);
+            callback && callback(profile);
             $.post('/queens/' + profile.uid, {
                 queen: profile
             }, function(data) {
