@@ -22,19 +22,19 @@
 
 
 
-<ul class="rating_list">
+<table class="queen_list rating_list">
   <% @queens.each_with_index do |queen, index| %>
-      <li queen="<%= queen._id %>">
-        <div class="position">
+      <tr queen="<%= queen._id %>">
+        <td class="position">
           <%= index + 1 %>
-        </div>
-        <div id="rating_<%= queen._id %>">
+        </td>
+        <td id="rating_<%= queen._id %>">
           <%= queen.rating %>
-        </div>
-        <div class="photo">
+        </td>
+        <td class="photo">
           <%= ava_link queen, index==0 ? "photo_medium_rec" :"photo_rec" %>
-        </div>
-        <div class="name">
+        </td>
+        <td class="name">
           <%= name_link queen %>
           <div class="button_blue vote">
             <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
@@ -46,7 +46,7 @@
               Опустить
             </button>
           </div>
-        </div>
-      </li>
+        </td>
+      </tr>
   <% end %>
-</ul>
+</table>

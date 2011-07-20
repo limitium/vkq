@@ -18,15 +18,7 @@
     vertical-align: top;
 }
 
-#rates {
-    width: 100%;
-}
 
-#rates td {
-    border-bottom: 1px solid #EEEEEE;
-    cursor: pointer;
-    padding: 10px 0;
-}
 
 #rates .stats_photo {
     width: 60px;

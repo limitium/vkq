@@ -161,7 +161,7 @@ h4 {
     background: none repeat scroll 0 0 #F7F7F7;
     border-color: #D9E0E7;
     border-style: solid;
-    border-width: 1px 0;
+    border-width: 0px 0px 1px 0px;
 
     color: #000000;
     font-size: 11px;
@@ -177,4 +177,14 @@ h4 {
 }
 #header b {
     color: #AAB7C5;
+}
+
+.queen_list {
+    width: 100%;
+}
+
+.queen_list td {
+    border-bottom: 1px solid #EEEEEE;
+    cursor: pointer;
+    padding: 10px 0;
 }

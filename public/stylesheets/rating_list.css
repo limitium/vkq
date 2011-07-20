@@ -1,3 +1,6 @@
+.rating_list{
+    width:100%;
+}
 .rating_list li div {
     display: inline-block;
 }
