@@ -21,11 +21,15 @@
   <div id="header_wrap2">
     <div id="header_wrap1">
       <div id="header" style="display: block;">
-        <h1 id="title"><b class="fl_r"><%= @queen.rating %></b><%= name_link @queen %><b> (это Вы)</b></h1>
+        <h1 id="title">
+          <b class="fl_r"><%= @queen.rating %></b>
+          <%= name_link @queen %>
+          <b> (это Вы)</b>
+        </h1>
       </div>
     </div>
-  </div
-  <%= yield %>
+  </div>
+<%= yield %>
 </div>
 </body>
 </html>

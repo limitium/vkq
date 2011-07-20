@@ -96,7 +96,6 @@ h4 {
 
 .feed_tab, .feed_tab_selected, .feed_tab_over {
     cursor: pointer;
-    float: right;
     padding: 3px 0 2px 5px;
 }
 .feed_tab2 {

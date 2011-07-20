@@ -40,7 +40,13 @@ VKQ.run(server.api_id, function() {
     VKQ.updateWindow();
 
     if (server.update_profile) {
-        VKQ.updateProfile();
+        VKQ.updateProfile(function(data) {
+            $(".name_" + data.profile.uid).html(data.profile.first_name + " " + data.profile.last_name);
+            $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function(photo) {
+                $("." + photo + "_" + data.profile.uid).attr("src", data.profile[photo]);
+            });
+
+        });
     }
 
     console.log(VK);

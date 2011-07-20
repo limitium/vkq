@@ -39,11 +39,12 @@ VKQ = {
         });
     },
 
-    updateProfile: function() {
+    updateProfile: function(callback) {
         this.getProfile(function(profile) {
             $.post('/queens/' + profile.uid, {
                 queen: profile
-            }, function() {
+            }, function(data) {
+                callback && callback(data.response);
                 console.log(arguments);
                 console.log("updated profile");
             });

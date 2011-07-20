@@ -1,6 +1,7 @@
-.rating_list{
-    width:100%;
+.rating_list {
+    width: 100%;
 }
+
 .rating_list li div {
     display: inline-block;
 }
@@ -10,7 +11,30 @@
     font-size: 20pt;
     color: #759E1A;
 }
-.rating_list li div.position{
+
+.rating_list li div.position {
     font-family: "Trebuchet", sans-serif;
     font-size: 24pt;
+}
+
+.position {
+    font-weight: bold;
+    font-size: 24px;
+    color: #5F7D9D;
+    display: inline-block;
+    padding: 20px 0 0 10px !important;
+}
+
+.filter {
+    display: inline-block;
+}
+
+.list_filter {
+    position: relative;
+    border: 0px solid #D9E0E7;
+    border-bottom-width: 1px;
+}
+
+.photo {
+    height: 50px;
 }
