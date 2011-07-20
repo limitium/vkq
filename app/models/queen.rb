@@ -2,20 +2,20 @@ class Queen
   include Mongoid::Document
   identity :type => Integer
 
-  field :first_name
-  field :last_name
-  field :nickname
-  field :domain
+  field :first_name, default: ""
+  field :last_name, default: ""
+  field :nickname, default: ""
+  field :domain, default: ""
   field :sex, :type => Integer
   field :bdate
   field :city, :type => Integer
   field :city_name
   field :country, :type => Integer
   field :country_name
-  field :photo
-  field :photo_rec
-  field :photo_medium_rec
-  field :photo_big
+  field :photo, default: ""
+  field :photo_rec, default: ""
+  field :photo_medium_rec, default: ""
+  field :photo_big, default: ""
   field :rate, :type => Integer
   field :mobile_phone
   field :home_phone
@@ -25,12 +25,12 @@ class Queen
   field :university_name
   field :graduation, :type => Integer
 
-  field :rating, :type => Integer
+  field :rating, :type => Integer, default: 0
   field :salt
   field :updated_at, :type => Integer
   field :created_at, :type => Integer
 
-  attr_accessible :first_name, :last_name, :nickname, :domain, :sex, :bdate, :city, :city_name, :country, :country_name, :photo, :photo_rec, :photo_medium_rec, :photo_big, :rate, :mobile_phone, :home_phone, :faculty, :faculty_name, :university, :university_name, :graduation
+  attr_accessible :_id, :first_name, :last_name, :nickname, :domain, :sex, :bdate, :city, :city_name, :country, :country_name, :photo, :photo_rec, :photo_medium_rec, :photo_big, :rate, :mobile_phone, :home_phone, :faculty, :faculty_name, :university, :university_name, :graduation
   key :_id
   index :_id, :unique => true
 

@@ -16,10 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   def check_params
+    return true
     to_vk unless params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
     # remove this on product
     # params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
-    return true
   end
 
   def sign_in_or_up
@@ -34,8 +34,7 @@ class ApplicationController < ActionController::Base
 
 
   def sign_up
-    @queen = Queen.create()
-    @queen._id = params[:viewer_id]
+    @queen = Queen.create(:_id => params[:viewer_id])
   end
 
   def sign_in
