@@ -45,6 +45,10 @@ VKQ.run(server.api_id, function() {
             console.log($(".name_" + profile.uid));
             $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
             $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function(photo) {
+                console.log("." + photo + "_" + profile.uid);
+                console.log($("." + photo + "_" + profile.uid));
+                console.log($("." + photo + "_" + profile.uid).attr("src"));
+                console.log( profile[photo]);
                 $("." + photo + "_" + profile.uid).attr("src", profile[photo]);
             });
             VKQ.updateWindow();
