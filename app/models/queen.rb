@@ -2,20 +2,20 @@ class Queen
   include Mongoid::Document
   identity :type => Integer
 
-  field :first_name, default: ""
-  field :last_name, default: ""
-  field :nickname, default: ""
-  field :domain, default: ""
+  field :first_name, default : ""
+  field :last_name, default : ""
+  field :nickname, default : ""
+  field :domain, default : ""
   field :sex, :type => Integer
   field :bdate
   field :city, :type => Integer
   field :city_name
   field :country, :type => Integer
   field :country_name
-  field :photo, default: ""
-  field :photo_rec, default: ""
-  field :photo_medium_rec, default: ""
-  field :photo_big, default: ""
+  field :photo, default : ""
+  field :photo_rec, default : ""
+  field :photo_medium_rec, default : ""
+  field :photo_big, default : ""
   field :rate, :type => Integer
   field :mobile_phone
   field :home_phone
@@ -25,7 +25,7 @@ class Queen
   field :university_name
   field :graduation, :type => Integer
 
-  field :rating, :type => Integer, default: 0
+  field :rating, :type => Integer, default : 0
   field :salt
   field :updated_at, :type => Integer
   field :created_at, :type => Integer
@@ -49,7 +49,7 @@ class Queen
   before_update :set_updated_at
 
   def force
-    (Math.log10(self.rating.fdiv(4))+1.2).round
+    self.rating > 0 ? (Math.log10(self.rating.fdiv(4))+1.2).round : 1
   end
 
   protected
