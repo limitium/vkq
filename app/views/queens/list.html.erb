@@ -29,18 +29,18 @@
   <% @queens.each_with_index do |queen, index| %>
       <tr queen="<%= queen._id %>">
         <td class="position">
-          <%= index + 1 %>
+          <div><%= index + 1 %></div>
         </td>
-        <td id="rating_<%= queen._id %>">
+        <td class="rating" id="rating_<%= queen._id %>">
           <%= queen.rating %>
         </td>
         <td class="photo">
-          <%= ava_link queen, index==0 ? "photo_medium_rec" :"photo_rec" %>
+          <%= ava_link_by_rating queen, index %>
         </td>
         <td class="name">
           <%= name_link queen %>
         </td>
-        <td>
+        <td class="actions">
           <div class="button_blue vote">
             <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
               Поднять

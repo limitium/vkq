@@ -2,39 +2,70 @@
     width: 100%;
 }
 
-.rating_list li div {
-    display: inline-block;
-}
-
-.rating_list li div.rating {
-    font-family: "Trebuchet", sans-serif;
-    font-size: 20pt;
-    color: #759E1A;
-}
-
-.rating_list li div.position {
-    font-family: "Trebuchet", sans-serif;
-    font-size: 24pt;
-}
-
-.position {
-    font-weight: bold;
-    font-size: 24px;
-    color: #5F7D9D;
-    display: inline-block;
-    padding: 20px 0 0 10px !important;
-}
-
 .filter {
-    display: inline-block;
+    float: right;
 }
 
 .list_filter {
     position: relative;
     border: 0px solid #D9E0E7;
     border-bottom-width: 1px;
+    overflow: hidden;
 }
 
-.photo {
-    height: 50px;
+.rating_list td.position {
+    font-weight: bold;
+    font-size: 24px;
+    /*color: #5F7D9D;*/
+    width: 60px;
+    border: 0px solid #D9E0E7;
+    border-width: 0 1px 1px 0;
+}
+.rating_list td.position div {
+    margin:auto;
+width:40px;
+}
+
+.rating_list td.rating {
+    font-weight: bold;
+    font-size: 24px;
+    color: #5F7D9D;
+    padding: 20px 0 0 10px !important;
+    width: 60px;
+}
+
+.rating_list td.photo {
+    width: 100px;
+}
+
+
+.position_1, .position_1 img {
+    width: 100px;
+}
+
+.position_1 {
+    margin: 0 auto;
+    display: block
+}
+
+.position_2, .position_2 img {
+    width: 85px;
+}
+
+.position_2 {
+    margin: 0 auto;
+    display: block;
+}
+
+.position_3, .position_3 img {
+    width: 65px;
+}
+
+.position_3 {
+    margin: 0 auto;
+    display: block;
+}
+
+.rating_list td.name {
+    padding-left: 10px;
 }
