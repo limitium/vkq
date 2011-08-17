@@ -16,6 +16,15 @@ gem "kaminari", "0.12.4"
 gem 'jquery-rails'
 
 gem "rails-firephp", "~> 0.0.1"
+
+group :development do
+  gem 'rspec-rails','2.6.1'
+end
+
+group :test do
+  gem 'rspec-rails','2.6.1'
+  gem 'webrat'
+end
 # Use unicorn as the web server
 # gem 'unicorn'
 
