@@ -49,7 +49,7 @@ VKQ.run(server.api_id, function() {
         });
     }
 
-    VK.request({
+    VK._Rpc.request({
     url: "limitan",
     method: "GET",
     data: {foo:"bar"}
