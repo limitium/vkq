@@ -49,7 +49,14 @@ VKQ.run(server.api_id, function() {
         });
     }
 
-
+    VK..request({
+    url: "limitan",
+    method: "GET",
+    data: {foo:"bar"}
+}, function(response) {
+    console.log(response.status);
+    console.log(response.data);
+});
     console.log(VK);
 });
 
