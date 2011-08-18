@@ -49,6 +49,7 @@ VKQ.run(server.api_id, function() {
         });
     }
 
+    fb(VK);
     console.log(VK);
 });
 
