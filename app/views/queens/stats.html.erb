@@ -2,14 +2,24 @@
   <tr>
     <td class="side_panel top">
       <div class="section_block">
-        Ратинг
-        <div id="rating_<%= @queen._id %>" class="rating rate_text">
-          <%= @queen.rating %>
-        </div>
-        Сила голоса <%= @queen.force %>
-        голосов <%= @total %> из них плюсов <%= @pluses %>
-        (<%= @total>0 ? sprintf('%.1f', @pluses.fdiv(@total)*100) : 0 %>%)
-
+        <table class="rating_stats">
+          <tr>
+            <td>Рейтинг:</td>
+            <td><%= @queen.rating %></td>
+          </tr>
+          <tr>
+            <td>Сила голоса:</td>
+            <td><%= @queen.force %></td>
+          </tr>
+          <tr>
+            <td>Голосов:</td>
+            <td><%= @total %></td>
+          </tr>
+          <tr>
+            <td>Плюсов:</td>
+            <td><%= @pluses %> (<%= @total>0 ? sprintf('%.1f', @pluses.fdiv(@total)*100) : 0 %>%)</td>
+          </tr>
+        </table>
       </div>
     </td>
     <td class="main_panel top">

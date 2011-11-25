@@ -54,7 +54,7 @@ class Queen
 
   protected
   def set_created_at
-    self.created_at= Time.now.to_i
+    self.created_at = Time.now.to_i
   end
 
   def set_updated_at

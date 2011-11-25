@@ -5,6 +5,9 @@ class Vote
   field :value, :type => Integer
   field :created_at, :type => Integer
 
+  field :voterName, :type => String
+  field :voterAva, :type => String
+  field :voterRating, :type => String
 
   index :rated
   index :voter

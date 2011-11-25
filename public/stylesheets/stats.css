@@ -44,11 +44,16 @@
     font-size: 9px;
 }
 
+.rating_stats td{
+    padding-left:5px;
+}
+
 #rates .minus {
     background: none repeat scroll 0 0 #F5F9FB;
 }
 
 .rate_plus, .rate_minus {
+    margin-left: 10px;
     background: url("/images/buttons/plusminus.gif") no-repeat scroll 0 0 transparent;
     height: 16px;
     width: 20px;
