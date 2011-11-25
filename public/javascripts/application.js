@@ -1,5 +1,6 @@
 app = {
     initHandlers: function() {
+
         $('.filter').click(app.onFilterClick);
         $('button.vote_button').click(app.onVoteClick);
     },
@@ -24,33 +25,31 @@ app = {
             }
         })
 
+    }  ,
+    start: function() {
+        app.initHandlers();
+
+        VKQ.updateWindow();
+
+        if (server.update_profile) {
+            VKQ.updateProfile(function(profile) {
+                $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
+                $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function() {
+                    $("." + this + "_" + profile.uid).attr("src", profile[this]);
+                });
+                VKQ.updateWindow();
+            });
+        }
+
+        console.log(VK);
+        console.log(VK);
     }
 };
 
-
 //$(document).ready(function() {
-//
-//
+//    app.start();
 //
 //});
-
-VKQ.run(server.api_id, function() {
-    app.initHandlers();
-
-    VKQ.updateWindow();
-
-    if (server.update_profile) {
-        VKQ.updateProfile(function(profile) {
-            $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
-            $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function() {
-                $("." + this + "_" + profile.uid).attr("src", profile[this]);
-            });
-            VKQ.updateWindow();
-        });
-    }
-
-    console.log(VK);
-    console.log(VK);
-});
+VKQ.run(server.api_id, app.start);
 
 

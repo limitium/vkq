@@ -18,7 +18,7 @@ VKQ = {
         } catch(e) {
             console.log(e);
             console.log("from client to http://vkontakte.ru/app" + api_id);
-//            window.location.href = "http://vkontakte.ru/app" + api_id;
+            window.location.href = "http://vkontakte.ru/app" + api_id;
         }
     },
 

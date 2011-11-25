@@ -21,8 +21,9 @@
       </button>
     </div>
 
+
     <div class="module achive_module">
-      <div class="module_header" href="<%= url_for queen_show_path(@queen) %>">
+      <div class="module_header">
         <div class="header_top clear_fix">
           Статистика
         </div>
@@ -47,15 +48,12 @@
 
   </div>
   <div class="wide_column fl_r">
-    <h4>
-
+     <h4>
       <div class="name">
-        <%= "#{@queen.first_name} #{@queen.nickname} #{@queen.last_name}" %>
+        <%= "#{@queen.first_name} #{@queen.nickname} #{@queen.last_name}" %> <a href="http://vkontakte.ru/id<%= @queen.id %>">(профаил vkontakte)</a>
       </div>
-
     </h4>
-
-    <div class="module position_module">
+    <div class="position_module">
       <div class="module_header" href="<%= url_for queen_show_path(@queen) %>">
         <div class="header_top clear_fix">
           <span class="right_link fl_r">детализация</span>

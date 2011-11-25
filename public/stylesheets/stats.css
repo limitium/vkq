@@ -22,7 +22,7 @@
 
 #rates .stats_photo {
     width: 60px;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
 }
 
 .stats_photo div {
@@ -53,7 +53,7 @@
 }
 
 .rate_plus, .rate_minus {
-    margin-left: 10px;
+    /*margin-left: 10px;*/
     background: url("/images/buttons/plusminus.gif") no-repeat scroll 0 0 transparent;
     height: 16px;
     width: 20px;
@@ -66,14 +66,19 @@
 
 .rate_value {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     font-style: italic;
     color: #5F7D9D;
     display: inline-block;
+    margin-left: -5px;
 }
 
 .voter_value {
-    width: 100px;
+    width: 150px;
+}
+
+.voter_stat{
+padding-left: 10px !important;
 }
 
 .voter_stat .label {
@@ -88,4 +93,8 @@
     margin-bottom: 3px;
     padding-left: 60px;
     width: 60px;
+}
+.wide_column h4 div.name a {
+    color: #AAB7C5;
+    float: right;
 }
