@@ -6,8 +6,6 @@ Vkq::Application.routes.draw do
   get "/queens/list" => "queens#list", :as => :queens_list
   get "/queens/:id" => "queens#show", :as => :queen_show
   post "/queens/:id" => "queens#update", :as => :queen_update
-  get "/queens/:id/achives" => "queens#achives", :as => :queen_achives
-  get "/queens/:id/stats" => "queens#stats", :as => :queen_stats
 
   post "/votes" => "votes#create"
 

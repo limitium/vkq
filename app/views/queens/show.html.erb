@@ -4,12 +4,12 @@
       <%= image_tag @queen.photo_big, :alt=>"#{@queen.first_name} #{@queen.last_name}" %>
     </div>
     <div style="cursor: default;" class="rate_line stage0">
-  <div id="rating_<%= @queen._id %>" class="rating rate_text"><%= @queen.rating %></div>
-  <div>
-    <div style="width: 0px;" class="rate_left fl_l"></div>
-    <div style="width: 200px;" class="rate_right fl_r"></div>
-  </div>
-</div>
+      <div id="rating_<%= @queen._id %>" class="rating rate_text"><%= @queen.rating %></div>
+      <div>
+        <div style="width: 0px;" class="rate_left fl_l"></div>
+        <div style="width: 200px;" class="rate_right fl_r"></div>
+      </div>
+    </div>
     <div class="button_blue">
       <button queen="<%= @queen._id %>" class="vote_button rating_up" type="button">
         Поднять
@@ -20,28 +20,31 @@
         Опустить
       </button>
     </div>
-    
-        <div class="module achive_module">
-      <a class="module_header" href="<%= url_for queen_achives_path(@queen) %>">
+
+    <div class="module achive_module">
+      <div class="module_header" href="<%= url_for queen_show_path(@queen) %>">
         <div class="header_top clear_fix">
-          Ачивки
+          Статистика
         </div>
         <div class="p_header_bottom">
-          <span class="fl_r">Все</span>
-          1 всего
+          <span class="fl_r"><%= @queen.rating %></span>
+          Рейтинг
         </div>
-      </a>
-
-      <div class="module_body clear_fix">
-        <div class="achive_list module_body clear_fix">
-
-          <div class="clear_fix miniblock">
-            <div>TOP1 Кибернетика 2007</div>
-          </div>
+        <div class="p_header_bottom">
+          <span class="fl_r"><%= @queen.force %></span>
+          Сила голоса
+        </div>
+        <div class="p_header_bottom">
+          <span class="fl_r"><%= @total %></span>
+          Голосов
+        </div>
+        <div class="p_header_bottom">
+          <span class="fl_r"><%= @pluses %> (<%= @total>0 ? sprintf('%.1f', @pluses.fdiv(@total)*100) : 0 %>%)</span>
+          Плюсов
         </div>
       </div>
     </div>
-    
+
   </div>
   <div class="wide_column fl_r">
     <h4>
@@ -53,48 +56,53 @@
     </h4>
 
     <div class="module position_module">
-      <a class="module_header" href="<%= url_for queen_stats_path(@queen) %>">
+      <div class="module_header" href="<%= url_for queen_show_path(@queen) %>">
         <div class="header_top clear_fix">
           <span class="right_link fl_r">детализация</span>
-          Позиция
+          Голоса
         </div>
-      </a>
+      </div>
 
       <div class="position_list module_body clear_fix">
 
-        <div class="clear_fix miniblock">
-          <div class="label fl_l">Выпуск факультет:</div>
-          <div class="labeled fl_l">1 - <a href=""><%= @queen.graduation %> <%= @queen.faculty_name %></a></div>
-        </div>
-        <div class="clear_fix miniblock">
-          <div class="label fl_l">Выпуск университет:</div>
-          <div class="labeled fl_l">63 - <a href=""><%= @queen.university_name %>'<%= @queen.graduation %></a></div>
-        </div>
-        <div class="clear_fix miniblock">
-          <div class="label fl_l">Факультет:</div>
-          <div class="labeled fl_l">34 - <a href=""><%= @queen.faculty_name %></a></div>
-        </div>
-        <div class="clear_fix miniblock">
-          <div class="label fl_l">Университет:</div>
-          <div class="labeled fl_l">63 - <a href=""><%= @queen.university_name %>'<%= @queen.graduation %></a></div>
-        </div>
-        <div class="clear_fix miniblock">
-          <div class="label fl_l">Город:</div>
-          <div class="labeled fl_l">452 - <a href=""><%= @queen.city_name %></a></div>
-        </div>
-        <div class="clear_fix miniblock">
-          <div class="label fl_l">Страна:</div>
-          <div class="labeled fl_l">25415 - <a href=""><%= @queen.country_name %></a></div>
-        </div>
+        <table class="queen_list" id="rates">
+        <% @rates.each do |rate| %>
+            <tr <%= rate.value>0 ? "" :"class=minus" %> >
+              <td class="stats_photo">
+                <div>
+                  <%= ava_link rate.voter %>
+                </div>
+              </td>
+              <td class="stats_from">
+                <div class="name wrapped">
+                  <%= name_link rate.voter %>
+                </div>
+                <div class="date">
+                  <%= time_ago_in_words Time.at(rate.created_at) %> назад
+                </div>
+              </td>
+              <td class="voter_value">
+                <div class="rate_<%= rate.value>0 ? "minus" :"plus" %>">
+                </div>
+                <div class="rate_value">
+                  <%= rate.value.abs %>
+                </div>
+              </td>
+              <td class="voter_stat">
+                <div class="label">Рейтинг:</div>
+                <div class="labeled">
+                  <%= rate.voter.rating %>
+                </div>
+              </td>
+            </tr>
+        <% end %>
+      </table>
 
       </div>
     </div>
 
 
-
-	
-
-<!--
+    <!--
 <div id="vk_comments"></div>
 <script type="text/javascript">
 VK.Widgets.Comments("vk_comments", {
@@ -104,10 +112,10 @@ VK.Widgets.Comments("vk_comments", {
     onChange: function(){
         VKQ.updateWindow();
     }
-},"<%= "show_#{@queen._id}"%>");
+},"<%= "show_#{@queen._id}" %>");
 </script>
 
   </div>
   Put this div tag to the place, where the Comments block will be -->
-</div>
+  </div>
 
