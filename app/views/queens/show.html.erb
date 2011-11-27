@@ -4,7 +4,7 @@
       <%= image_tag @queen.photo_big, :alt=>"#{@queen.first_name} #{@queen.last_name}" %>
     </div>
     <div style="cursor: default;" class="rate_line stage0">
-      <div id="rating_<%= @queen._id %>" class="rating rate_text"><%= @queen.rating %></div>
+      <div class="rating_<%= @queen._id %> rating rate_text"><%= @queen.rating %></div>
       <div>
         <div style="width: 0px;" class="rate_left fl_l"></div>
         <div style="width: 200px;" class="rate_right fl_r"></div>
@@ -28,19 +28,19 @@
           Статистика
         </div>
         <div class="p_header_bottom">
-          <span class="fl_r"><%= @queen.rating %></span>
+          <span class="fl_r rating_<%= @queen._id %>"><%= @queen.rating %></span>
           Рейтинг
         </div>
         <div class="p_header_bottom">
-          <span class="fl_r"><%= @queen.force %></span>
+          <span class="fl_r force_<%= @queen._id %>"><%= @queen.force %></span>
           Сила голоса
         </div>
         <div class="p_header_bottom">
-          <span class="fl_r"><%= @total %></span>
+          <span class="fl_r total_<%= @queen._id %>"><%= @total %></span>
           Голосов
         </div>
         <div class="p_header_bottom">
-          <span class="fl_r"><%= @pluses %> (<%= @total>0 ? sprintf('%.1f', @pluses.fdiv(@total)*100) : 0 %>%)</span>
+          <span class="fl_r"><span class="pluses_<%= @queen._id %>"><%= @pluses %></span>(<span class="percent_<%= @queen._id %>"><%= @total>0 ? sprintf('%.1f', @pluses.fdiv(@total)*100) : 0 %></span>%)</span>
           Плюсов
         </div>
       </div>
@@ -80,7 +80,7 @@
                 </div>
               </td>
               <td class="voter_value">
-                <div class="rate_<%= rate.value>0 ? "minus" :"plus" %>">
+                <div class="rate_<%= rate.value>0 ? "plus" :"minus" %>">
                 </div>
                 <div class="rate_value">
                   <%= rate.value.abs %>

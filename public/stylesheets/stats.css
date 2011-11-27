@@ -60,7 +60,7 @@
     display: inline-block;
 }
 
-.rate_minus {
+.rate_plus {
     background-position: 0 -16px;
 }
 
@@ -97,4 +97,7 @@ padding-left: 10px !important;
 .wide_column h4 div.name a {
     color: #AAB7C5;
     float: right;
+}
+.p_header_bottom span.fl_r span{
+    font-weight:bold;
 }
