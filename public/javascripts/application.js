@@ -10,6 +10,11 @@ app = {
         var queenId = but.attr('queen');
         var val = but.hasClass("rating_up") ? 1 : -1;
 
+        $('button.vote_button')
+                .attr('disabled','disabled')
+                .parent()
+                .removeClass('button_blue')
+                .addClass('button_gray');
 //        VKQ.vote(queen, val, function(rating) {
         app.updateStats(queenId,val, 100);
         app.addLog(val);
@@ -124,7 +129,6 @@ app = {
 
 $(document).ready(function() {
     app.start();
-
 });
 //VKQ.run(server.api_id, app.start);
 
