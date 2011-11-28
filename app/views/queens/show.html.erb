@@ -72,8 +72,8 @@
       <div class="position_list module_body clear_fix">
 
         <table class="queen_list" id="rates">
-        <% @rates.each do |rate| %>
-            <tr <%= rate.value>0 ? "" :"class=minus" %> >
+        <% @rates.each_with_index do |rate, index| %>
+           <tr <%= index + 1 == @rates.length ? "last_page=" + paginate(@rates)  :"" %><%= rate.value>0 ? "" :"class=minus" %> >
               <td class="stats_photo">
                 <div>
                   <%= ava_link rate.voter %>
@@ -103,7 +103,6 @@
             </tr>
         <% end %>
       </table>
-            <%= paginate @rates %>
       </div>
     </div>
 
