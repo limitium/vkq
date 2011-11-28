@@ -43,6 +43,14 @@
           <span class="fl_r"><span class="pluses_<%= @queen._id %>"><%= @pluses %></span>(<span class="percent_<%= @queen._id %>"><%= @total>0 ? sprintf('%.1f', @pluses.fdiv(@total)*100) : 0 %></span>%)</span>
           Плюсов
         </div>
+        <div class="p_header_bottom">
+          <span class="fl_r total_self_<%= @queen._id %>"><%= @total_self %></span>
+          Проголосовал
+        </div>
+        <div class="p_header_bottom">
+          <span class="fl_r"><span class="pluses_self_<%= @queen._id %>"><%= @pluses_self %></span>(<span class="percent_self_<%= @queen._id %>"><%= @total_self>0 ? sprintf('%.1f', @pluses_self.fdiv(@total_self)*100) : 0 %></span>%)</span>
+          Поставил<%= @queen.sex == 1 ?"а":"" %> плюсов
+        </div>
       </div>
     </div>
 
@@ -95,7 +103,7 @@
             </tr>
         <% end %>
       </table>
-
+            <%= paginate @rates %>
       </div>
     </div>
 

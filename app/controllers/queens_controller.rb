@@ -14,9 +14,14 @@ class QueensController < ApplicationController
   # GET /queens/1.xml
   def show
     @queen = Queen.find(params[:id])
+
     @pluses = Vote.count :conditions => {:rated_id=>@queen._id, :value=>1}
     @total = Vote.count :conditions => {:rated_id=>@queen._id}
-    @rates = @queen.rates.order_by(:created_at=>:desc)
+
+    @pluses_self = Vote.count :conditions => {:voter_id=>@queen._id, :value=>1}
+    @total_self = Vote.count :conditions => {:voter_id=>@queen._id}
+
+    @rates = @queen.rates.order_by(:created_at=>:desc).page(params[:page]).per(7)
     respond_to do |format|
       format.html # show.html.erb
       format.xml { render :xml => @queen }

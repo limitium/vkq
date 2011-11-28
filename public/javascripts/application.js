@@ -10,11 +10,6 @@ app = {
         var queenId = but.attr('queen');
         var val = but.hasClass("rating_up") ? 1 : -1;
 
-        $('button.vote_button')
-                .attr('disabled','disabled')
-                .parent()
-                .removeClass('button_blue')
-                .addClass('button_gray');
 //        VKQ.vote(queen, val, function(rating) {
         app.updateStats(queenId,val, 100);
         app.addLog(val);
@@ -93,6 +88,19 @@ app = {
             pluses.html(parseInt(pluses.html()) + 1);
         }
         percent.html(Math.round(pluses.html() / total.html() * 1000) / 10);
+
+
+        var totalSelf = $('.total_self_' + server.current_queen._id);
+        if(totalSelf){
+            totalSelf.html(parseInt(totalSelf.html()) + 1);
+            var percentSelf = $('.percent_self_' + server.current_queen._id);
+
+            var plusesSelf = $('.pluses_self_' + server.current_queen._id);
+            if (val == 1) {
+                plusesSelf.html(parseInt(plusesSelf.html()) + 1);
+            }
+            percentSelf.html(Math.round(plusesSelf.html() / totalSelf.html() * 1000) / 10);
+        }
     },
     onFilterClick: function() {
         var filter = $(this);

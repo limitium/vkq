@@ -11,7 +11,7 @@ gem 'bson_ext'
 gem 'mongo'
 gem 'mongoid'
 gem 'mongo_ext'
-gem "kaminari", "0.12.4"
+gem "kaminari"
 
 gem 'jquery-rails'
 

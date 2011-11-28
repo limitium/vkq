@@ -112,7 +112,7 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   jquery-rails
-  kaminari (= 0.12.4)
+  kaminari
   mongo
   mongo_ext
   mongoid
