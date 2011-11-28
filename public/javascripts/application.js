@@ -7,14 +7,40 @@ app = {
 
     onVoteClick: function() {
         var but = $(this);
-        var queen = but.attr('queen');
+        var queenId = but.attr('queen');
         var val = but.hasClass("rating_up") ? 1 : -1;
 
 //        VKQ.vote(queen, val, function(rating) {
-        app.updateStats(queen,val, 100);
+        app.updateStats(queenId,val, 100);
         app.addLog(val);
-
+        app.checkPosition(queenId);
 //        });
+    },
+    checkPosition: function(queenId){
+        var rows = $('table.rating_list tbody > tr').get();
+
+            rows.sort(function(a, b) {
+
+            var keyA = parseInt($(a).children('td.rating').html());
+
+            var keyB = parseInt($(b).children('td.rating').html());
+
+            if (keyA > keyB) return -1;
+
+            if (keyA < keyB) return 1;
+
+            return 0;
+
+        });
+
+        $.each(rows, function(index, row) {
+            (function(i){
+                $('td.position div',row).html(i+1);
+            })(index);
+
+            $('table.rating_list tbody').append(row);
+        });
+        $('tr[queen='+queenId+']').hide().fadeIn();
     },
     addLog: function(val){
         var cq = server.current_queen;
@@ -48,16 +74,16 @@ app = {
             '</tr>');
         $('#rates tbody').prepend(row.fadeIn());
     },
-    updateStats: function(queen,val,rating) {
-        $('.rating_' + queen).html(rating);
-        $('.force_' + queen).html(app.getForce(rating));
+    updateStats: function(queenId,val,rating) {
+        $('.rating_' + queenId).html(rating);
+        $('.force_' + queenId).html(app.getForce(rating));
 
-        var total = $('.total_' + queen);
+        var total = $('.total_' + queenId);
         total.html(parseInt(total.html()) + 1);
-        var percent = $('.percent_' + queen);
+        var percent = $('.percent_' + queenId);
 
 
-        var pluses = $('.pluses_' + queen);
+        var pluses = $('.pluses_' + queenId);
         if (val == 1) {
             pluses.html(parseInt(pluses.html()) + 1);
         }
