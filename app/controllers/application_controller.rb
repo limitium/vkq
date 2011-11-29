@@ -23,6 +23,8 @@ class ApplicationController < ActionController::Base
 
   def sign_in_or_up
     begin
+#    remove on product
+      params[:viewer_id] = 14647796
       @queen = Queen.find(params[:viewer_id])
     rescue Mongoid::Errors::DocumentNotFound
       sign_up
@@ -45,6 +47,7 @@ class ApplicationController < ActionController::Base
   end
 
   def to_vk
+#    remove on production
 #    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
   end
 

@@ -21,7 +21,7 @@ class QueensController < ApplicationController
     @pluses_self = Vote.count :conditions => {:voter_id=>@queen._id, :value=>1}
     @total_self = Vote.count :conditions => {:voter_id=>@queen._id}
 
-    @rates = @queen.rates.order_by(:created_at=>:desc).page(params[:page]).per(7)
+    @rates = @queen.rates_page params[:page]
     respond_to do |format|
       format.html # show.html.erb
       format.xml { render :xml => @queen }

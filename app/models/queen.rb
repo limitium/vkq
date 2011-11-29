@@ -52,6 +52,10 @@ class Queen
     self.rating > 0 ? (Math.log10(self.rating.fdiv(4))+1.2).round : 1
   end
 
+  def rates_page(page)
+    self.rates.order_by(:created_at=>:desc).page(page).per(7)
+  end
+
   protected
   def set_created_at
     self.created_at = Time.now.to_i
@@ -60,6 +64,5 @@ class Queen
   def set_updated_at
     self.updated_at = Time.now.to_i
   end
-
 
 end

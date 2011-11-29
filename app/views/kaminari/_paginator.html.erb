@@ -7,5 +7,8 @@
     paginator:     the paginator that renders the pagination tags inside
 -%>
 <%= paginator.render do -%>
-      <%= current_page %>
+      last_page=<%= current_page %>
+      <% if current_page.last?  -%>
+        end_of_list=true
+      <% end -%>
 <% end -%>

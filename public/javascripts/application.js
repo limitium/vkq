@@ -40,9 +40,18 @@ app = {
     },
 
     preloadData: function(){
-        var lastPage = $("tr[last_page]").last().attr("last_page");
         if(!$(".progress").is(":visible")){
-            $(".progress").show();
+            var lastRow = $("tr[last_page]").last();
+            if(!lastRow.is("[end_of_list]")){
+                $(".progress").show();
+                VKQ.preload($(".queen").attr("queen"), parseInt(lastRow.attr("last_page")) + 1, function(result){
+                    if(result.indexOf("end_of_list") != -1){
+                        $("a#show_more_link").remove();
+                    }
+                    $(".queen_list tbody").append(result);
+                    $(".progress").hide();
+                });
+            }
         }
         return false;
     },

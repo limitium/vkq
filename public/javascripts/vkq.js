@@ -61,11 +61,11 @@ VKQ = {
             callback(response);
         });
     },
-    preload: function(queen, val, callback) {
+    preload: function(queen, page, callback) {
         $.post('/votes/load', {
             vote: {
-                rated: queen,
-                value: val
+                id: queen,
+                page: page
             }
         }, function(response) {
             callback(response);
