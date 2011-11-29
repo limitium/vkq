@@ -61,6 +61,16 @@ VKQ = {
             callback(response);
         });
     },
+    preload: function(queen, val, callback) {
+        $.post('/votes/load', {
+            vote: {
+                rated: queen,
+                value: val
+            }
+        }, function(response) {
+            callback(response);
+        });
+    },
 
     updateWindow: function() {
         var page = $('#page');

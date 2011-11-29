@@ -8,6 +8,7 @@ Vkq::Application.routes.draw do
   post "/queens/:id" => "queens#update", :as => :queen_update
 
   post "/votes" => "votes#create"
+  post "/votes/load" => "votes#load"
 
 #  get "/queens" => "queens#index"
 #  get "/queens/new" => "queen#new"

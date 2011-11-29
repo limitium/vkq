@@ -1,0 +1,30 @@
+<% @rates.each_with_index do |rate, index| %>
+   <tr <%= index + 1 == @rates.length ? "last_page=" + paginate(@rates)  :"" %><%= rate.value>0 ? "" :"class=minus" %> >
+      <td class="stats_photo">
+        <div>
+          <%= ava_link rate.voter %>
+        </div>
+      </td>
+      <td class="stats_from">
+        <div class="name wrapped">
+          <%= name_link rate.voter %>
+        </div>
+        <div class="date">
+          <%= time_ago_in_words Time.at(rate.created_at) %> назад
+        </div>
+      </td>
+      <td class="voter_value">
+        <div class="rate_<%= rate.value>0 ? "plus" :"minus" %>">
+        </div>
+        <div class="rate_value">
+          <%= rate.value.abs %>
+        </div>
+      </td>
+      <td class="voter_stat">
+        <div class="label">Рейтинг:</div>
+        <div class="labeled">
+          <%= rate.voter.rating %>
+        </div>
+      </td>
+    </tr>
+<% end %>
