@@ -101,3 +101,21 @@ h4 b {
     height: 34px;
     z-index: -1;
 }
+
+ #show_more_link {
+    margin-top: -1px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.more_link .progress {
+    margin: 0 auto;
+    background: url("/images/upload.gif") no-repeat scroll 50% 50% transparent;
+    display: none;
+    height: 13px;
+    width: 32px;
+}
+.more_link div {
+    height: 13px;
+}
+

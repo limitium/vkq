@@ -1,25 +1,55 @@
 app = {
     initHandlers: function() {
+        $('.filter').click(app.on.click.filter);
+        $('button.vote_button').click(app.on.click.vote);
+        $(window).scroll(app.on.scroll.window);
 
-        $('.filter').click(app.onFilterClick);
-        $('button.vote_button').click(app.onVoteClick);
+        $('#show_more_link').click(app.preloadData);
+    },
+    on:{
+        click: {
+            filter: function() {
+                var filter = $(this);
+                $.each(filter.attr('class').split(/\s/), function(i, cls) {
+                    var matches = cls.match(/f_(\w+)/);
+                    if (matches) {
+                        console.log(filter.attr(matches[1]));
+                    }
+                })
+
+            },
+            vote: function() {
+                var but = $(this);
+                var queenId = but.attr('queen');
+                var val = but.hasClass("rating_up") ? 1 : -1;
+
+        //        VKQ.vote(queen, val, function(rating) {
+                app.updateStats(queenId,val, 100);
+                app.addLog(val);
+                app.checkPosition(queenId);
+        //        });
+            }
+        },
+        scroll: {
+            window: function() {
+                if ($(window).scrollTop() == $(document).height() - $(window).height()){
+                    app.preloadData();
+                }
+            }
+        }
     },
 
-    onVoteClick: function() {
-        var but = $(this);
-        var queenId = but.attr('queen');
-        var val = but.hasClass("rating_up") ? 1 : -1;
-
-//        VKQ.vote(queen, val, function(rating) {
-        app.updateStats(queenId,val, 100);
-        app.addLog(val);
-        app.checkPosition(queenId);
-//        });
+    preloadData: function(){
+        var lastPage = $("tr[last_page]").last().attr("last_page");
+        if(!$(".progress").is(":visible")){
+            $(".progress").show();
+        }
+        return false;
     },
     checkPosition: function(queenId){
         var rows = $('table.rating_list tbody > tr').get();
 
-            rows.sort(function(a, b) {
+        rows.sort(function(a, b) {
 
             var keyA = parseInt($(a).children('td.rating').html());
 
@@ -101,16 +131,6 @@ app = {
             }
             percentSelf.html(Math.round(plusesSelf.html() / totalSelf.html() * 1000) / 10);
         }
-    },
-    onFilterClick: function() {
-        var filter = $(this);
-        $.each(filter.attr('class').split(/\s/), function(i, cls) {
-            var matches = cls.match(/f_(\w+)/);
-            if (matches) {
-                console.log(filter.attr(matches[1]));
-            }
-        })
-
     },
     getForce: function(rating){
         return rating > 0 ? Math.round((Math.log(rating / 4) / Math.LN10) + 1.2) : 1;
