@@ -53,13 +53,13 @@ app = {
                 link.hide();
                 VKQ.preload($(".queen").attr("queen"), parseInt(lastRow.attr("last_page")) + 1, function(result){
                     $(".queen_list tbody").append(result);
-                    VKQ.updateWindow();
                     if(result.indexOf("end_of_list") != -1){
                         $("a#show_more_link").remove();
                     }else{
                         link.show();
                     }
                     progress.hide();
+                    VKQ.updateWindow();
                 });
             }
         }
