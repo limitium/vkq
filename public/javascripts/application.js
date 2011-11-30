@@ -152,6 +152,7 @@ app = {
         return rating > 0 ? Math.round((Math.log(rating / 4) / Math.LN10) + 1.2) : 1;
     },
     start: function() {
+        console.log(VK);
         app.initHandlers();
 
         VKQ.updateWindow();
