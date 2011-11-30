@@ -69,3 +69,9 @@ width:40px;
 .rating_list td.name {
     padding-left: 10px;
 }
+.rating_list td.name a{
+    display:block;
+}
+.rating_list td.name a.name{
+    font-weight:bold;
+}
