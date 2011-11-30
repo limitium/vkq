@@ -16,15 +16,13 @@ class ApplicationController < ActionController::Base
   end
 
   def check_params
-    return !params[:viewer_id].nil?
+#    return !params[:viewer_id].nil?
     # remove this on product
      params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
   end
 
   def sign_in_or_up
     begin
-#    remove on product
-      params[:viewer_id] = 14647796
       @queen = Queen.find(params[:viewer_id])
     rescue Mongoid::Errors::DocumentNotFound
       sign_up
@@ -47,7 +45,7 @@ class ApplicationController < ActionController::Base
   end
 
   def to_vk
-#    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
+    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
   end
 
   def signed_in?

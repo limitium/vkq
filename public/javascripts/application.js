@@ -97,7 +97,7 @@ app = {
               '</td>'+
               '<td class="stats_from">'+
                 '<div class="name wrapped">'+
-                  '<a class="name_'+cq._id+'" href="/queens/'+cq._id+'">'+cq.last_name+' '+cq.first_name+'</a>'+
+                  '<a class="name_'+cq._id+'" href="/queens/'+cq._id+'">'+cq.first_name+' '+cq.last_name+'</a>'+
                 '</div>'+
                 '<div class="date">'+
                   'только что'+
@@ -153,27 +153,27 @@ app = {
     start: function() {
         app.initHandlers();
 
-//        VKQ.updateWindow();
-//
-//        if (server.update_profile) {
-//            VKQ.updateProfile(function(profile) {
-//                console.log(profile);
-//                $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
-//                $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function() {
-//                    $("." + this + "_" + profile.uid).attr("src", profile[this]);
-//                });
-//                VKQ.updateWindow();
-//            });
-//        }
-//
-//        console.log(VK);
-//        console.log(VK);
+        VKQ.updateWindow();
+
+        if (server.update_profile) {
+            VKQ.updateProfile(function(profile) {
+                console.log(profile);
+                $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
+                $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function() {
+                    $("." + this + "_" + profile.uid).attr("src", profile[this]);
+                });
+                VKQ.updateWindow();
+            });
+        }
+
+        console.log(VK);
+        console.log(VK);
     }
 };
 
-$(document).ready(function() {
-    app.start();
-});
-//VKQ.run(server.api_id, app.start);
+//$(document).ready(function() {
+//    app.start();
+//});
+VKQ.run(server.api_id, app.start);
 
 
