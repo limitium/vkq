@@ -80,7 +80,7 @@ VKQ = {
     scroll: function(callback){
         console.log('try to scroll subscribe');
         var cb = function(){console.log(arguments)};
-        VK.addCallback("onScroll", cb);
-        VK.callMethod("scrollSubscribe", cb, cb);
+        VK.addCallback("onScroll", function(){console.log(1);console.log(arguments)});
+        VK.callMethod("scrollSubscribe", function(){console.log(2);console.log(arguments)}, function(){console.log(3);console.log(arguments)});
     }
 };
