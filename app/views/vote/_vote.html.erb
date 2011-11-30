@@ -1,13 +1,9 @@
-<% @rates.to_a.each do |rate| %>
-
-    <br>
-    <%= @rates.size %>
-    <br>
-    <%= @rates.length %>
-    <br>
-    <%= @rates.count %>
-    <br>
-    <tr <%= rate == @rates.last ? paginate(@rates)  :"" %><%= rate.value>0 ? "" :"class=minus" %> >
+<% @last %>
+<% @rates.each_with_index do |rate,index| %>
+    <% @last = index %>
+<% end %>
+<% @rates.each_with_index do |rate,index| %>
+    <tr <%= index == @last ? paginate(@rates)  :"" %><%= rate.value>0 ? "" :"class=minus" %> >
       <td class="stats_photo">
         <div>
           <%= ava_link rate.voter %>
