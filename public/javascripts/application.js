@@ -2,7 +2,7 @@ app = {
     initHandlers: function() {
         $('.filter').click(app.on.click.filter);
         $('button.vote_button').click(app.on.click.vote);
-        $(window).scroll(app.on.scroll.window);
+        VKQ.scroll(app.on.scroll.window);
 
         $('#show_more_link').click(app.preloadData);
     },
@@ -32,6 +32,7 @@ app = {
         },
         scroll: {
             window: function() {
+                console.log(arguments);
                 if ($(window).scrollTop() == $(document).height() - $(window).height()){
                     app.preloadData();
                 }

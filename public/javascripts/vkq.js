@@ -75,5 +75,9 @@ VKQ = {
     updateWindow: function() {
         var page = $('#page');
         VK.External.resizeWindow(page.width(), page.height());
+    },
+
+    scroll: function(callback){
+         VK.External.scrollSubscribe(true,callback);
     }
 };
