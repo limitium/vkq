@@ -40,16 +40,22 @@ app = {
     },
 
     preloadData: function(){
-        if(!$(".progress").is(":visible")){
+        var progress = $(".progress");
+        if(!progress.is(":visible")){
             var lastRow = $("tr[last_page]").last();
             if(!lastRow.is("[end_of_list]")){
-                $(".progress").show();
+                var link = $("div#show_more");
+                progress.show();
+                link.hide();
                 VKQ.preload($(".queen").attr("queen"), parseInt(lastRow.attr("last_page")) + 1, function(result){
+                    VKQ.updateWindow();
                     if(result.indexOf("end_of_list") != -1){
                         $("a#show_more_link").remove();
+                    }else{
+                        link.show();
                     }
                     $(".queen_list tbody").append(result);
-                    $(".progress").hide();
+                    progress.hide();
                 });
             }
         }

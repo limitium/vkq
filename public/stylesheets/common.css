@@ -57,7 +57,7 @@ h4 {
 }
 
 .button_blue button {
-    background: url("/images/buttons/button_vk.png") repeat-x scroll 0 -16px #6181A6;
+    background: url("http://vk.com/images/button_vk.png") repeat-x scroll 0 -16px #6181A6;
     border-color: #789ABF #5980A9 #5980A9;
     color: #FFFFFF;
     text-shadow: 0 1px 0 #45688E;
@@ -85,7 +85,7 @@ h4 {
     position: relative;
 }
 .button_gray button {
-    background: url("/images/buttons/button_vk.png") repeat-x scroll 0 -54px #DDDDDD;
+    background: url("http://vk.com/images/button_vk.png") repeat-x scroll 0 -54px #DDDDDD;
     border-color: #FFFFFF #E7E7E7 #E5E5E5;
     color: #444444;
     text-shadow: 0 1px 0 #FFFFFF;

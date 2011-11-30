@@ -1,0 +1,48 @@
+#im_bar {
+    background: none repeat scroll 0 0 #F7F7F7;
+    border-bottom: 1px solid #DAE1E8;
+    padding: 5px;
+}
+#im_tabs {
+    padding: 3px 0 2px;
+}
+.im_tab, .im_tab_selected, .im_tab_over {
+    cursor: pointer;
+    float: left;
+    padding: 5px 1px 5px 5px;
+}
+.im_tab, .im_tab_selected, .im_tab_over {
+    cursor: pointer;
+}
+.im_tab_selected .im_tab2 {
+    -moz-border-radius: 2px 2px 2px 2px;
+    background-color: #597DA3;
+}
+
+.im_tab2 {
+    padding: 3px 6px 4px;
+}
+.im_tab_selected .im_tab3 {
+    color: #FFFFFF;
+}
+
+.im_tab3 {
+    color: #45688E;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 5px;
+}
+
+.im_tabx {
+    height: 11px;
+    margin-top: 2px;
+    width: 11px;
+}
+.im_tab_selected .im_tabx {
+    background: url("http://vk.com/images/pics/im_tabx.gif") repeat scroll 0 -13px transparent;
+    opacity: 0.2;
+}
+.im_tab_selected .im_tabx:hover {
+    background: url("http://vk.com/images/pics/im_tabx.gif") repeat scroll 0 -13px transparent;
+    opacity: 1;
+}

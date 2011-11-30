@@ -110,7 +110,7 @@ h4 b {
 
 .more_link .progress {
     margin: 0 auto;
-    background: url("/images/upload.gif") no-repeat scroll 50% 50% transparent;
+    background: url("http://vk.com/images/upload.gif") no-repeat scroll 50% 50% transparent;
     display: none;
     height: 13px;
     width: 32px;
