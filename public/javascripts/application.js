@@ -36,7 +36,7 @@ app = {
                 console.log(height);
                 console.log($(document).height());
                 console.log($(document).height() - height);
-                if (top == $(document).height() - height){
+                if (top - 152 == $(document).height() - height){
                     app.preloadData();
                 }
             }
