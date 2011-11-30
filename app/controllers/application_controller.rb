@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def sign_in_or_up
     begin
 #    remove on product
-      params[:viewer_id] = 14647796
+      params[:viewer_id] = "14647796"
       @queen = Queen.find(params[:viewer_id])
     rescue Mongoid::Errors::DocumentNotFound
       sign_up

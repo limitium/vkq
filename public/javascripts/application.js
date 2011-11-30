@@ -23,11 +23,11 @@ app = {
                 var queenId = but.attr('queen');
                 var val = but.hasClass("rating_up") ? 1 : -1;
 
-        //        VKQ.vote(queen, val, function(rating) {
-                app.updateStats(queenId,val, 100);
-                app.addLog(val);
-                app.checkPosition(queenId);
-        //        });
+                VKQ.vote(queenId, val, function(rating) {
+                    app.updateStats(queenId,val, rating);
+                    app.addLog(val);
+                    app.checkPosition(queenId);
+                });
             }
         },
         scroll: {

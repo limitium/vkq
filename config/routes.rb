@@ -2,13 +2,11 @@ Vkq::Application.routes.draw do
 
   #remove and change  in VK
   get "/queens" => "queens#list", :as => :queens_list
-  
-  get "/queens/list" => "queens#list", :as => :queens_list
-  get "/queens/:id" => "queens#show", :as => :queen_show
-  post "/queens/:id" => "queens#update", :as => :queen_update
+  get "/queen/:id" => "queens#show", :as => :queen_show
+  post "/queen/:id" => "queens#update", :as => :queen_update
 
-  post "/votes" => "votes#create"
-  post "/votes/load" => "votes#load"
+  get "/votes/load" => "votes#load"
+  post "/vote" => "votes#create"
 
 #  get "/queens" => "queens#index"
 #  get "/queens/new" => "queen#new"

@@ -52,7 +52,7 @@ VKQ = {
     },
 
     vote: function(queen, val, callback) {
-        $.post('/votes', {
+        $.post('/vote', {
             vote: {
                 rated: queen,
                 value: val
@@ -62,7 +62,7 @@ VKQ = {
         });
     },
     preload: function(queen, page, callback) {
-        $.post('/votes/load', {
+        $.get('/votes/load', {
             vote: {
                 id: queen,
                 page: page
