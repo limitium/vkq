@@ -1,0 +1,9 @@
+<div class="position_list module_body clear_fix">
+    <table class="queen_list" id="rates">
+    <%= render :partial => "vote/vote", :locals => { :rates => @rates} %>
+  </table>
+  <a style="height: 13px; display: block;" class="clear_fix more_link" id="show_more_link">
+      <div class="progress" id="show_more_progress"></div>
+      <div id="show_more">Показать предыдущие голоса ↓</div>
+  </a>
+</div>

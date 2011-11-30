@@ -49,16 +49,17 @@
         </div>
         <div class="p_header_bottom">
           <span class="fl_r"><span class="pluses_self_<%= @queen._id %>"><%= @pluses_self %></span>(<span class="percent_self_<%= @queen._id %>"><%= @total_self>0 ? sprintf('%.1f', @pluses_self.fdiv(@total_self)*100) : 0 %></span>%)</span>
-          Поставил<%= @queen.sex == 1 ?"а":"" %> плюсов
+          Поставил<%= @queen.sex == 1 ? "а" :"" %> плюсов
         </div>
       </div>
     </div>
 
   </div>
   <div class="wide_column fl_r">
-     <h4>
+    <h4>
       <div class="name">
-        <%= "#{@queen.first_name} #{@queen.nickname} #{@queen.last_name}" %> <a href="http://vkontakte.ru/id<%= @queen.id %>">(профаил vkontakte)</a>
+        <%= "#{@queen.first_name} #{@queen.nickname} #{@queen.last_name}" %>
+        <a href="http://vkontakte.ru/id<%= @queen.id %>">(профаил vkontakte)</a>
       </div>
     </h4>
     <div class="position_module">
@@ -69,62 +70,7 @@
         </div>
       </div>
 
-      <div class="position_list module_body clear_fix">
-
-        <table class="queen_list" id="rates">
-        <% @rates.each_with_index do |rate, index| %>
-           <tr <%= index + 1 == @rates.length ? paginate(@rates)  :"" %><%= rate.value>0 ? "" :"class=minus" %> >
-              <td class="stats_photo">
-                <div>
-                  <%= ava_link rate.voter %>
-                </div>
-              </td>
-              <td class="stats_from">
-                <div class="name wrapped">
-                  <%= name_link rate.voter %>
-                </div>
-                <div class="date">
-                  <%= time_ago_in_words Time.at(rate.created_at) %> назад
-                </div>
-              </td>
-              <td class="voter_value">
-                <div class="rate_<%= rate.value>0 ? "plus" :"minus" %>">
-                </div>
-                <div class="rate_value">
-                  <%= rate.value.abs %>
-                </div>
-              </td>
-              <td class="voter_stat">
-                <div class="label">Рейтинг:</div>
-                <div class="labeled">
-                  <%= rate.voter.rating %>
-                </div>
-              </td>
-            </tr>
-        <% end %>
-      </table>
-      <a style="height: 13px; display: block;" class="clear_fix more_link" id="show_more_link">
-          <div class="progress" id="show_more_progress"></div>
-          <div id="show_more">Показать предыдущие голоса ↓</div>
-      </a>
-      </div>
+      <%= render :partial => "vote/votes_block", :locals => {:rates => @rates} %>
     </div>
-
-
-    <!--
-<div id="vk_comments"></div>
-<script type="text/javascript">
-VK.Widgets.Comments("vk_comments", {
-    limit: 100,
-    width: "397",
-    attach: "*",
-    onChange: function(){
-        VKQ.updateWindow();
-    }
-},"<%= "show_#{@queen._id}" %>");
-</script>
-
   </div>
-  Put this div tag to the place, where the Comments block will be -->
-  </div>
-
+</div>

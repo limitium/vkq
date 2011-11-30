@@ -22,6 +22,6 @@ class VotesController < ApplicationController
   # POST /votes.xml
   def load
     @rates = Queen.find(params[:vote][:id]).rates_page params[:vote][:page]
-    render :template => 'votes/_votes', :layout => false
+    render :template => 'vote/_vote', :layout => false
   end
 end
