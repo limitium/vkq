@@ -1,5 +1,7 @@
 <% @rates.each_with_index do |rate, index| %>
-   <tr<%= " last_page=#{@rates.current_page}" %><%= rate.value>0 ? "" :"class=minus" %> >
+    <%= index + 1 %>
+    <%= @rates.length %>
+   <tr <%= index + 1 == @rates.length ? paginate(@rates)  :"" %><%= rate.value>0 ? "" :"class=minus" %> >
       <td class="stats_photo">
         <div>
           <%= ava_link rate.voter %>
