@@ -31,7 +31,7 @@ app = {
             }
         },
         scroll: {
-            window: function() {
+            window: function(top, height) {
                 console.log(arguments);
                 if ($(window).scrollTop() == $(document).height() - $(window).height()){
                     app.preloadData();
