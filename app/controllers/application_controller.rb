@@ -1,10 +1,6 @@
 class ApplicationController < ActionController::Base
   require "digest"
-  before_filter :filter_vk, :filter_user
-
-  def filter_vk
-    to_vk unless request.referer[0, 30] == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
-  end
+  before_filter :filter_user
 
   def filter_user
     if check_params
@@ -17,7 +13,7 @@ class ApplicationController < ActionController::Base
   def check_params
 #    return !params[:viewer_id].nil?
     # remove this on product
-     params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
+     request.referer[0, 30] == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}" && params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
   end
 
   def sign_in_or_up
@@ -44,7 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   def to_vk
-#    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
+    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
   end
 
   def signed_in?
