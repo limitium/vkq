@@ -78,6 +78,6 @@ VKQ = {
     },
 
     scroll: function(callback){
-         VK.addCallback("onScroll", callback)
+         VK.callMethod("scrollSubscribe", false, callback)
     }
 };
