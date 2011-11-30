@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_params
-#    return true
+   # return true
     # remove this on product
      params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
   end
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def sign_in_or_up
     begin
 #    remove on product
-#      params[:viewer_id] = "14647796"
+      params[:viewer_id] = 14647796
       @queen = Queen.find(params[:viewer_id])
     rescue Mongoid::Errors::DocumentNotFound
       sign_up
@@ -41,14 +41,13 @@ class ApplicationController < ActionController::Base
   def sign_in
     @queen.salt = Digest::SHA2.hexdigest("#{Time.now.utc}--#{Vkq::Application.config.secret_token}")
     @queen.save
-    cookies.permanent.signed[:remember_token] = [@queen._id, @queen.salt]
+    cookies.permanent.signed[:_vkq_remember_token] = [@queen._id, @queen.salt]
     @update_profile = true
     self.current_queen = @queen
   end
 
   def to_vk
-#    remove on production
-    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
+#    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
   end
 
   def signed_in?
@@ -72,7 +71,7 @@ class ApplicationController < ActionController::Base
   end
 
   def remember_token
-    cookies.signed[:remember_token] || [nil, nil]
+    cookies.signed[:_vkq_remember_token] || [nil, nil]
   end
 
   def firebug(message, type = :debug)
