@@ -31,7 +31,7 @@ app = {
             }
         },
         scroll: {
-            window: function(top, height) {
+            window: function() {
                 console.log(arguments);
                 console.log($(window).height())     ;
                 console.log($(document).height() ) ;
