@@ -165,9 +165,6 @@ app = {
                 VKQ.updateWindow();
             });
         }
-
-        console.log(VK);
-        console.log(VK);
     }
 };
 

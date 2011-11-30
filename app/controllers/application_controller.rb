@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   require "digest"
   before_filter :filter_vk, :filter_user
-  protect_from_forgery
 
   def filter_vk
     to_vk unless request.referer[0, 30] == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
@@ -45,7 +44,7 @@ class ApplicationController < ActionController::Base
   end
 
   def to_vk
-    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
+#    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
   end
 
   def signed_in?
