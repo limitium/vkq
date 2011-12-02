@@ -3,15 +3,16 @@
     <% @last = index %>
 <% end %>
 <% @rates.each_with_index do |rate,index| %>
+    <% @voter = Queen.new rate.voter_data %>
     <tr <%= index == @last ? paginate(@rates)  :"" %><%= rate.value>0 ? "" :"class=minus" %> >
       <td class="stats_photo">
         <div>
-          <%= ava_link rate.voter %>
+          <%= ava_link @voter %>
         </div>
       </td>
       <td class="stats_from">
         <div class="name wrapped">
-          <%= name_link rate.voter %>
+          <%= name_link  @voter %>
         </div>
         <div class="date">
           <%= time_ago_in_words Time.at(rate.created_at) %> назад
@@ -27,7 +28,7 @@
       <td class="voter_stat">
         <div class="label">Рейтинг:</div>
         <div class="labeled">
-          <%= rate.voter.rating %>
+          <%= @voter.rating %>
         </div>
       </td>
     </tr>

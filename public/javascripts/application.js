@@ -1,10 +1,10 @@
 app = {
     initHandlers: function() {
         $('.filter').click(app.on.click.filter);
-        $('button.vote_button').click(app.on.click.vote);
-        VKQ.scroll(app.on.scroll.window);
-
         $('#show_more_link').click(app.preloadData);
+        $('button.vote_button').click(app.on.click.vote);
+
+        VKQ.scroll(app.on.scroll.window);
     },
     on:{
         click: {
@@ -96,12 +96,12 @@ app = {
         var row = $('<tr'+(val>0?"":' class="minus"')+'>'+
               '<td class="stats_photo">'+
                 '<div>'+
-                  '<a href="/queens/'+cq._id+'"><img src="'+cq.photo_rec+'" class=" photo_rec_'+cq._id+'" alt="'+cq.last_name+' '+cq.first_name+'"></a>'+
+                  '<a href="/queen/'+cq._id+'"><img src="'+cq.photo_rec+'" class=" photo_rec_'+cq._id+'" alt="'+cq.last_name+' '+cq.first_name+'"></a>'+
                 '</div>'+
               '</td>'+
               '<td class="stats_from">'+
                 '<div class="name wrapped">'+
-                  '<a class="name_'+cq._id+'" href="/queens/'+cq._id+'">'+cq.first_name+' '+cq.last_name+'</a>'+
+                  '<a class="name_'+cq._id+'" href="/queen/'+cq._id+'">'+cq.first_name+' '+cq.last_name+'</a>'+
                 '</div>'+
                 '<div class="date">'+
                   'только что'+
@@ -121,7 +121,8 @@ app = {
                 '</div>'+
               '</td>'+
             '</tr>');
-        $('#rates tbody').prepend(row.fadeIn());
+        console.log(row);
+        $('#rates').prepend(row.fadeIn());
     },
     updateStats: function(queenId,val,rating) {
         $('.rating_' + queenId).html(rating);
@@ -158,24 +159,24 @@ app = {
         console.log(VK);
         app.initHandlers();
 
-        VKQ.updateWindow();
-
-        if (server.update_profile) {
-            VKQ.updateProfile(function(profile) {
-                console.log(profile);
-                $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
-                $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function() {
-                    $("." + this + "_" + profile.uid).attr("src", profile[this]);
-                });
-                VKQ.updateWindow();
-            });
-        }
+//        VKQ.updateWindow();
+//
+//        if (server.update_profile) {
+//            VKQ.updateProfile(function(profile) {
+//                console.log(profile);
+//                $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
+//                $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function() {
+//                    $("." + this + "_" + profile.uid).attr("src", profile[this]);
+//                });
+//                VKQ.updateWindow();
+//            });
+//        }
     }
 };
 
-//$(document).ready(function() {
-//    app.start();
-//});
-VKQ.run(server.api_id, app.start);
+$(document).ready(function() {
+    app.start();
+});
+//VKQ.run(server.api_id, app.start);
 
 
