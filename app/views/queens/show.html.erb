@@ -28,6 +28,10 @@
           Статистика
         </div>
         <div class="p_header_bottom">
+          <span class="fl_r position_<%= @queen._id %>"><%= @queen.position %></span>
+          Позиция
+        </div>
+        <div class="p_header_bottom">
           <span class="fl_r rating_<%= @queen._id %>"><%= @queen.rating %></span>
           Рейтинг
         </div>
@@ -69,7 +73,7 @@
           Голоса
         </div>
       </div>
-      <%= render :partial => "vote/votes_block", :locals => {:rates => @rates} %>
+      <%= render :partial => "vote/votes_block", :locals => {:rates => @queen.rates_page(1)} %>
     </div>
   </div>
 </div>

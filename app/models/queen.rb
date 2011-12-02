@@ -61,6 +61,26 @@ class Queen
     self.rates.order_by(:created_at=>:desc).page(page).per(7)
   end
 
+  def position
+    Queen.count(:conditions => {:rating.gt => self.rating}) + 1
+  end
+
+  def pluses
+    Vote.count :conditions => {:rated_id => self._id, :value => 1}
+  end
+
+  def total
+    Vote.count :conditions => {:rated_id => self._id}
+  end
+
+  def pluses_self
+    Vote.count :conditions => {:voter_id => self._id, :value => 1}
+  end
+
+  def total_self
+    Vote.count :conditions => {:voter_id => self._id}
+  end
+
   protected
   def set_created_at
     self.created_at = Time.now.to_i
