@@ -5,6 +5,8 @@ defaults: &defaults
   username: queen
   password: qweqwe123
   paramterize_keys: false
+#@todo:remove on production
+  autocreate_indexes: true
 
 development:
   <<: *defaults

@@ -13,13 +13,13 @@ class QueensController < ApplicationController
   # GET /queens/1
   # GET /queens/1.xml
   def show
-    @queen = Queen.find(params[:id])
+    @queen = Queen.find(params[:id]) || @current_queen
 
-    @pluses = Vote.count :conditions => {:rated_id=>@queen._id, :value=>1}
-    @total = Vote.count :conditions => {:rated_id=>@queen._id}
+    @pluses = Vote.count :conditions => {:rated_id => @queen._id, :value => 1}
+    @total = Vote.count :conditions => {:rated_id => @queen._id}
 
-    @pluses_self = Vote.count :conditions => {:voter_id=>@queen._id, :value=>1}
-    @total_self = Vote.count :conditions => {:voter_id=>@queen._id}
+    @pluses_self = Vote.count :conditions => {:voter_id => @queen._id, :value => 1}
+    @total_self = Vote.count :conditions => {:voter_id => @queen._id}
 
     @rates = @queen.rates_page params[:page]
     respond_to do |format|
