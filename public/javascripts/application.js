@@ -23,8 +23,8 @@ app = {
                 var queenId = but.attr('queen');
                 var val = but.hasClass("rating_up") ? 1 : -1;
 
-                VKQ.vote(queenId, val, function(rating) {
-                    app.updateStats(queenId,val, rating);
+                VKQ.vote(queenId, val, function(stats) {
+                    app.updateStats(queenId,val, stats);
                     app.addLog(val);
                     app.checkPosition(queenId);
                 });
@@ -124,9 +124,10 @@ app = {
         console.log(row);
         $('#rates').prepend(row.fadeIn());
     },
-    updateStats: function(queenId,val,rating) {
-        $('.rating_' + queenId).html(rating);
-        $('.force_' + queenId).html(app.getForce(rating));
+    updateStats: function(queenId,val,stats) {
+        $('.rating_' + queenId).html(stats.rating);
+        $('.position_' + queenId).html(stats.position);
+        $('.force_' + queenId).html(app.getForce(stats.rating));
 
         var total = $('.total_' + queenId);
         total.html(parseInt(total.html()) + 1);

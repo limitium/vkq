@@ -34,7 +34,7 @@ class Queen
   key :_id
 
   index :_id, :unique => true
-  index :rating, Mongo::DESCENDING
+  index :rating
   index :first_name
   index :last_name
 
@@ -62,7 +62,7 @@ class Queen
   end
 
   def position
-    Queen.count(:conditions => {:rating.gt => self.rating}) + 1
+    Queen.count(:conditions => {:rating.gte => self.rating})
   end
 
   def pluses
