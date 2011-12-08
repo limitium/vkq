@@ -6,9 +6,9 @@ class VotesController < ApplicationController
       add_vote_data
       @vote = Vote.new(params[:vote])
       if @vote.save!
-          @vote.rated.rating = @vote.rated.rating.to_i + @vote.value
-          @vote.rated.save
-        render :json => {:rating => @vote.rated.rating, :position => @queen.position}
+          @queen.rating = @queen.rating.to_i + @vote.value
+          @queen.save
+        render :json => {:rating => @queen.rating, :position => @queen.position}
       else
         render :json => @vote.errors, :status => :unprocessable_entity
       end

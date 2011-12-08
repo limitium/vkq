@@ -6,7 +6,7 @@ defaults: &defaults
   password: qweqwe123
   paramterize_keys: false
 #@todo:remove on production
-  autocreate_indexes: true
+#  autocreate_indexes: true
 
 development:
   <<: *defaults
