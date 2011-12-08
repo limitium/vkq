@@ -1,0 +1,331 @@
+.fixed {
+    position: fixed;
+}
+
+/* Layers */
+
+#layer_bg, #box_layer_bg, #layer_wrap, #box_layer_wrap {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+  overflow: hidden;
+  display: none;
+}
+#box_layer_bg, #box_layer_wrap {
+  z-index: 1000;
+}
+#box_layer_bg {
+  background: #000;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+
+@-moz-document url-prefix() {
+  #box_layer_bg {
+    background: url(http://vk.com/images/layer_bg_lite.png);
+    opacity: 1 !important;
+  }
+}
+
+#layer_wrap, #box_layer_wrap {
+  overflow: auto;
+}
+#layer_wrap {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* MessageBox */
+
+.popup_box_container {
+  margin: 0px auto;
+  z-index: 1002;
+  -moz-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.35);
+}
+#box_loader {
+  position: absolute;
+  left: 50%;
+  margin: 0px auto 0px -50px;
+  z-index: 1002;
+  width: 100px;
+  display: none;
+}
+#box_loader .back {
+  background-color: #000;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  height: 50px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.35);
+}
+#box_loader .loader {
+  background: url(http://vk.com/images/upload_inv_mono.gif) no-repeat 50% 50%;
+  height: 50px;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+.box_title_wrap {
+  background-color: #597DA3;
+  border: 1px solid;
+  border-color: #45688E #43658A;
+  padding: 0px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+}
+.box_x_button:hover{
+    background-color:#FFFFFF;
+}
+.box_x_button {
+  float: right;
+  width: 17px;
+  height: 17px;
+  margin: 7px 5px 0px;
+  cursor: pointer;
+  padding: 0;
+  background: #9DB7D4 url(http://vk.com/images/boxicon_vk.gif) -23px -2px;
+}
+.box_body {
+  background-color: #FFF;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  padding: 16px 14px;
+  aline-height: 14px;
+}
+.box_no_title {
+  border-top: 1px solid #999;
+}
+.box_controls_wrap {
+  border: 1px solid #999;
+  border-top: 0px;
+}
+.box_controls_text {
+  padding: 8px 8px 0px;
+}
+.box_controls {
+  padding: 8px 5px 7px;
+  height: 30px;
+  background-color: #F2F2F2;
+  border-top: 1px solid #DAE1E8;
+}
+.box_controls .progress {
+  position: relative;
+  margin: 7px 10px 0px;
+}
+.controls_wrap {
+  padding: 7px 0px 0px 5px;
+}
+
+.button_yes, .button_no, .button_cancel {
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+.box_controls .button_wrap {
+  padding: 2px 5px;
+  float: right;
+}
+.button_yes div, .button_no div {
+  padding: 4px 14px;
+  text-align: center;
+}
+
+.button_cancel .button, .button_cancel .leave_button, .button_cancel .button_hover, .button_cancel .button_down {
+  padding: 6px 15px;
+  *padding: 7px 15px;
+  text-align: center;
+}
+
+.button_yes {
+  border: 1px solid #3B6798;
+  text-shadow: 0px 1px 0px #45688E;
+}
+.button_yes_bottom {
+  border-bottom: 1px solid #2B587A;
+}
+.button_yes div {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #7E9CBC #5C82AB #5C82AB;
+  background-color:#6D8FB3;
+  color: #FFF;
+}
+.button_yes div.button_hover {
+  border-color: #92ACC7 #7293B7 #7293B7;
+  background-color: #84A1BF;
+}
+.button_yes div.button_down {
+  border-color: #4f749d #4f749d #5c82ab;
+  background-color: #5e84a9;
+}
+.button_no {
+  border: 1px solid #B8B8B8;
+  border-top: 1px solid #9F9F9F;
+  text-shadow: 0px 1px #FFF;
+}
+
+.button_cancel {
+  color: #2B587A;
+}
+
+.button_cancel .button_hover, .button_cancel .button:hover, .button_cancel .leave_button:hover {
+  background: #E1E7ED;
+}
+
+.button_no div {
+  border: 1px solid #F4F4F4;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #DFDFDF;
+  background-color: #eaeaea;
+  color: #000;
+  text-decoration: none;
+}
+.button_no div.button_hover {
+  background-color: #f7f7f7;
+}
+
+.button_yes.locked .lock span, .button_no.locked .lock span {
+  visibility: hidden;
+}
+
+.button_yes.locked .lock, .button_no.locked .lock {
+  background: url(http://vk.com/images/upload.gif) no-repeat center 7px;
+}
+
+.box_title {
+  border-top: 1px solid #648CB7;
+  padding: 6px 10px 8px 10px;
+}
+.box_no_controls {
+  background-color: #DAE1E8;
+  border: 1px solid #ADBBCA;
+}
+.box_no_controls .box_title_wrap, .box_no_controls .box_layout .box_controls {
+  display: none;
+}
+.box_no_controls .box_body {
+  border: none;
+  padding: 0;
+}
+
+.delete_all .clear_fix {
+  margin-top: 10px;
+}
+.delete_all .button_gray {
+  margin: 0px 10px;
+}
+
+/*
+ New input buttons with gradient
+*/
+.button_blue, .button_gray {
+  text-align: center;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  display: inline-block;
+  *display: inline;
+  position: relative;
+  zoom: 1;
+}
+.box_controls .button_blue, .box_controls .button_gray {
+  margin: 2px 5px;
+}
+.button_blue button, .button_gray button {
+  border: 1px solid;
+  background: none;
+  font-size: 11px;
+  margin: 0px;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  padding: 4px 14px 4px;
+  *padding: 5px 15px 3px;
+  font-family: tahoma, verdana, arial, sans-serif, Lucida Sans;
+  overflow: visible;
+}
+.button_wide {
+  display: block;
+}
+.button_wide button {
+  width: 100%;
+}
+
+.button_blue button::-moz-focus-inner,
+.button_gray button::-moz-focus-inner {
+  border: 0;
+}
+
+.button_blue {
+  border: 1px solid #45688E;
+  background: #5D81A7;
+}
+.button_blue button {
+  border-top-color: #789ABF;
+  border-bottom-color: #5980A9;
+  border-left-color: #5980A9;
+  border-right-color: #5980A9;
+  color: #FFF;
+  text-shadow:0 1px 0 #45688E;
+  *border: 0;
+  background: url(http://vk.com/images/button_vk.png) #6181a6 repeat-x top;
+  background-position: 0px -16px;
+  *background-position: 0px -16px;
+}
+.button_blue button:hover,
+.button_blue button.hover {
+  background-position: 0px -8px;
+}
+.button_blue button:active,
+.button_blue button.active {
+  background: #5e80a5;
+  border: 1px solid #5e80a5;
+  position:relative;
+}
+.button_gray {
+  border: 1px solid #b3b3b3;
+  background: #e0e0e0;
+}
+.button_gray button {
+ border-top-color: #ffffff;
+ border-bottom-color: #e5e5e5;
+ border-left-color: #e7e7e7;
+ border-right-color: #e7e7e7;
+ color: #444;
+ text-shadow:0 1px 0 #ffffff;
+ *border: 0;
+ background: url(http://vk.com/images/button_vk.png) #dddddd repeat-x top;
+ background-position: 0px -54px;
+}
+.button_gray button:hover {
+ background-position: 0px -46px;
+}
+.button_gray button:active {
+  background: #dcdcdc;
+  border: 1px solid #dcdcdc;
+  position:relative;
+}
+.button_lock {
+  background: url('http://vk.com/images/upload_inv.gif') center no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.button_gray .button_lock {
+  background: url('http://vk.com/images/upload.gif') center no-repeat;
+}
+
+a.button_link:hover {
+  text-decoration: none;
+}

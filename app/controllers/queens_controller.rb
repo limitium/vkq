@@ -13,7 +13,7 @@ class QueensController < ApplicationController
   # GET /queens/1
   # GET /queens/1.xml
   def show
-    @queen = Queen.find(params[:id]) || @current_queen
+    @queen = !params[:id].nil? ? Queen.find(params[:id]) : @current_queen
     @rates = @queen.rates_page params[:page]
     respond_to do |format|
       format.html # show.html.erb

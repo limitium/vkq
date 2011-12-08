@@ -32,67 +32,67 @@ h4 {
 }
 
 
-.button_blue, .button_gray {    
-    -moz-border-radius: 2px 2px 2px 2px;
-    -webkit-border-radius: 2px 2px 2px 2px;
-    border-radius: 2px 2px 2px 2px;
-    display: inline-block;
-    position: relative;
-    text-align: center;
-}
+/*.button_blue, .button_gray {    */
+    /*-moz-border-radius: 2px 2px 2px 2px;*/
+    /*-webkit-border-radius: 2px 2px 2px 2px;*/
+    /*border-radius: 2px 2px 2px 2px;*/
+    /*display: inline-block;*/
+    /*position: relative;*/
+    /*text-align: center;*/
+/*}*/
 
 
 
-.button_blue button, .button_gray button {
-    background: none repeat scroll 0 0 transparent;
-    border: 1px solid;
-    cursor: pointer;
-    font-family: tahoma,verdana,arial,sans-serif,Lucida Sans;
-    font-size: 11px;
-    margin: 0;
-    outline: medium none;
-    overflow: visible;
-    padding: 4px 14px;
-    white-space: nowrap;
-}
+/*.button_blue button, .button_gray button {*/
+    /*background: none repeat scroll 0 0 transparent;*/
+    /*border: 1px solid;*/
+    /*cursor: pointer;*/
+    /*font-family: tahoma,verdana,arial,sans-serif,Lucida Sans;*/
+    /*font-size: 11px;*/
+    /*margin: 0;*/
+    /*outline: medium none;*/
+    /*overflow: visible;*/
+    /*padding: 4px 14px;*/
+    /*white-space: nowrap;*/
+/*}*/
 
-.button_blue button {
-    background: url("http://vk.com/images/button_vk.png") repeat-x scroll 0 -16px #6181A6;
-    border-color: #789ABF #5980A9 #5980A9;
-    color: #FFFFFF;
-    text-shadow: 0 1px 0 #45688E;
-}
+/*.button_blue button {*/
+    /*background: url("http://vk.com/images/button_vk.png") repeat-x scroll 0 -16px #6181A6;*/
+    /*border-color: #789ABF #5980A9 #5980A9;*/
+    /*color: #FFFFFF;*/
+    /*text-shadow: 0 1px 0 #45688E;*/
+/*}*/
 
-.button_blue button:active {
-    background: none repeat scroll 0 0 #5E80A5;
-    border: 1px solid #5E80A5;
-    position: relative;
-}
+/*.button_blue button:active {*/
+    /*background: none repeat scroll 0 0 #5E80A5;*/
+    /*border: 1px solid #5E80A5;*/
+    /*position: relative;*/
+/*}*/
 
 
-.button_blue button:hover {
-    background-position: 0 -8px;
-}
+/*.button_blue button:hover {*/
+    /*background-position: 0 -8px;*/
+/*}*/
 
-.button_gray {
-    background: none repeat scroll 0 0 #E0E0E0;
-    border: 1px solid #B3B3B3;
-}
+/*.button_gray {*/
+    /*background: none repeat scroll 0 0 #E0E0E0;*/
+    /*border: 1px solid #B3B3B3;*/
+/*}*/
 
-.button_gray button:active {
-    background: none repeat scroll 0 0 #DCDCDC;
-    border: 1px solid #DCDCDC;
-    position: relative;
-}
-.button_gray button {
-    background: url("http://vk.com/images/button_vk.png") repeat-x scroll 0 -54px #DDDDDD;
-    border-color: #FFFFFF #E7E7E7 #E5E5E5;
-    color: #444444;
-    text-shadow: 0 1px 0 #FFFFFF;
-}
-.button_gray button:hover {
-    background-position: 0 -46px;
-}
+/*.button_gray button:active {*/
+    /*background: none repeat scroll 0 0 #DCDCDC;*/
+    /*border: 1px solid #DCDCDC;*/
+    /*position: relative;*/
+/*}*/
+/*.button_gray button {*/
+    /*background: url("http://vk.com/images/button_vk.png") repeat-x scroll 0 -54px #DDDDDD;*/
+    /*border-color: #FFFFFF #E7E7E7 #E5E5E5;*/
+    /*color: #444444;*/
+    /*text-shadow: 0 1px 0 #FFFFFF;*/
+/*}*/
+/*.button_gray button:hover {*/
+    /*background-position: 0 -46px;*/
+/*}*/
 
 .feed_tab, .feed_tab_selected, .feed_tab_over {
     cursor: pointer;

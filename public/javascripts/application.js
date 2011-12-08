@@ -42,7 +42,6 @@ app = {
             }
         }
     },
-
     preloadData: function(){
         var progress = $(".progress");
         if(!progress.is(":visible")){
@@ -155,6 +154,47 @@ app = {
     },
     getForce: function(rating){
         return rating > 0 ? Math.round((Math.log(rating / 4) / Math.LN10) + 1.2) : 1;
+    },
+    showMessage: function(){
+         var box = '<div class="popup_box_container" style="width: 410px; height: auto; margin-top: 171.333px;">'+
+          '<div onclick="__bq.skip=true;" class="box_layout">'+
+            '<div class="box_title_wrap">'+
+              '<div class="box_x_button">'+
+              '</div>'+
+              '<div class="box_title">Удалить все сообщения</div>'+
+            '</div>'+
+            '<div class="box_body">Вы действительно хотите удалить всю переписку с данным пользователем?<br><br>Отменить'+
+            '</div>'+
+            '<div class="box_controls_wrap">'+
+              '<div class="box_controls">'+
+                '<table cellspacing="0" cellpadding="0" class="fl_r">'+
+                  '<tbody>'+
+                  '<tr>'+
+                    '<td>'+
+                      '<div class="button_blue">'+
+                        '<button>Удалить</button>'+
+                      '</div>'+
+                    '</td>'+
+                    '<td>'+
+                      '<div class="button_gray">'+
+                        '<button>Закрыть</button>'+
+                      '</div>'+
+                    '</td>'+
+                  '</tr>'+
+                  '</tbody>'+
+                '</table>'+
+                '<div id="box_progress4" class="progress">'+
+                '</div>'+
+                '<div class="box_controls_text">'+
+                '</div>'+
+              '</div>'+
+            '</div>'+
+          '</div>'+
+        '</div>';
+
+        $('#box_layer_wrap').show();
+        $('#box_layer_bg').show();
+        $('#box_layer').append(box);
     },
     start: function() {
         console.log(VK);
