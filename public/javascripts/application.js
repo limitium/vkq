@@ -155,9 +155,10 @@ app = {
     getForce: function(rating){
         return rating > 0 ? Math.round((Math.log(rating / 4) / Math.LN10) + 1.2) : 1;
     },
-    showMessage: function(){
-         var box = '<div class="popup_box_container" style="width: 410px; height: auto; margin-top: 171.333px;">'+
-          '<div onclick="__bq.skip=true;" class="box_layout">'+
+    showMessage: function(opt){
+        $.extend({a:1,c:3},{b:2,a:2});
+         var box = $('<div class="popup_box_container" style="width: 410px; height: auto; margin-top: 171.333px;">'+
+          '<div class="box_layout">'+
             '<div class="box_title_wrap">'+
               '<div class="box_x_button">'+
               '</div>'+
@@ -190,11 +191,16 @@ app = {
               '</div>'+
             '</div>'+
           '</div>'+
-        '</div>';
-
+        '</div>');
         $('#box_layer_wrap').show();
         $('#box_layer_bg').show();
         $('#box_layer').append(box);
+        $('.box_x_button,.button_gray button',box).click(app.hideMessage);
+    },
+    hideMessage: function(){
+        $('#box_layer_wrap').hide();
+        $('#box_layer_bg').hide();
+        $('.popup_box_container').remove();
     },
     start: function() {
         console.log(VK);
