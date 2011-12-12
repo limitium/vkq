@@ -32,10 +32,6 @@ app = {
         },
         scroll: {
             window: function(top, height) {
-                console.log(top);
-                console.log(height);
-                console.log($(document).height());
-                console.log($(document).height() - height);
                 if (top - 152 == $(document).height() - height){
                     app.preloadData();
                 }
@@ -156,16 +152,21 @@ app = {
         return rating > 0 ? Math.round((Math.log(rating / 4) / Math.LN10) + 1.2) : 1;
     },
     showMessage: function(opt){
-        $.extend({a:1,c:3},{b:2,a:2});
+        opt = $.extend({
+            title: 'Заголовок',
+            content: 'Текст',
+            okText: 'OK',
+            cancelText: 'Отмена',
+            okCb: function(){}
+        },opt);
          var box = $('<div class="popup_box_container" style="width: 410px; height: auto; margin-top: 171.333px;">'+
           '<div class="box_layout">'+
             '<div class="box_title_wrap">'+
               '<div class="box_x_button">'+
               '</div>'+
-              '<div class="box_title">Удалить все сообщения</div>'+
+              '<div class="box_title">'+opt.title+'</div>'+
             '</div>'+
-            '<div class="box_body">Вы действительно хотите удалить всю переписку с данным пользователем?<br><br>Отменить'+
-            '</div>'+
+            '<div class="box_body">'+opt.content+'</div>'+
             '<div class="box_controls_wrap">'+
               '<div class="box_controls">'+
                 '<table cellspacing="0" cellpadding="0" class="fl_r">'+
@@ -173,12 +174,12 @@ app = {
                   '<tr>'+
                     '<td>'+
                       '<div class="button_blue">'+
-                        '<button>Удалить</button>'+
+                        '<button>'+opt.okText+'</button>'+
                       '</div>'+
                     '</td>'+
                     '<td>'+
                       '<div class="button_gray">'+
-                        '<button>Закрыть</button>'+
+                        '<button>'+opt.cancelText+'</button>'+
                       '</div>'+
                     '</td>'+
                   '</tr>'+
@@ -196,11 +197,43 @@ app = {
         $('#box_layer_bg').show();
         $('#box_layer').append(box);
         $('.box_x_button,.button_gray button',box).click(app.hideMessage);
+        $('.button_blue button',box).click(opt.okCb);
     },
     hideMessage: function(){
         $('#box_layer_wrap').hide();
         $('#box_layer_bg').hide();
         $('.popup_box_container').remove();
+    },
+    timeout: {
+        set: function(queenId, timeout){
+            app.timeout[queenId] = new Date().setTime(new Date().getTime() + timeout);
+        },
+        get: function(queenId){
+            if(typeof app.timeout[queenId] != 'undefined'){
+                var timeout = app.timeout[queenId] - new Date().getTime();
+                console.log(timeout);
+                if(timeout > 0){
+                    /* Get 1 hour in milliseconds, ie 1000*60*60 */
+                    var one_hour = 3600000;
+                    var elapsedHours = Math.floor(timeout / one_hour );
+
+                    /* Milliseconds still unaccounted for – less than an hour’s worth. */
+                    timeout = timeout % one_hour;
+
+                    /* Get 1 minute in milliseconds, ie 1000*60 */
+                    var one_minute = 60000;
+                    var elapsedMinutes = Math.floor(timeout / one_minute );
+
+                    /* Milliseconds still unaccounted for – less than a minute’s worth. */
+                    timeout = timeout % one_minute;
+
+                    /* Get 1 second in milliseconds */
+                    var one_second = 1000;
+                    var elapsedSeconds = Math.round(timeout / one_second);
+                    return (elapsedHours < 10?"0":"")+elapsedHours+":"+(elapsedMinutes < 10?"0":"")+elapsedMinutes+":"+(elapsedSeconds < 10?"0":"")+elapsedSeconds;
+                }
+            }
+        }
     },
     start: function() {
         console.log(VK);
