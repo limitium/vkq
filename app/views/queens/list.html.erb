@@ -22,40 +22,34 @@
   </div>
 </div>
 
+<div class="queens_list">
 
+    <table class="queen_list rating_list">
+      <% @queens.each_with_index do |queen, index| %>
+          <tr queen="<%= queen._id %>">
+            <td class="photo">
+              <%= ava_link queen,{},"photo_medium_rec" %>
+            </td>
+            <td class="name">
+              <%= name_link queen %>
+              <%= city_link queen %>
 
-
-<table class="queen_list rating_list">
-  <% @queens.each_with_index do |queen, index| %>
-      <tr queen="<%= queen._id %>">
-        <td class="position">
-          <div><%= index + 1 %></div>
-        </td>
-        <td class="rating rating_<%= queen._id %>">
-          <%= queen.rating %>
-        </td>
-        <td class="photo">
-          <%= ava_link queen,{},"photo_medium_rec" %>
-        </td>
-        <td class="name">
-          <%= name_link queen %>
-          <%= city_link queen %>
-          <%= university_link queen %>
-          <%= faculty_link queen %>
-
-        </td>
-        <td class="actions">
-          <div class="button_blue vote">
-            <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
-              Поднять
-            </button>
-          </div>
-          <div class="button_gray">
-            <button queen="<%= queen._id %>" class="vote_button rating_down" type="button">
-              Опустить
-            </button>
-          </div>
-        </td>
-      </tr>
-  <% end %>
-</table>
+              <span class="position position_<%= queen._id %>"><%= index + 1 %></span>
+              (<span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>)
+            </td>
+            <td class="actions">
+              <div class="button_blue vote">
+                <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
+                  Поднять
+                </button>
+              </div>
+              <div class="button_gray">
+                <button queen="<%= queen._id %>" class="vote_button rating_down" type="button">
+                  Опустить
+                </button>
+              </div>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+</div>
