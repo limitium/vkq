@@ -1,6 +1,7 @@
-.queens_list{
+.rating_list_wrapper {
     padding: 5px 15px;
 }
+
 .rating_list {
     width: 100%;
 }
@@ -18,15 +19,15 @@
 
 .rating_list td.position {
     font-weight: bold;
-    font-size: 24px;
-    /*color: #5F7D9D;*/
+    font-size: 24px; /*color: #5F7D9D;*/
     width: 60px;
     border: 0px solid #D9E0E7;
     border-width: 0 1px 1px 0;
 }
+
 .rating_list td.position div {
-    margin:auto;
-width:40px;
+    margin: auto;
+    width: 40px;
 }
 
 .rating_list td.rating {
@@ -40,7 +41,6 @@ width:40px;
 .rating_list td.photo {
     width: 100px;
 }
-
 
 .position_1, .position_1 img {
     width: 100px;
@@ -69,12 +69,43 @@ width:40px;
     display: block;
 }
 
+.rating_list td {
+    vertical-align: top;
+    border-bottom: 1px solid #EEEEEE;
+    padding: 10px 0;
+}
+
 .rating_list td.name {
     padding-left: 10px;
 }
-.rating_list td.name a{
-    display:block;
+
+.rating_list td.name a {
+    display: block;
 }
-.rating_list td.name a.name{
-    font-weight:bold;
+
+.rating_list td.name a.name {
+    font-weight: bold;
+}
+
+.rating_list td.message a {
+    height: 32px;
+}
+
+.rating_list td.message img {
+    width: 32px;
+    height: 32px;
+}
+
+.rating_list td.message div.vote {
+    display:inline-block;
+}
+
+.rating_list td.actions {
+    width: 72px;
+}
+.rating_list td.actions div{
+    margin-top: 3px;
+}
+.rating_list td.actions button{
+    width:70px;
 }

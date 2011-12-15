@@ -22,34 +22,47 @@
   </div>
 </div>
 
-<div class="queens_list">
+<div class="rating_list_wrapper">
 
-    <table class="queen_list rating_list">
-      <% @queens.each_with_index do |queen, index| %>
-          <tr queen="<%= queen._id %>">
-            <td class="photo">
-              <%= ava_link queen,{},"photo_medium_rec" %>
-            </td>
-            <td class="name">
-              <%= name_link queen %>
-              <%= city_link queen %>
+  <table class="rating_list">
+    <% @queens.each_with_index do |queen, index| %>
+        <tr queen="<%= queen._id %>">
+          <td class="photo">
+            <%= ava_link queen, {}, "photo_medium_rec" %>
+          </td>
+          <td class="name">
+            <%= name_link queen %>
+            <%= city_link queen %>
 
-              <span class="position position_<%= queen._id %>"><%= index + 1 %></span>
-              (<span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>)
-            </td>
-            <td class="actions">
-              <div class="button_blue vote">
-                <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
-                  Поднять
-                </button>
+            <span class="position position_<%= queen._id %>"><%= index + 1 %></span>
+            (<span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>)
+          </td>
+          <td class="message">
+            <%= ava_link queen, {}, "photo_rec" %>
+            <div class="vote">
+              <div class="rate_plus">
               </div>
-              <div class="button_gray">
-                <button queen="<%= queen._id %>" class="vote_button rating_down" type="button">
-                  Опустить
-                </button>
+              <div class="rate_value">
+                2
               </div>
-            </td>
-          </tr>
-      <% end %>
-    </table>
+            </div>
+            <div class="text">[15:00:04] limitium: помтуо чил моих больше нет
+[15:00:12] limitium: + я уверен ты включишь распиздяя
+[15:00:21] limitium: ВКЛЮЧИШЬ РАСПИЗДЯЯ!!!!!!!!</div>
+          </td>
+          <td class="actions">
+            <div class="button_blue vote">
+              <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
+                Поднять
+              </button>
+            </div>
+            <div class="button_gray">
+              <button queen="<%= queen._id %>" class="vote_button rating_down" type="button">
+                Опустить
+              </button>
+            </div>
+          </td>
+        </tr>
+    <% end %>
+  </table>
 </div>
