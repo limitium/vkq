@@ -66,7 +66,7 @@ class Queen
   end
 
   def pluses
-    Vote.count :conditions => {:rated_id => self._id, :value => 1}
+    Vote.count :conditions => {:rated_id => self._id, :value.gt => 0}
   end
 
   def total
@@ -74,7 +74,7 @@ class Queen
   end
 
   def pluses_self
-    Vote.count :conditions => {:voter_id => self._id, :value => 1}
+    Vote.count :conditions => {:voter_id => self._id, :value.gt => 0}
   end
 
   def total_self
