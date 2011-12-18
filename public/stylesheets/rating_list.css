@@ -87,6 +87,11 @@
     font-weight: bold;
 }
 
+.rating_list td.name span.achive {
+    color: #5F7D9D;
+    font-size: 20px;
+}
+
 .rating_list td.message a {
     height: 32px;
 }
@@ -96,16 +101,31 @@
     height: 32px;
 }
 
+.rating_list td.message {
+    padding-right: 6px;
+    width: 220px;
+}
+
 .rating_list td.message div.vote {
-    display:inline-block;
+    display: inline-block;
+    float: right;
+    padding-right: 9px;
+}
+
+.rating_list td.message div.text {
+    line-height: 130%;
+    word-wrap: break-word;
+    padding-top: 5px;
 }
 
 .rating_list td.actions {
     width: 72px;
 }
-.rating_list td.actions div{
+
+.rating_list td.actions div {
     margin-top: 3px;
 }
-.rating_list td.actions button{
-    width:70px;
+
+.rating_list td.actions button {
+    width: 70px;
 }

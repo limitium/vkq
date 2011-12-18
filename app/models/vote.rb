@@ -3,6 +3,8 @@ class Vote
   field :rated, :type => Integer
   field :voter, :type => Integer
   field :value, :type => Integer
+  field :paid, :type => Boolean
+  field :message, :type => String
   field :created_at, :type => Integer
 
   field :voter_data, :type => Hash
