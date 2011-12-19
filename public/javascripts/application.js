@@ -23,10 +23,18 @@ app = {
                 var queenId = but.attr('queen');
                 var val = but.hasClass("rating_up") ? 1 : -1;
 
-                VKQ.vote(queenId, val, function(stats) {
-                    app.updateStats(queenId,val, stats);
-                    app.addLog(val);
-                    app.checkPosition(queenId);
+                app.showMessage({
+                    title: (val == 1 ? 'За' : 'Против') + ' ' + $('.name_' + queenId).html(),
+                    content: $('.name_' + queenId).html() + ' получит "' + (val == 1 ? '+' : '-') + '" в рейтинг от вас!',
+                    okText: 'ДА!',
+                    cancelText: 'Не надо',
+                    okCb: function(){
+                        VKQ.vote(queenId, val, function(stats) {
+                            app.updateStats(queenId,val, stats);
+                            app.addLog(val);
+                            app.checkPosition(queenId);
+                        });
+                    }
                 });
             }
         },
@@ -65,9 +73,9 @@ app = {
 
         rows.sort(function(a, b) {
 
-            var keyA = parseInt($(a).children('td.rating').html());
+            var keyA = parseInt($('span.rating',a).html());
 
-            var keyB = parseInt($(b).children('td.rating').html());
+            var keyB = parseInt($('span.rating',b).html());
 
             if (keyA > keyB) return -1;
 
