@@ -22,20 +22,57 @@ app = {
                 var but = $(this);
                 var queenId = but.attr('queen');
                 var val = but.hasClass("rating_up") ? 1 : -1;
+                var  msg = '<div>'+
+                            '<div>'+$('.name_' + queenId).html() + ' получит "' + (val == 1 ? '+' : '-') + app.getForce(server.current_queen.rating) + '" в рейтинг от вас!</div>'+
+                            '<textarea />'+
+                            '<div class="counter">140</div>'+
+                        '</div>';
 
-                app.showMessage({
-                    title: (val == 1 ? 'За' : 'Против') + ' ' + $('.name_' + queenId).html(),
-                    content: $('.name_' + queenId).html() + ' получит "' + (val == 1 ? '+' : '-') + '" в рейтинг от вас!',
-                    okText: 'ДА!',
-                    cancelText: 'Не надо',
-                    okCb: function(){
-                        VKQ.vote(queenId, val, function(stats) {
+                var sendVote = function(){
+                    $('.progress',box).show();
+                    if($('.ok.button_blue').size()){
+                        $('.box_x_button,.cancel button,.ok button',box).unbind('click');
+                        var message = $('textarea',box).val().substr(0,140);
+                        VKQ.vote(queenId, val, message, function(stats) {
                             app.updateStats(queenId,val, stats);
-                            app.addLog(val);
+                            app.addLog(val, message);
                             app.checkPosition(queenId);
+                            app.hideMessage();
+                            app.showBaloon({
+                                title: 'Голос учтен.',
+                                content: 'Вы проголосовали '+(val == 1 ? 'за ' : 'против ')+'<a href="/queen/'+queenId+'">'+$('.name_' + queenId).html()+'</a>'
+                            });
                         });
                     }
+                };
+                var box = app.showMessage({
+                    title: (val == 1 ? 'Я за' : 'Я против'),
+                    content: msg,
+                    okText: 'ДА!',
+                    cancelText: 'Не надо',
+                    okCb: sendVote
                 });
+
+                $('.box_body textarea').focus();
+
+                var checker = function(){
+                    console.log(arguments);
+                    var left = 140 - this.value.length;
+                    var counter = $('.counter',box);
+                    $('.ok',box).addClass('button_blue').removeClass('button_gray');
+                    if(left > 20){
+                        counter.removeClass('warn').removeClass('superwarn');
+                    }else if(left > 10){
+                        counter.addClass('warn').removeClass('superwarn');
+                    }else{
+                        counter.removeClass('warn').addClass('superwarn');
+                        if(left < 0){
+                            $('.ok',box).removeClass('button_blue').addClass('button_gray');
+                        }
+                    }
+                    counter.html(left);
+                };
+                $('textarea',box).keypress(checker).keyup(checker);
             }
         },
         scroll: {
@@ -87,14 +124,14 @@ app = {
 
         $.each(rows, function(index, row) {
             (function(i){
-                $('td.position div',row).html(i+1);
+                $('span.position',row).html(i+1);
             })(index);
 
             $('table.rating_list tbody').append(row);
         });
         $('tr[queen='+queenId+']').hide().fadeIn();
     },
-    addLog: function(val){
+    addLog: function(val, message){
         var cq = server.current_queen;
         var row = $('<tr'+(val>0?"":' class="minus"')+'>'+
               '<td class="stats_photo">'+
@@ -104,27 +141,20 @@ app = {
               '</td>'+
               '<td class="stats_from">'+
                 '<div class="name wrapped">'+
-                  '<a class="name_'+cq._id+'" href="/queen/'+cq._id+'">'+cq.first_name+' '+cq.last_name+'</a>'+
+                  '<a class="name_'+cq._id+'" href="/queen/'+cq._id+'">'+$('.name_'+cq._id).html()+'</a>'+
+                '</div>'+
+                '<div class="rate">'+
+                    '<div class="rate_'+(val>0?"plus":"minus")+'"> '+
+                    ' </div>'+
+                    '<div class="rate_value"> '+
+                      app.getForce(cq.rating)+
+                    ' </div>'+
                 '</div>'+
                 '<div class="date">'+
                   'только что'+
                 '</div>'+
-              '</td>'+
-              '<td class="voter_value">'+
-                '<div class="rate_'+(val>0?"plus":"minus")+'">'+
-                '</div>'+
-                '<div class="rate_value">'+
-                  app.getForce(cq.rating)+
-                '</div>'+
-              '</td>'+
-              '<td class="voter_stat">'+
-                '<div class="label">Рейтинг:</div>'+
-                '<div class="labeled">'+
-                  cq.rating+
-                '</div>'+
-              '</td>'+
-            '</tr>');
-        console.log(row);
+                '<div class="message">'+message+'</div>'+
+              '</td>');
         $('#rates').prepend(row.fadeIn());
     },
     updateStats: function(queenId,val,stats) {
@@ -155,6 +185,10 @@ app = {
             }
             percentSelf.html(Math.round(plusesSelf.html() / totalSelf.html() * 1000) / 10);
         }
+
+        if(server.current_queen._id == queenId){
+            server.current_queen.rating = stats.rating;
+        }
     },
     getForce: function(rating){
         return rating > 0 ? Math.round((Math.log(rating / 4) / Math.LN10) + 1.2) : 1;
@@ -181,12 +215,12 @@ app = {
                   '<tbody>'+
                   '<tr>'+
                     '<td>'+
-                      '<div class="button_blue">'+
+                      '<div class="button_blue ok">'+
                         '<button>'+opt.okText+'</button>'+
                       '</div>'+
                     '</td>'+
                     '<td>'+
-                      '<div class="button_gray">'+
+                      '<div class="button_gray cancel">'+
                         '<button>'+opt.cancelText+'</button>'+
                       '</div>'+
                     '</td>'+
@@ -204,13 +238,23 @@ app = {
         $('#box_layer_wrap').show();
         $('#box_layer_bg').show();
         $('#box_layer').append(box);
-        $('.box_x_button,.button_gray button',box).click(app.hideMessage);
-        $('.button_blue button',box).click(opt.okCb);
+        $('.box_x_button,.cancel button',box).click(app.hideMessage);
+        $('.ok button',box).click(opt.okCb);
+        return box;
     },
     hideMessage: function(){
         $('#box_layer_wrap').hide();
         $('#box_layer_bg').hide();
         $('.popup_box_container').remove();
+    },
+    showBaloon: function(opt){
+        opt = $.extend({
+            title: 'Заголовок',
+            content: 'Текст'
+        },opt);
+        $('.top_result_baloon').html('<div class="top_result_header">'+opt.title+'</div>'+opt.content);
+        $('.top_result_baloon_wrap').show();
+        setTimeout(function(){$('.top_result_baloon_wrap').hide()},1500);
     },
     timeout: {
         set: function(queenId, timeout){

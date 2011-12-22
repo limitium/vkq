@@ -307,6 +307,7 @@
  *border: 0;
  background: url(http://vk.com/images/button_vk.png) #dddddd repeat-x top;
  background-position: 0px -54px;
+ cursor: default;
 }
 .button_gray button:hover {
  background-position: 0px -46px;
@@ -329,3 +330,30 @@
 a.button_link:hover {
   text-decoration: none;
 }
+
+.box_layout .box_body textarea{
+    height: 50px;
+    width: 99%;
+    margin-top: 10px;
+}
+.box_layout .box_body .counter{
+    float: right;
+    color: #AAB7C5;
+}
+.box_layout .box_body .warn{
+    color: #5C0002;
+}
+.box_layout .box_body .superwarn{
+    color:#D40D12;
+}
+.box_controls .progress {
+    margin: 7px 10px 0;
+    position: relative;
+}
+.progress, .progress_inv, .progress_inv_img {
+    background: url("http://vk.com/images/upload.gif") no-repeat scroll 50% 50% transparent;
+    display: none;
+    height: 13px;
+    width: 32px;
+}
+

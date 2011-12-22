@@ -3,11 +3,11 @@ class VotesController < ApplicationController
   # POST /votes.xml
   def create
     if data_is_valid?
-      add_vote_data
+      cleanup
+      vote_add_voter_data
       @vote = Vote.new(params[:vote])
       if @vote.save!
-          @queen.rating = @queen.rating.to_i + @vote.value
-          @queen.save
+        queen_add_vote_data
         render :json => {:rating => @queen.rating, :position => @queen.position}
       else
         render :json => @vote.errors, :status => :unprocessable_entity
@@ -24,9 +24,15 @@ class VotesController < ApplicationController
 
   private
 
-  def add_vote_data
-    params[:vote][:voter] = @current_queen._id
-    params[:vote][:voter_data] = {
+  def cleanup
+    params[:vote][:value] = @current_queen.force * (params[:vote][:value].to_i == 1 ? 1 : -1)
+    if params[:vote][:message].length > 140
+      params[:vote][:message] = params[:vote][:message][0, 140];
+    end
+  end
+
+  def get_voter_hash
+    {
         :_id => @current_queen._id,
         :first_name =>@current_queen.first_name,
         :last_name =>@current_queen.last_name,
@@ -34,7 +40,18 @@ class VotesController < ApplicationController
         :photo_rec =>@current_queen.photo_rec,
         :rating =>@current_queen.rating
     }
-    params[:vote][:value] = @current_queen.force * (params[:vote][:value].to_i == 1 ? 1 : -1)
+  end
+
+  def vote_add_voter_data
+    params[:vote][:voter] = @current_queen._id
+    params[:vote][:voter_data] = get_voter_hash
+  end
+
+  def queen_add_vote_data
+    @queen.rating = @queen.rating.to_i + @vote.value
+    @queen.last_vote = get_voter_hash
+    @queen.last_vote[:message] = params[:vote][:message]
+    @queen.save
   end
 
   def data_is_valid?

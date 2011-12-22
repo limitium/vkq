@@ -51,11 +51,12 @@ VKQ = {
         });
     },
 
-    vote: function(queen, val, callback) {
+    vote: function(queen, val, msg, callback) {
         $.post('/vote', {
             vote: {
                 rated: queen,
-                value: val
+                value: val,
+                message: msg
             }
         }, function(response) {
             callback(response);

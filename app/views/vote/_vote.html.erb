@@ -14,22 +14,17 @@
         <div class="name wrapped">
           <%= name_link  @voter %>
         </div>
+        <div class="rate">
+            <div class="rate_<%= rate.value>0 ? "plus" :"minus" %>">
+            </div>
+            <div class="rate_value">
+              <%= rate.value.abs %>
+            </div>
+        </div>
         <div class="date">
           <%= time_ago_in_words Time.at(rate.created_at) %> назад
         </div>
-      </td>
-      <td class="voter_value">
-        <div class="rate_<%= rate.value>0 ? "plus" :"minus" %>">
-        </div>
-        <div class="rate_value">
-          <%= rate.value.abs %>
-        </div>
-      </td>
-      <td class="voter_stat">
-        <div class="label">Рейтинг:</div>
-        <div class="labeled">
-          <%= @voter.rating %>
-        </div>
+        <div class="message"><%= rate.message %></div>
       </td>
     </tr>
 <% end %>
