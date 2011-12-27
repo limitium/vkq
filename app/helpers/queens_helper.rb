@@ -1,6 +1,6 @@
 module QueensHelper
   def name_link(queen)
-    link_to "#{queen.first_name} #{queen.nickname} #{queen.last_name}", queen_show_path(queen._id), :class => "name name_#{queen._id}"
+    link_to "#{queen.first_name} #{queen.last_name}", queen_show_path(queen._id), :class => "name name_#{queen._id}"
   end
 
   def city_link(queen)
@@ -16,7 +16,7 @@ module QueensHelper
   end
 
   def ava_link(queen, html_options = {}, photo = "photo_rec")
-    link_to(image_tag(queen[photo], :alt => "#{queen.first_name} #{queen.last_name}", :class => " #{photo}_#{queen._id}"), queen_show_path(queen._id), html_options)
+    link_to(image_tag(queen[photo], :alt => "#{queen['first_name']} #{queen['last_name']}", :class => " #{photo}_#{queen['_id']}"), queen_show_path(queen['_id']), html_options)
   end
 
   def ava_link_by_rating(queen, index, html_options={})

@@ -94,6 +94,14 @@ h4 {
     /*background-position: 0 -46px;*/
 /*}*/
 
+/*.clear_fix:after {*/
+    /*clear: both;*/
+    /*content: ".";*/
+    /*display: block;*/
+    /*height: 0;*/
+    /*visibility: hidden;*/
+/*}*/
+
 .feed_tab, .feed_tab_selected, .feed_tab_over {
     cursor: pointer;
     padding: 3px 0 2px 5px;
@@ -167,12 +175,18 @@ h4 {
     font-weight: bold;
     padding: 8px 10px;
     position: relative;
+    display: block;
+    position: relative;
+    height: 25px;
 }
 #header h1 {
     color: #333333;
     font-size: 11px;
     margin: 0;
     overflow: hidden;
+    display: inline-block;
+    padding-right: 20px;
+    padding-top: 5px;
 }
 #header b {
     color: #AAB7C5;
@@ -186,4 +200,28 @@ h4 {
     border-bottom: 1px solid #EEEEEE;
     cursor: pointer;
     padding: 10px 0;
+}
+
+.top_nav_link {
+    background: url("http://vk.com/images/backlink.gif?4") no-repeat scroll left -38px transparent;
+    display: inline-block;
+    overflow: hidden;
+    padding-left: 20px;
+}
+
+ a.top_nav_link {
+    font-size: 11px;
+    font-weight: bold;
+    height: 13px;
+    margin: 0;
+    /*padding: 12px 10px 15px 25px;*/
+}
+#call_friend{
+    float: right;
+}
+a.rules{
+    padding-top: 5px;
+    padding-left: 10px;
+    float: right;
+    padding-right: 5px;
 }

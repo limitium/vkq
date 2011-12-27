@@ -1,22 +1,39 @@
 app = {
     initHandlers: function() {
-        $('.filter').click(app.on.click.filter);
         $('#show_more_link').click(app.preloadData);
         $('button.vote_button').click(app.on.click.vote);
+
+        $('div.input_back_content').click(app.on.click.searchText);
+
+        $('#search_submit').click(app.on.click.search);
+        $('#search_query').focus(app.on.focus.search);
+        $('#search_query').blur(app.on.blur.search);
+        $('#search_query').keypress(app.on.keyup.search).keyup(app.on.keyup.search);
 
         VKQ.scroll(app.on.scroll.window);
     },
     on:{
+        keyup: {
+            search: function(){
+                $('div.input_back_content')[this.value.length>0?'hide':'show']();
+            }
+        },
+        focus:{
+            search: function(){
+                $('.input_back_content').css('color','rgb(192, 200, 208)')
+            }
+        },
+        blur:{
+            search: function(){
+               $('.input_back_content').css('color','rgb(119, 119, 119)')
+            }
+        },
         click: {
-            filter: function() {
-                var filter = $(this);
-                $.each(filter.attr('class').split(/\s/), function(i, cls) {
-                    var matches = cls.match(/f_(\w+)/);
-                    if (matches) {
-                        console.log(filter.attr(matches[1]));
-                    }
-                })
-
+            search: function(){
+                $('#search_query').focus();
+            },
+            searchText: function(){
+                $('#search_query').focus();
             },
             vote: function() {
                 var but = $(this);
@@ -34,8 +51,8 @@ app = {
                         $('.box_x_button,.cancel button,.ok button',box).unbind('click');
                         var message = $('textarea',box).val().substr(0,140);
                         VKQ.vote(queenId, val, message, function(stats) {
-                            app.updateStats(queenId,val, stats);
-                            app.addLog(val, message);
+                            app.updateStats(queenId, val, stats);
+                            app.addLog(queenId, val, message);
                             app.checkPosition(queenId);
                             app.hideMessage();
                             app.showBaloon({
@@ -57,6 +74,7 @@ app = {
 
                 var checker = function(){
                     console.log(arguments);
+                    //@todo:on enter send
                     var left = 140 - this.value.length;
                     var counter = $('.counter',box);
                     $('.ok',box).addClass('button_blue').removeClass('button_gray');
@@ -131,31 +149,42 @@ app = {
         });
         $('tr[queen='+queenId+']').hide().fadeIn();
     },
-    addLog: function(val, message){
+    addLog: function(queenId, val, message){
         var cq = server.current_queen;
-        var row = $('<tr'+(val>0?"":' class="minus"')+'>'+
-              '<td class="stats_photo">'+
-                '<div>'+
-                  '<a href="/queen/'+cq._id+'"><img src="'+cq.photo_rec+'" class=" photo_rec_'+cq._id+'" alt="'+cq.last_name+' '+cq.first_name+'"></a>'+
-                '</div>'+
-              '</td>'+
-              '<td class="stats_from">'+
-                '<div class="name wrapped">'+
-                  '<a class="name_'+cq._id+'" href="/queen/'+cq._id+'">'+$('.name_'+cq._id).html()+'</a>'+
-                '</div>'+
-                '<div class="rate">'+
-                    '<div class="rate_'+(val>0?"plus":"minus")+'"> '+
+        var rates = $('#rates');
+        var link = '<a href="/queen/' + cq._id + '"><img src="' + cq.photo_rec + '" class=" photo_rec_' + cq._id + '" alt="' + cq.last_name + ' ' + cq.first_name + '"></a>';
+        var vote = '<div class="rate_'+(val>0?"plus":"minus")+'"> '+
                     ' </div>'+
                     '<div class="rate_value"> '+
                       app.getForce(cq.rating)+
-                    ' </div>'+
-                '</div>'+
-                '<div class="date">'+
-                  'только что'+
-                '</div>'+
-                '<div class="message">'+message+'</div>'+
-              '</td>');
-        $('#rates').prepend(row.fadeIn());
+                    ' </div>';
+
+        if(rates.length){
+            var row = $('<tr' + (val > 0 ? "" : ' class="minus"') + '>' +
+                      '<td class="stats_photo">' +
+                          '<div>' + link + '</div>'+
+                      '</td>'+
+                      '<td class="stats_from">'+
+                        '<div class="name wrapped">'+
+                          '<a class="name_'+cq._id+'" href="/queen/'+cq._id+'">'+$('.name_'+cq._id).html()+'</a>'+
+                        '</div>'+
+                        '<div class="rate">'+
+                            vote +
+                        '</div>'+
+                        '<div class="date">'+
+                          'только что'+
+                        '</div>'+
+                        '<div class="message">'+message+'</div>'+
+                      '</td>');
+            rates.prepend(row.fadeIn());
+        }else{
+            var scope = $('tr[queen='+queenId+']');
+
+            $('.vote', scope).html(vote);
+            $('.text',scope).html(message);
+            $('.from_wrapper>a',scope).remove();
+            $('.from_wrapper',scope).prepend(link);
+        }
     },
     updateStats: function(queenId,val,stats) {
         $('.rating_' + queenId).html(stats.rating);
@@ -254,7 +283,7 @@ app = {
         },opt);
         $('.top_result_baloon').html('<div class="top_result_header">'+opt.title+'</div>'+opt.content);
         $('.top_result_baloon_wrap').show();
-        setTimeout(function(){$('.top_result_baloon_wrap').hide()},1500);
+        setTimeout(function(){$('.top_result_baloon_wrap').hide()},2500);
     },
     timeout: {
         set: function(queenId, timeout){

@@ -8,7 +8,8 @@
 }
 .im_tab, .im_tab_selected, .im_tab_over {
     cursor: pointer;
-    float: left;
+    /*float: left;*/
+    display: inline-block;
     padding: 5px 1px 5px 5px;
 }
 .im_tab, .im_tab_selected, .im_tab_over {

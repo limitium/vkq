@@ -1,23 +1,14 @@
 <div class="list_filter">
-  <h1>Король России</h1>
-
-  <div class="feed_tab filter f_sex" sex="1">
-    <div class="feed_tab1">
-      <div class="feed_tab2">
-        <div class="feed_tab3 feed_tab3_nav">
-          <nobr>Королева</nobr>
+  <div class="clear_fix">
+    <div onclick="event.cancelBubble = true;" class="search_isearch fl_l">
+        <div class="search_input_cont">
+            <div class="input_back_wrap no_select"><div class="input_back" style="margin: 1px; padding: 5px 5px 5px 20px;"><div class="input_back_content" style="color: rgb(119, 119, 119);">Начните вводить любое имя или фамилию</div></div>  </div><input type="text" value="" autocomplete="off" placeholder="" id="search_query" class="text">
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="feed_tab_selected filter f_sex" sex="2">
-    <div class="feed_tab1">
-      <div class="feed_tab2">
-        <div class="feed_tab3 feed_tab3_nav">
-          <nobr>Король</nobr>
-        </div>
-      </div>
+        <div class="results_container" style="width: 512px;"><div class="result_list" style="display: none; width: 512px;"><ul></ul></div><div class="result_list_shadow" style="display: none; top: 0px; width: 512px;"><div class="shadow1"></div><div class="shadow2"></div></div></div></div>
+        <div class="fl_l" id="search_query_reset" style="opacity: 0.5;"></div>
+        <div class="fl_l" id="search_query_progress"></div>
+        <div class="fl_r search_submit">
+        <div class="button_blue button_wide"><button id="search_submit">Поиск</button></div>
     </div>
   </div>
 </div>
@@ -40,28 +31,36 @@
             </span>
           </td>
           <td class="message">
-            <%= ava_link queen, {}, "photo_rec" %>
-            <div class="vote">
-              <div class="rate_plus">
+            <div class="from_wrapper">
+              <% if !queen.last_vote.nil? %>
+                  <%= ava_link queen.last_vote, {}, "photo_rec" %>
+              <% end %>
+              <div class="actions">
+                <div class="button_blue">
+                  <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
+                    Поднять
+                  </button>
+                </div>
+                <div class="button_blue">
+                  <button queen="<%= queen._id %>" class="vote_button rating_down" type="button">
+                    Опустить
+                  </button>
+                </div>
               </div>
-              <div class="rate_value">
-                2
+              <div class="vote">
+                <% if !queen.last_vote.nil? %>
+                    <div class="rate_<%= queen.last_vote['value'] > 0 ? "plus" :"minus" %>">
+                    </div>
+                    <div class="rate_value">
+                      <%= queen.last_vote['value'].abs %>
+                    </div>
+                <% end %>
               </div>
             </div>
-            <div class="text">[15:00:04] limitium: помтуо чил моих больше нет [15:00:12] limitium: + я уверен ты
-              включишь распиздяя [15:00:21] limitium: ВКЛЮЧИШЬ РАСПИЗДЯ
-            </div>
-          </td>
-          <td class="actions">
-            <div class="button_blue vote">
-              <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
-                Поднять
-              </button>
-            </div>
-            <div class="button_blue">
-              <button queen="<%= queen._id %>" class="vote_button rating_down" type="button">
-                Опустить
-              </button>
+            <div class="text">
+              <% if !queen.last_vote.nil? %>
+                  <%= queen.last_vote['message'] %>
+              <% end %>
             </div>
           </td>
         </tr>

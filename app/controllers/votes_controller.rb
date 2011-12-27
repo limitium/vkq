@@ -51,6 +51,7 @@ class VotesController < ApplicationController
     @queen.rating = @queen.rating.to_i + @vote.value
     @queen.last_vote = get_voter_hash
     @queen.last_vote[:message] = params[:vote][:message]
+    @queen.last_vote[:value] = params[:vote][:value]
     @queen.save
   end
 

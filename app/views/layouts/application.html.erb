@@ -34,35 +34,43 @@
   </div>
   <div id="header_wrap2">
     <div id="header_wrap1">
-      <div id="header" style="display: block;">
+      <div id="header">
         <h1 id="title">
-          <b class="fl_r rating_<%= @current_queen.id %>"><%= @current_queen.rating %></b>
           <%= name_link @current_queen %>
-          <b> (это Вы)</b>
+          <b> (<b class="rating_<%= @current_queen.id %>"><%= @current_queen.rating %></b>)</b>
         </h1>
-      </div>
-      <div class="bar" id="im_bar">
-        <div style="" class="clear_fix" id="im_tabs">
-          <div id="im_tab257122" class="im_tab_selected">
-            <div class="im_tab1">
-              <div class="im_tab2">
-                <table cellspacing="0" cellpadding="0">
-                  <tbody>
-                  <tr>
-                    <td>
-                      <div class="im_tab3">Максим&nbsp;Кабанов<span id="im_unread257122"></span></div>
-                    </td>
-                    <td>
-                      <div onclick="cancelEvent(event); IM.closeTab(257122);" class="im_tabx"></div>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+        <% if controller.action_name != "list" %>
+            <a href="/queens" class="top_nav_link">К списку участников</a>
+        <% end %>
+        <a href="http://vkontakte.ru/mondarinka" class="rules">Правила</a>
+        <div id="call_friend" class="button_blue">
+          <button type="button">
+            Позвать друга
+          </button>
         </div>
       </div>
+      <!--<div class="bar" id="im_bar">-->
+        <!--<div style="" class="clear_fix" id="im_tabs">-->
+          <!--<div id="im_tab257122" class="im_tab_selected">-->
+            <!--<div class="im_tab1">-->
+              <!--<div class="im_tab2">-->
+                <!--<table cellspacing="0" cellpadding="0">-->
+                  <!--<tbody>-->
+                  <!--<tr>-->
+                    <!--<td>-->
+                      <!--<div class="im_tab3">Максим&nbsp;Кабанов<span id="im_unread257122"></span></div>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                      <!--<div onclick="cancelEvent(event); IM.closeTab(257122);" class="im_tabx"></div>-->
+                    <!--</td>-->
+                  <!--</tr>-->
+                  <!--</tbody>-->
+                <!--</table>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
   </div>
   <%= yield %>
