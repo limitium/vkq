@@ -102,8 +102,7 @@
 .rating_list td.message {
     padding-right: 6px;
     padding-left: 10px;
-      min-width: 250px;
-    /*width: 220px;*/
+    min-width: 250px; /*width: 220px;*/
 }
 
 .rating_list td.message div.vote {
@@ -140,40 +139,48 @@
     position: relative;
     z-index: 90;
 }
+
 .no_select {
     -moz-user-select: none;
 }
+
 .input_back {
     color: #777777;
     position: absolute;
     z-index: 90;
 }
+
 .input_back_content {
     line-height: normal;
     padding: 0 2px;
     white-space: nowrap;
 }
+
 #search_query_wrap.wide #search_query {
     width: 485px;
 }
+
 #search_query {
     background: url("http://vk.com/images/magglass.png") no-repeat scroll 5px 6px #FFFFFF;
     outline: medium none;
     padding: 5px 5px 5px 20px;
     width: 505px;
 }
+
 input.text, input.search, textarea {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #C0CAD5;
-    font-family: tahoma,tahoma,verdana,arial,sans-serif,Lucida Sans;
+    font-family: tahoma, tahoma, verdana, arial, sans-serif, Lucida Sans;
     font-size: 11px;
     margin: 0;
     padding: 3px;
 }
+
 .results_container {
     position: absolute;
     z-index: 100;
 }
+
 .result_list {
     -moz-border-bottom-colors: none;
     -moz-border-image: none;
@@ -190,6 +197,7 @@ input.text, input.search, textarea {
     position: absolute;
     z-index: 100;
 }
+
 .result_list_shadow {
     border: 0 none;
     display: none;
@@ -200,15 +208,48 @@ input.text, input.search, textarea {
     position: absolute;
     z-index: 100;
 }
+
 .result_list ul {
     background: none repeat scroll 0 0 #FFFFFF;
     margin: 0;
     padding: 0;
     position: relative;
 }
+
 .result_list_shadow .shadow1, .result_list_shadow .shadow2 {
     background-color: #000000;
     height: 1px;
     opacity: 0.12;
     overflow: hidden;
+}
+
+#search_query_wrap.loading #search_query_progress, #search_query_wrap #search_query_reset.shown {
+    display: block;
+}
+
+#search_query_progress {
+    background: url("http://vk.com/images/upload.gif") no-repeat scroll center center transparent;
+    height: 23px;
+    margin-left: -41px;
+    margin-top: 1px;
+    position: relative;
+    width: 32px;
+    z-index: 95;
+    display: none;
+}
+
+#search_query_reset {
+    background: url("http://vk.com/images/icons/input_clear.gif") no-repeat scroll 7px 7px transparent;
+    cursor: pointer;
+    display: none;
+    height: 13px;
+    margin-left: -25px;
+    opacity: 0.6;
+    padding: 5px;
+    position: relative;
+    width: 8px;
+    z-index: 100;
+}
+#search_query_reset:hover {
+    opacity:1;
 }

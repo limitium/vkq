@@ -78,8 +78,16 @@ VKQ = {
         VK.External.resizeWindow(page.width(), page.height());
     },
 
-    scroll: function(callback){
+    scroll: function(callback) {
         VK.addCallback("onScroll", callback);
         VK.callMethod("scrollSubscribe");
+    },
+    search: function(q, callback) {
+        $.get('/queens/search', {
+            q: q
+        }, function(response) {
+            callback(response);
+        });
     }
+
 };

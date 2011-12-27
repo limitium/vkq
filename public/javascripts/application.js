@@ -9,13 +9,20 @@ app = {
         $('#search_query').focus(app.on.focus.search);
         $('#search_query').blur(app.on.blur.search);
         $('#search_query').keypress(app.on.keyup.search).keyup(app.on.keyup.search);
+        $('#search_query_reset').click(app.on.click.searchReset);
 
         VKQ.scroll(app.on.scroll.window);
     },
     on:{
         keyup: {
             search: function(){
-                $('div.input_back_content')[this.value.length>0?'hide':'show']();
+                if(this.value.length){
+                    $('#search_query_reset').show();
+                    $('div.input_back_content').hide();
+                }else{
+                    $('#search_query_reset').hide();
+                    $('div.input_back_content').show();
+                }
             }
         },
         focus:{
@@ -30,10 +37,23 @@ app = {
         },
         click: {
             search: function(){
-                $('#search_query').focus();
+                var progress = $('#search_query_progress');
+                var q = $('#search_query').val();
+                if(q){
+                    progress.show();
+                    $('#search_query_reset').hide();
+                    VKQ.search(q, function(){
+                        progress.hide();
+                        $('#search_query_reset').show();
+                    });
+                }
             },
             searchText: function(){
                 $('#search_query').focus();
+            },
+            searchReset: function(){
+                $('#search_query').val("");
+                $('#search_query').trigger('keypress');
             },
             vote: function() {
                 var but = $(this);

@@ -1,4 +1,13 @@
 class QueensController < ApplicationController
+
+  # GET /queens
+  # GET /queens.xml
+  def search
+    @queens = Queen.order_by(:rating=>:desc)
+
+    render :layout => false
+  end
+
   # GET /queens
   # GET /queens.xml
   def list
