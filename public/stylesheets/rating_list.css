@@ -1,5 +1,6 @@
 .rating_list_wrapper {
     padding: 5px 15px;
+    min-height: 400px;
 }
 
 .rating_list {
@@ -252,4 +253,24 @@ input.text, input.search, textarea {
 }
 #search_query_reset:hover {
     opacity:1;
+}
+
+#search_content #results {
+    padding: 5px 15px;
+}
+.search_table td.results, .search_results td.results {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-right: 1px solid #DAE2E8;
+    padding: 0 10px 10px;
+}
+.search_results td.results, .search_results td.filters, .search_table td.results, .search_table td.filters {
+    padding: 0;
+    vertical-align: top;
+}
+#no_results {
+    color: #777777;
+    font-size: 13px;
+    margin: 10px 0;
+    padding: 100px 0;
+    text-align: center;
 }

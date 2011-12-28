@@ -3,9 +3,13 @@ class QueensController < ApplicationController
   # GET /queens
   # GET /queens.xml
   def search
-    @queens = Queen.order_by(:rating=>:desc)
-
-    render :layout => false
+    words = params[:q].split(" ")
+    criterion = {'$or' => [{:first_name => /^#{words[0]}/i}, {:last_name => /^#{words[0]}/i}]}
+    if words.length > 1
+      criterion['$or'] << {:first_name => /^#{words[1]}/i} << {:last_name => /^#{words[1]}/i}
+    end
+    @queens = Queen.where(criterion).order_by(:rating=>:desc)
+    render :template => 'queens/_list', :layout => false
   end
 
   # GET /queens

@@ -1,4 +1,7 @@
 app = {
+    search:{
+        lastQ: null
+    },
     initHandlers: function() {
         $('#show_more_link').click(app.preloadData);
         $('button.vote_button').click(app.on.click.vote);
@@ -16,6 +19,7 @@ app = {
     on:{
         keyup: {
             search: function(){
+                //@todo: send on enter
                 if(this.value.length){
                     $('#search_query_reset').show();
                     $('div.input_back_content').hide();
@@ -39,12 +43,14 @@ app = {
             search: function(){
                 var progress = $('#search_query_progress');
                 var q = $('#search_query').val();
-                if(q){
+                if(q && app.search.lastQ != q){
+                    app.search.lastQ = q;
                     progress.show();
                     $('#search_query_reset').hide();
-                    VKQ.search(q, function(){
+                    VKQ.search(q, function(result){
                         progress.hide();
                         $('#search_query_reset').show();
+                        $('.rating_list').html(result);
                     });
                 }
             },
