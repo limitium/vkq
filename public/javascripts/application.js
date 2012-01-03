@@ -65,7 +65,7 @@ app = {
                 var but = $(this);
                 var queenId = but.attr('queen');
                 var val = but.hasClass("rating_up") ? 1 : -1;
-                var  msg = '<div>'+
+                var msg = '<div>'+
                             '<div>'+$('.name_' + queenId).html() + ' получит "' + (val == 1 ? '+' : '-') + app.getForce(server.current_queen.rating) + '" в рейтинг от вас!</div>'+
                             '<textarea />'+
                             '<div class="counter">140</div>'+
@@ -150,7 +150,7 @@ app = {
         return false;
     },
     checkPosition: function(queenId){
-        var rows = $('table.rating_list tbody > tr').get();
+        var rows = $('table.rating_list tbody > tr.queen').get();
 
         rows.sort(function(a, b) {
 

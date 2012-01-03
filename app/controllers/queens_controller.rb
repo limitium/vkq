@@ -9,6 +9,7 @@ class QueensController < ApplicationController
       criterion['$or'] << {:first_name => /^#{words[1]}/i} << {:last_name => /^#{words[1]}/i}
     end
     @queens = Queen.where(criterion).order_by(:rating=>:desc)
+    @search = 1
     render :template => 'queens/_list', :layout => false
   end
 

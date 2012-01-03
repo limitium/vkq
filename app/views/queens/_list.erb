@@ -1,6 +1,6 @@
 <% if @queens.length > 0 %>
     <% @queens.each_with_index do |queen, index| %>
-        <tr queen="<%= queen._id %>">
+        <tr class=<%= !@search.nil? ? "search_queen" : "queen" %> queen="<%= queen._id %>">
           <td class="photo">
             <%= ava_link queen, {}, "photo_medium_rec" %>
           </td>
@@ -9,8 +9,12 @@
             <%= city_link queen %>
 
             <span class="achive">
-        <span class="position position_<%= queen._id %>"><%= index + 1 %></span>
-        (<span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>)
+              <% if !@search.nil? %>
+                <span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>
+              <% else %>
+                  <span class="position position_<%= queen._id %>"><%= index + 1 %></span>
+                (<span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>)
+              <% end %>
     </span>
           </td>
           <td class="message">
