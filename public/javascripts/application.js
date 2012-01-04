@@ -18,11 +18,14 @@ app = {
     },
     on:{
         keyup: {
-            search: function(){
-                //@todo: send on enter
+            search: function(e){
                 if(this.value.length){
-                    $('#search_query_reset').show();
-                    $('div.input_back_content').hide();
+                    if(e.keyCode == 13){
+                        $('#search_submit').trigger("click");
+                    }else{
+                        $('#search_query_reset').show();
+                        $('div.input_back_content').hide();
+                    }
                 }else{
                     $('#search_query_reset').hide();
                     $('div.input_back_content').show();
@@ -44,9 +47,9 @@ app = {
                 var progress = $('#search_query_progress');
                 var q = $('#search_query').val();
                 if(q && app.search.lastQ != q){
+                    $('#search_query_reset').hide();
                     app.search.lastQ = q;
                     progress.show();
-                    $('#search_query_reset').hide();
                     VKQ.search(q, function(result){
                         progress.hide();
                         $('#search_query_reset').show();
@@ -98,23 +101,25 @@ app = {
 
                 $('.box_body textarea').focus();
 
-                var checker = function(){
-                    console.log(arguments);
-                    //@todo:on enter send
-                    var left = 140 - this.value.length;
-                    var counter = $('.counter',box);
-                    $('.ok',box).addClass('button_blue').removeClass('button_gray');
-                    if(left > 20){
-                        counter.removeClass('warn').removeClass('superwarn');
-                    }else if(left > 10){
-                        counter.addClass('warn').removeClass('superwarn');
+                var checker = function(e){
+                    if(e.keyCode == 13){
+                        sendVote();
                     }else{
-                        counter.removeClass('warn').addClass('superwarn');
-                        if(left < 0){
-                            $('.ok',box).removeClass('button_blue').addClass('button_gray');
+                        var left = 140 - this.value.length;
+                        var counter = $('.counter',box);
+                        $('.ok',box).addClass('button_blue').removeClass('button_gray');
+                        if(left > 20){
+                            counter.removeClass('warn').removeClass('superwarn');
+                        }else if(left > 10){
+                            counter.addClass('warn').removeClass('superwarn');
+                        }else{
+                            counter.removeClass('warn').addClass('superwarn');
+                            if(left < 0){
+                                $('.ok',box).removeClass('button_blue').addClass('button_gray');
+                            }
                         }
+                        counter.html(left);
                     }
-                    counter.html(left);
                 };
                 $('textarea',box).keypress(checker).keyup(checker);
             }
