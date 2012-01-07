@@ -7,22 +7,22 @@ gem 'rails', '3.0.7'
 
 gem "russian", :git => 'git://github.com/tacid/russian.git', :branch=>'rails3'
 
-gem 'bson_ext'
+gem 'bson_ext','1.5.2'
 gem 'mongo','1.5.2'
 gem 'mongoid','2.2.5'
-gem 'mongo_ext'
-gem "kaminari"
+gem 'mongo_ext','0.19.3'
+gem 'kaminari','0.13.0'
 
-gem 'jquery-rails'
+gem 'jquery-rails','1.0.19'
 
-group :development do
-  gem 'rspec-rails','2.6.1'
-end
-
-group :test do
-  gem 'rspec-rails','2.6.1'
-  gem 'webrat'
-end
+#group :development do
+#  gem 'rspec-rails','2.6.1'
+#end
+#
+#group :test do
+#  gem 'rspec-rails','2.6.1'
+#  gem 'webrat'
+#end
 # Use unicorn as the web server
 # gem 'unicorn'
 
