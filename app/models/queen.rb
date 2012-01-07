@@ -60,7 +60,7 @@ class Queen
   end
 
   def rates_page(page)
-    self.rates.order_by(:created_at=>:desc).page(page).per(Vkq::Application.config.votes_per_page)
+    self.rates.order_by(:created_at=>:desc).page(page).per(7)
   end
 
   def position

@@ -46,7 +46,7 @@ class QueensController < ApplicationController
         criterion['$or'] << {:first_name => /^#{words[1]}/i} << {:last_name => /^#{words[1]}/i}
       end
     end
-    @per_page = Vkq::Application.config.queens_per_page
+    @per_page = 7
     @queens = Queen.where(criterion).order_by(:rating=>:desc).page(params[:page]).per(@per_page)
   end
 
