@@ -41,7 +41,7 @@ class Queen
   index :last_name
 
 
-  references_many :votes, :class_name => 'Vote', :inverse_of => :voter, :index => true
+#  references_many :votes, :class_name => 'Vote', :inverse_of => :voter, :index => true
 #  references_many :rates, :class_name => 'Vote', :inverse_of => :rated, :index => true
 
 
@@ -60,7 +60,7 @@ class Queen
   end
 
   def rates_page(page)
-    self.rates.order_by(:created_at=>:desc).page(page).per(7)
+    Vote.where(:rated => self._id).order_by(:created_at=>:desc).page(page).per(7)
   end
 
   def position

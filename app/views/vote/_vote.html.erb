@@ -1,10 +1,10 @@
 <% @last %>
-<% @rates.each_with_index do |rate,index| %>
+<% @rates.each_with_index do |rate, index| %>
     <% @last = index %>
 <% end %>
-<% @rates.each_with_index do |rate,index| %>
+<% @rates.each_with_index do |rate, index| %>
     <% @voter = Queen.new rate.voter_data %>
-    <tr <%= index == @last ? paginate(@rates)  :"" %><%= rate.value>0 ? "" :"class=minus" %> >
+    <tr <%= index == @last ? paginate(@rates) :"" %><%= rate.value>0 ? "" :"class=minus" %> >
       <td class="stats_photo">
         <div>
           <%= ava_link @voter %>
@@ -12,14 +12,14 @@
       </td>
       <td class="stats_from">
         <div class="name wrapped">
-          <%= name_link  @voter %>
+          <%= name_link @voter %>
         </div>
         <div class="rate">
-            <div class="rate_<%= rate.value>0 ? "plus" :"minus" %>">
-            </div>
-            <div class="rate_value">
-              <%= rate.value.abs %>
-            </div>
+          <div class="rate_<%= rate.value>0 ? "plus" :"minus" %>">
+          </div>
+          <div class="rate_value">
+            <%= rate.value.abs %>
+          </div>
         </div>
         <div class="date">
           <%= time_ago_in_words Time.at(rate.created_at) %> назад
