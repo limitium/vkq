@@ -3,17 +3,18 @@ class ApplicationController < ActionController::Base
   before_filter :filter_user
 
   def filter_user
-    if check_params
-      sign_in_or_up
-    else
-      to_vk unless signed_in?
-    end
+    sign_in
+#    if check_params
+#      sign_in_or_up
+#    else
+#      to_vk unless signed_in?
+#    end
   end
 
   def check_params
     return !params[:viewer_id].nil?
     # remove this on product
-     request.referer[0, 30] == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}" && params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
+    request.referer[0, 30] == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}" && params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
   end
 
   def sign_in_or_up
