@@ -8,8 +8,8 @@ gem 'rails', '3.0.7'
 gem "russian", :git => 'git://github.com/tacid/russian.git', :branch=>'rails3'
 
 gem 'bson_ext'
-gem 'mongo'
-gem 'mongoid'
+gem 'mongo','1.5.2'
+gem 'mongoid','2.2.5'
 gem 'mongo_ext'
 gem "kaminari"
 
