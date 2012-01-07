@@ -35,14 +35,7 @@ class Queen
   attr_accessible :_id, :first_name, :last_name, :nickname, :domain, :sex, :bdate, :city, :city_name, :country, :country_name, :photo, :photo_rec, :photo_medium_rec, :photo_big, :rate, :mobile_phone, :home_phone, :faculty, :faculty_name, :university, :university_name, :graduation
   key :_id
 
-  index :_id, :unique => true
-  index :rating
-  index :first_name
-  index :last_name
 
-
-  references_many :votes, :class_name => 'Vote', :inverse_of => :voter, :index => true
-  references_many :rates, :class_name => 'Vote', :inverse_of => :rated, :index => true
 
 
   def self.authenticate_with_salt(id, cookie_salt)
