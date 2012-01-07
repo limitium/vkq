@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :filter_user
 
   def filter_user
-    sign_in
+    sign_in_or_up
 #    if check_params
 #      sign_in_or_up
 #    else
