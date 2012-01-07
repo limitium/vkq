@@ -21,61 +21,6 @@
       </button>
     </div>
 
-    <% @total = @queen.total %>
-    <% @pluses = @queen.pluses %>
-    <% @total_self = @queen.total_self %>
-    <% @pluses_self = @queen.pluses_self %>
-    <div class="module achive_module">
-      <div class="module_header">
-        <div class="header_top clear_fix">
-          Статистика
-        </div>
-        <div class="p_header_bottom">
-          <span class="fl_r position_<%= @queen._id %>"><%= @queen.position %></span>
-          Позиция
-        </div>
-        <div class="p_header_bottom">
-          <span class="fl_r rating_<%= @queen._id %>"><%= @queen.rating %></span>
-          Рейтинг
-        </div>
-        <div class="p_header_bottom">
-          <span class="fl_r force_<%= @queen._id %>"><%= @queen.force %></span>
-          Сила голоса
-        </div>
-        <div class="p_header_bottom">
-          <span class="fl_r total_<%= @queen._id %>"><%= @total %></span>
-          Голосов
-        </div>
-        <div class="p_header_bottom">
-          <span class="fl_r"><span class="pluses_<%= @queen._id %>"><%= @pluses %></span>(<span class="percent_<%= @queen._id %>"><%= @total>0 ? sprintf('%.1f', @pluses.fdiv(@total)*100) : 0 %></span>%)</span>
-          Плюсов
-        </div>
-        <div class="p_header_bottom">
-          <span class="fl_r total_self_<%= @queen._id %>"><%= @total_self %></span>
-          Проголосовал
-        </div>
-        <div class="p_header_bottom">
-          <span class="fl_r"><span class="pluses_self_<%= @queen._id %>"><%= @pluses_self %></span>(<span class="percent_self_<%= @queen._id %>"><%= @total_self>0 ? sprintf('%.1f', @pluses_self.fdiv(@total_self)*100) : 0 %></span>%)</span>
-          Поставил<%= @queen.sex == 1 ? "а" :"" %> плюсов
-        </div>
-      </div>
-    </div>
 
-  </div>
-  <div class="wide_column fl_r">
-    <h4>
-      <div class="name name_<%= @queen.id %>">
-        <%= "#{@queen.first_name} #{@queen.last_name}" %>
-      </div>
-    </h4>
-    <div class="position_module">
-      <div class="module_header" href="<%= url_for queen_show_path(@queen) %>">
-        <div class="header_top clear_fix">
-          <span class="right_link fl_r">детализация</span>
-          Голоса
-        </div>
-      </div>
-      <%= render :partial => "vote/votes_block", :locals => {:rates => @rates} %>
-    </div>
   </div>
 </div>

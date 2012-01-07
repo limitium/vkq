@@ -18,7 +18,7 @@ class QueensController < ApplicationController
 
   def show
     @queen = !params[:id].nil? ? Queen.find(params[:id]) : @current_queen
-    @rates = @queen.rates_page params[:page]
+#    @rates = @queen.rates_page params[:page]
     respond_to do |format|
       format.html # show.html.erb
       format.xml { render :xml => @queen }
