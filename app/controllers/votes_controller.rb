@@ -17,7 +17,7 @@ class VotesController < ApplicationController
 
   # GET /votes
   # GET /votes.xml
-  def load
+  def preload
     @rates = Queen.find(params[:vote][:id]).rates_page params[:vote][:page]
     render :template => 'vote/_vote', :layout => false
   end

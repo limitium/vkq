@@ -1,15 +1,17 @@
 class QueensController < ApplicationController
-
-  def search
-    get_queens_and_paginate
-    render :layout => false
-  end
-
+  #base list
   def list
     get_queens_and_paginate
   end
 
+  #load table
   def load
+    get_queens_and_paginate
+    render :template => 'queens/_load', :layout => false
+  end
+
+  #preload rows
+  def preload
     get_queens_and_paginate
     render :template => 'queens/_list', :layout => false
   end
@@ -37,13 +39,15 @@ class QueensController < ApplicationController
   def get_queens_and_paginate
     criterion = {}
     if !params[:q].nil?
+      @search = true
       words = params[:q].split(" ")
       criterion = {'$or' => [{:first_name => /^#{words[0]}/i}, {:last_name => /^#{words[0]}/i}]}
       if words.length > 1
         criterion['$or'] << {:first_name => /^#{words[1]}/i} << {:last_name => /^#{words[1]}/i}
       end
     end
-    @queens = Queen.where(criterion).order_by(:rating=>:desc).page(params[:page]).per(2)
+    @per_page = 2
+    @queens = Queen.where(criterion).order_by(:rating=>:desc).page(params[:page]).per(@per_page)
   end
 
 end

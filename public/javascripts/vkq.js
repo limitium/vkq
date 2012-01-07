@@ -62,27 +62,6 @@ VKQ = {
             callback(response);
         });
     },
-    loadQueens: function(){
-        $.get('/queens/load', {
-            vote: {
-                id: queen,
-                page: page
-            }
-        }, function(response) {
-            callback(response);
-        });
-    },
-    loadVotes: function(queen, page, callback) {
-        $.get('/votes/load', {
-            vote: {
-                id: queen,
-                page: page
-            }
-        }, function(response) {
-            callback(response);
-        });
-    },
-
     updateWindow: function() {
         var page = $('#page');
         VK.External.resizeWindow(page.width(), page.height());
@@ -93,11 +72,36 @@ VKQ = {
         VK.callMethod("scrollSubscribe");
     },
     search: function(q, callback) {
-        $.get('/queens/search', {
+        $.get('/queens/load', {
             q: q
         }, function(response) {
             callback(response);
         });
+    },
+    loadQueens: function(callback) {
+        $.get('/queens/load', function(response) {
+            callback(response);
+        });
+    },
+     preloadVotes: function(queen, page, callback) {
+        $.get('/votes/preload', {
+            vote: {
+                id: queen,
+                page: page
+            }
+        }, function(response) {
+            callback(response);
+        });
+    },
+    preloadQueens: function(q, page, callback) {
+        var params = {
+            page: page
+        };
+        if(q){
+            params.q = q;
+        }
+        $.get('/queens/preload', params, function(response) {
+            callback(response);
+        });
     }
-
 };

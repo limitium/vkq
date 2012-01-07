@@ -3,8 +3,9 @@ app = {
         lastQ: null
     },
     initHandlers: function() {
-        $('#show_more_link').click(app.preloadData);
-        $('button.vote_button').click(app.on.click.vote);
+        $('.position_list #show_more_link').click(app.preloadVotes);
+        $(document).delegate('.rating_list_wrapper #show_more_link','click',app.preloadQueens);
+        $(document).delegate('button.vote_button', 'click', app.on.click.vote);
 
         $('div.input_back_content').click(app.on.click.searchText);
 
@@ -45,24 +46,37 @@ app = {
         click: {
             search: function(){
                 var progress = $('#search_query_progress');
-                var q = $('#search_query').val();
-                if(q && app.search.lastQ != q){
-                    $('#search_query_reset').hide();
-                    app.search.lastQ = q;
-                    progress.show();
-                    VKQ.search(q, function(result){
-                        progress.hide();
-                        $('#search_query_reset').show();
-                        $('.rating_list_wrapper').html(result);
-                    });
+                if(!progress.is(":visible")){
+                    var q = $('#search_query').val();
+                    if(q && app.search.lastQ != q){
+                        $('#search_query_reset').hide();
+                        app.search.lastQ = q;
+                        progress.show();
+                        VKQ.search(q, function(result){
+                            progress.hide();
+                            $('#search_query_reset').show();
+                            $('.rating_list_wrapper').html(result);
+                        });
+                    }
                 }
             },
             searchText: function(){
                 $('#search_query').focus();
             },
             searchReset: function(){
-                $('#search_query').val("");
-                $('#search_query').trigger('keypress');
+                var progress = $('#search_query_progress');
+                if(!progress.is(":visible")){
+                    $('#search_query').val("");
+                    $('#search_query').trigger('keypress');
+
+                    $('#search_query_reset').hide();
+                    app.search.lastQ = null;
+                    progress.show();
+                    VKQ.loadQueens(function(result){
+                        progress.hide();
+                        $('.rating_list_wrapper').html(result);
+                    });
+                }
             },
             vote: function() {
                 var but = $(this);
@@ -75,8 +89,9 @@ app = {
                         '</div>';
 
                 var sendVote = function(){
-                    $('.progress',box).show();
-                    if($('.ok.button_blue').size()){
+                    var progress = $('.progress',box);
+                    if(!progress.is(":visible")){
+                        progress.show();
                         $('.box_x_button,.cancel button,.ok button',box).unbind('click');
                         var message = $('textarea',box).val().substr(0,140);
                         VKQ.vote(queenId, val, message, function(stats) {
@@ -127,21 +142,43 @@ app = {
         scroll: {
             window: function(top, height) {
                 if (top - 152 == $(document).height() - height){
-                    app.preloadData();
+                    app.preloadVotes();
                 }
             }
         }
     },
-    preloadData: function(){
-        var progress = $("#show_more_link .progress");
-        if(!progress.is(":visible")){
+    preloadVotes: function(){
+        var progress = $(".position_list #show_more_link .progress");
+        if(progress && !progress.is(":visible")){
             var lastRow = $("tr[last_page]").last();
             if(!lastRow.is("[end_of_list]")){
                 var link = $("div#show_more");
                 progress.show();
                 link.hide();
-                VKQ.preload($(".queen").attr("queen"), parseInt(lastRow.attr("last_page")) + 1, function(result){
+                VKQ.preloadVotes($(".queen").attr("queen"), parseInt(lastRow.attr("last_page")) + 1, function(result){
                     $(".queen_list tbody").append(result);
+                    if(result.indexOf("end_of_list") != -1){
+                        $("a#show_more_link").remove();
+                    }else{
+                        link.show();
+                    }
+                    progress.hide();
+                    VKQ.updateWindow();
+                });
+            }
+        }
+        return false;
+    },
+    preloadQueens: function(){
+        var progress = $(".rating_list_wrapper #show_more_link .progress");
+        if(progress && !progress.is(":visible")){
+            var lastRow = $("tr[last_page]").last();
+            if(!lastRow.is("[end_of_list]")){
+                var link = $("div#show_more");
+                progress.show();
+                link.hide();
+                VKQ.preloadQueens(app.search.lastQ, parseInt(lastRow.attr("last_page")) + 1, function(result){
+                    $(".rating_list tbody").append(result);
                     if(result.indexOf("end_of_list") != -1){
                         $("a#show_more_link").remove();
                     }else{
@@ -314,7 +351,7 @@ app = {
         },opt);
         $('.top_result_baloon').html('<div class="top_result_header">'+opt.title+'</div>'+opt.content);
         $('.top_result_baloon_wrap').show();
-        setTimeout(function(){$('.top_result_baloon_wrap').hide()},2500);
+        setTimeout(function(){$('.top_result_baloon_wrap').hide()},2000);
     },
     timeout: {
         set: function(queenId, timeout){

@@ -31,14 +31,5 @@
 </div>
 
 <div class="rating_list_wrapper">
-
-  <table class="rating_list">
-    <%= render :partial => "queens/list", :locals => {:queens => @queens} %>
-  </table>
-  <% if @queens.num_pages > 1 %>
-      <a style="height: 13px; display: block;" class="clear_fix more_link" id="show_more_link">
-        <div class="progress" id="show_more_progress"></div>
-        <div id="show_more">Показать предыдущих участников ↓</div>
-      </a>
-  <% end %>
+  <%= render :partial => "queens/load", :locals => {:queens => @queens} %>
 </div>
