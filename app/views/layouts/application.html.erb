@@ -4,7 +4,11 @@
   <title>Vkq</title>
   <%= javascript_include_tag "http://vkontakte.ru/js/api/xd_connection.js?2" %>
   <script type="text/javascript">
-
+      server = {
+          api_id: <%= VKQ_CONFIG["app_id"] %>,
+          update_profile: <%= @update_profile.to_json %>,
+          current_queen: <%= raw @current_queen.to_json :except => :salt %>
+      };
   </script>
   <%= stylesheet_link_tag :all, :recursive => true %>
   <%= javascript_include_tag :defaults %>
@@ -31,7 +35,10 @@
   <div id="header_wrap2">
     <div id="header_wrap1">
       <div id="header">
-
+        <h1 id="title">
+          <%= name_link @current_queen %>
+          <b> (<b class="rating_<%= @current_queen.id %>"><%= @current_queen.rating %></b>)</b>
+        </h1>
         <% if controller.action_name != "list" %>
             <a href="/queens" class="top_nav_link">К списку участников</a>
         <% end %>
