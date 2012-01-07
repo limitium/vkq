@@ -9,12 +9,12 @@ class Vote
 
   field :voter_data, :type => Hash
 
-  index :rated
-  index :voter
-
-
-  referenced_in :voter, :class_name => 'Queen', :inverse_of => :votes, :index => true
-  referenced_in :rated, :class_name => 'Queen', :inverse_of => :rates, :index => true
+#  index :rated
+#  index :voter
+#
+#
+#  referenced_in :voter, :class_name => 'Queen', :inverse_of => :votes, :index => true
+#  referenced_in :rated, :class_name => 'Queen', :inverse_of => :rates, :index => true
 
   before_create :set_created_at
 
