@@ -1,2 +1,4 @@
 app_id: 2384663
 api_secret: R4abU0gbz59Y9JKo3lqI
+queens_per_page: 7
+votes_per_page: 7
