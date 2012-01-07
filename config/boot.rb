@@ -1,5 +1,4 @@
 require 'rubygems'
-require File.expand_path('lib/rack/firebug_logger')
 
 # Set up gems listed in the Gemfile.
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)

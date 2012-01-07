@@ -15,8 +15,6 @@ gem "kaminari"
 
 gem 'jquery-rails'
 
-gem "rails-firephp", "~> 0.0.1"
-
 group :development do
   gem 'rspec-rails','2.6.1'
 end
