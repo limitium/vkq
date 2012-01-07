@@ -41,6 +41,8 @@ class Queen
   index :last_name
 
 
+#  references_many :votes, :class_name => 'Vote', :inverse_of => :voter, :index => true
+  references_many :rates, :class_name => 'Vote', :inverse_of => :rated, :index => true
 
 
   def self.authenticate_with_salt(id, cookie_salt)
