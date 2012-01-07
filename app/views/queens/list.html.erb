@@ -1,14 +1,31 @@
 <div class="list_filter">
   <div class="clear_fix">
     <div onclick="event.cancelBubble = true;" class="search_isearch fl_l">
-        <div class="search_input_cont">
-            <div class="input_back_wrap no_select"><div class="input_back" style="margin: 1px; padding: 5px 5px 5px 20px;"><div class="input_back_content" style="color: rgb(119, 119, 119);">Начните вводить любое имя или фамилию</div></div>  </div><input type="text" value="" autocomplete="off" placeholder="" id="search_query" class="text">
+      <div class="search_input_cont">
+        <div class="input_back_wrap no_select">
+          <div class="input_back" style="margin: 1px; padding: 5px 5px 5px 20px;">
+            <div class="input_back_content" style="color: rgb(119, 119, 119);">Начните вводить любое имя или фамилию
+            </div>
+          </div>
         </div>
-        <div class="results_container" style="width: 512px;"><div class="result_list" style="display: none; width: 512px;"><ul></ul></div><div class="result_list_shadow" style="display: none; top: 0px; width: 512px;"><div class="shadow1"></div><div class="shadow2"></div></div></div></div>
-        <div class="fl_l" id="search_query_reset"></div>
-        <div class="fl_l" id="search_query_progress"></div>
-        <div class="fl_r search_submit">
-        <div class="button_blue button_wide"><button id="search_submit">Поиск</button></div>
+        <input type="text" value="" autocomplete="off" placeholder="" id="search_query" class="text">
+      </div>
+      <div class="results_container" style="width: 512px;">
+        <div class="result_list" style="display: none; width: 512px;">
+          <ul></ul>
+        </div>
+        <div class="result_list_shadow" style="display: none; top: 0px; width: 512px;">
+          <div class="shadow1"></div>
+          <div class="shadow2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="fl_l" id="search_query_reset"></div>
+    <div class="fl_l" id="search_query_progress"></div>
+    <div class="fl_r search_submit">
+      <div class="button_blue button_wide">
+        <button id="search_submit">Поиск</button>
+      </div>
     </div>
   </div>
 </div>
@@ -18,4 +35,10 @@
   <table class="rating_list">
     <%= render :partial => "queens/list", :locals => {:queens => @queens} %>
   </table>
+  <% if @queens.num_pages > 1 %>
+      <a style="height: 13px; display: block;" class="clear_fix more_link" id="show_more_link">
+        <div class="progress" id="show_more_progress"></div>
+        <div id="show_more">Показать предыдущих участников ↓</div>
+      </a>
+  <% end %>
 </div>

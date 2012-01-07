@@ -62,7 +62,17 @@ VKQ = {
             callback(response);
         });
     },
-    preload: function(queen, page, callback) {
+    loadQueens: function(){
+        $.get('/queens/load', {
+            vote: {
+                id: queen,
+                page: page
+            }
+        }, function(response) {
+            callback(response);
+        });
+    },
+    loadVotes: function(queen, page, callback) {
         $.get('/votes/load', {
             vote: {
                 id: queen,

@@ -1,1 +1,17 @@
-hui pizda
+<table class="rating_list">
+  <% if @queens.length >0 %>
+      <%= render :partial => "queens/list", :locals => {:queens => @queens, :search => 1} %>
+  <% else %>
+      <tr>
+        <td class="results people_results" id="results">
+          <div class="" id="no_results">Ваш запрос не дал результатов</div>
+        </td>
+      </tr>
+  <% end %>
+</table>
+<% if @queens.num_pages > 1 %>
+    <a style="height: 13px; display: block;" class="clear_fix more_link" id="show_more_link">
+      <div class="progress" id="show_more_progress"></div>
+      <div id="show_more">Показать предыдущих участников ↓</div>
+    </a>
+<% end %>

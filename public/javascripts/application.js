@@ -53,7 +53,7 @@ app = {
                     VKQ.search(q, function(result){
                         progress.hide();
                         $('#search_query_reset').show();
-                        $('.rating_list').html(result);
+                        $('.rating_list_wrapper').html(result);
                     });
                 }
             },
@@ -133,7 +133,7 @@ app = {
         }
     },
     preloadData: function(){
-        var progress = $(".progress");
+        var progress = $("#show_more_link .progress");
         if(!progress.is(":visible")){
             var lastRow = $("tr[last_page]").last();
             if(!lastRow.is("[end_of_list]")){

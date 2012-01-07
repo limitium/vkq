@@ -1,14 +1,12 @@
-<% if @queens.length > 0 %>
-    <% @queens.each_with_index do |queen, index| %>
-        <tr class=<%= !@search.nil? ? "search_queen" : "queen" %> queen="<%= queen._id %>">
-          <td class="photo">
-            <%= ava_link queen, {}, "photo_medium_rec" %>
-          </td>
-          <td class="name">
-            <%= name_link queen %>
-            <%= city_link queen %>
-
-            <span class="achive">
+<% @queens.each_with_index do |queen, index| %>
+    <tr <%= index + 1 == @queens.length ? paginate(@queens) : "" %> class=<%= !@search.nil? ? "search_queen" : "queen" %> queen=<%= queen._id %>>
+      <td class="photo">
+        <%= ava_link queen, {}, "photo_medium_rec" %>
+      </td>
+      <td class="name">
+        <%= name_link queen %>
+        <%= city_link queen %>
+        <span class="achive">
               <% if !@search.nil? %>
                 <span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>
               <% else %>
@@ -16,46 +14,39 @@
                 (<span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>)
               <% end %>
     </span>
-          </td>
-          <td class="message">
-            <div class="from_wrapper">
-              <% if !queen.last_vote.nil? %>
-                  <%= ava_link queen.last_vote, {}, "photo_rec" %>
-              <% end %>
-              <div class="actions">
-                <div class="button_blue">
-                  <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
-                    Поднять
-                  </button>
-                </div>
-                <div class="button_blue">
-                  <button queen="<%= queen._id %>" class="vote_button rating_down" type="button">
-                    Опустить
-                  </button>
-                </div>
-              </div>
-              <div class="vote">
-                <% if !queen.last_vote.nil? %>
-                    <div class="rate_<%= queen.last_vote['value'] > 0 ? "plus" :"minus" %>">
-                    </div>
-                    <div class="rate_value">
-                      <%= queen.last_vote['value'].abs %>
-                    </div>
-                <% end %>
-              </div>
+      </td>
+      <td class="message">
+        <div class="from_wrapper">
+          <% if !queen.last_vote.nil? %>
+              <%= ava_link queen.last_vote, {}, "photo_rec" %>
+          <% end %>
+          <div class="actions">
+            <div class="button_blue">
+              <button queen="<%= queen._id %>" class="vote_button rating_up" type="button">
+                Поднять
+              </button>
             </div>
-            <div class="text">
-              <% if !queen.last_vote.nil? %>
-                  <%= queen.last_vote['message'] %>
-              <% end %>
+            <div class="button_blue">
+              <button queen="<%= queen._id %>" class="vote_button rating_down" type="button">
+                Опустить
+              </button>
             </div>
-          </td>
-        </tr>
-    <% end %>
-<% else %>
-    <tr>
-      <td class="results people_results" id="results">
-        <div class="" id="no_results">Ваш запрос не дал результатов</div>
+          </div>
+          <div class="vote">
+            <% if !queen.last_vote.nil? %>
+                <div class="rate_<%= queen.last_vote['value'] > 0 ? "plus" :"minus" %>">
+                </div>
+                <div class="rate_value">
+                  <%= queen.last_vote['value'].abs %>
+                </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="text">
+          <% if !queen.last_vote.nil? %>
+              <%= queen.last_vote['message'] %>
+          <% end %>
+        </div>
       </td>
     </tr>
 <% end %>
