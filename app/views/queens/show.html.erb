@@ -1,7 +1,7 @@
 <div class="queen" queen="<%= @queen._id %>">
   <div class="narrow_column fl_l">
     <div class="avatar">
-      <%= image_tag @queen.photo_big, :alt=>"#{@queen.first_name} #{@queen.last_name}" %>
+      <%= image_tag @queen.photo_big, :alt=>"#{@queen.first_name} #{@queen.last_name}", :class=>"photo_big_#{@queen._id}" %>
     </div>
     <div style="cursor: default;" class="rate_line stage0">
       <div class="rating_<%= @queen._id %> rating rate_text"><%= @queen.rating %></div>
