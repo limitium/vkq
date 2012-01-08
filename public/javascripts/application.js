@@ -403,9 +403,9 @@ app = {
     }
 };
 
-$(document).ready(function() {
-    app.start();
-});
+//$(document).ready(function() {
+//    app.start();
+//});
 VKQ.run(server.api_id, app.start);
 
 
