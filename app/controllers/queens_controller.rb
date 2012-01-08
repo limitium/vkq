@@ -17,16 +17,12 @@ class QueensController < ApplicationController
   end
 
   def show
-    @queen = !params[:qid].nil? ? Queen.find(params[:qid]) : @current_queen
+    @queen = !params[:id].nil? ? Queen.find(params[:id]) : @current_queen
     @rates = @queen.rates_page params[:page]
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @queen }
-    end
   end
 
   def update
-    @queen = Queen.find(params[:qid])
+    @queen = Queen.find(params[:id])
     if @queen.update_attributes(params[:queen])
       render :json => @queen
     else
