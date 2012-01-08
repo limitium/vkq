@@ -103,6 +103,7 @@ app = {
                                 title: 'Голос учтен.',
                                 content: 'Вы проголосовали '+(val == 1 ? 'за ' : 'против ')+'<a href="/queen/'+queenId+'">'+$('.name_' + queenId).html()+'</a>'
                             });
+                            VKQ.updateWindow();
                         });
                     }
                 };
@@ -393,7 +394,7 @@ app = {
             VKQ.updateProfile(function(profile) {
                 console.log(profile);
                 $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
-                $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function() {
+                $.each(['photo','photo_rec','photo_big','photo_medium_rec','city_name'], function() {
                     $("." + this + "_" + profile.uid).attr("src", profile[this]);
                 });
                 VKQ.updateWindow();

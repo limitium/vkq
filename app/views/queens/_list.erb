@@ -9,7 +9,7 @@
       </td>
       <td class="name">
         <%= name_link queen %>
-        <div class="city"><%= queen.city_name %></div>
+        <div class="city city_name_<%= queen._id %>"><%= queen.city_name %></div>
         <span class="achive">
               <% if !@search.nil? %>
                 <span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>
