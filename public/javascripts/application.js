@@ -144,6 +144,7 @@ app = {
             window: function(top, height) {
                 if (top - 152 == $(document).height() - height){
                     app.preloadVotes();
+                    app.preloadQueens();
                 }
             }
         }
