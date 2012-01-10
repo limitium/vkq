@@ -42,7 +42,7 @@ class QueensController < ApplicationController
         criterion['$or'] << {:first_name => /^#{words[1]}/i} << {:last_name => /^#{words[1]}/i}
       end
     end
-    @per_page = 7
+    @per_page = 2
     @queens = Queen.where(criterion).order_by(:rating=>:desc).page(params[:page]).per(@per_page)
   end
 

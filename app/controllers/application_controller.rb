@@ -39,13 +39,13 @@ class ApplicationController < ActionController::Base
     @update_profile = true
     self.current_queen = @queen
 
-    if !params[:hash].nil? && params[:hash]
+    if !params[:hash].nil? && params[:hash] != ""
       to_caller
     end
   end
 
   def to_caller
-#    redirect_to queen_show_path params[:hash]
+    redirect_to queen_show_path params[:hash]
   end
 
   def to_vk
