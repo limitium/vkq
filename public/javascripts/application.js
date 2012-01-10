@@ -151,7 +151,7 @@ app = {
     },
     preloadVotes: function(){
         var progress = $(".position_list #show_more_link .progress");
-        if(progress && !progress.is(":visible")){
+        if(progress.size() && !progress.is(":visible")){
             var lastRow = $("tr[last_page]").last();
             if(!lastRow.is("[end_of_list]")){
                 var link = $("div#show_more");
@@ -173,7 +173,7 @@ app = {
     },
     preloadQueens: function(){
         var progress = $(".rating_list_wrapper #show_more_link .progress");
-        if(progress && !progress.is(":visible")){
+        if(progress.size() && !progress.is(":visible")){
             var lastRow = $("tr[last_page]").last();
             if(!lastRow.is("[end_of_list]")){
                 var link = $("div#show_more");
@@ -389,24 +389,25 @@ app = {
     start: function() {
         app.initHandlers();
 
-        VKQ.updateWindow();
-
-        if (server.update_profile) {
-            VKQ.updateProfile(function(profile) {
-                console.log(profile);
-                $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
-                $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function() {
-                    $("." + this + "_" + profile.uid).attr("src", profile[this]);
-                });
-                VKQ.updateWindow();
-            });
-        }
+//        VKQ.updateWindow();
+//
+//        if (server.update_profile) {
+//            VKQ.updateProfile(function(profile) {
+//                console.log(profile);
+//                $(".name_" + profile.uid).html(profile.first_name + " " + profile.last_name);
+//                $.each(['photo','photo_rec','photo_big','photo_medium_rec'], function() {
+//                    $("." + this + "_" + profile.uid).attr("src", profile[this]);
+//                });
+//                VKQ.updateWindow();
+//            });
+//        }
+        setTimeout(VKQ.updateWindow, 500);
     }
 };
 
-//$(document).ready(function() {
-//    app.start();
-//});
-VKQ.run(server.api_id, app.start);
+$(document).ready(function() {
+    app.start();
+});
+//VKQ.run(server.api_id, app.start);
 
 
