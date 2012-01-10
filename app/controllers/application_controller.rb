@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
   end
 
   def to_caller
-    redirect_to queen_show_path params[:hash]
+#    redirect_to queen_show_path params[:hash]
   end
 
   def to_vk
