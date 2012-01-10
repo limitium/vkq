@@ -56,6 +56,7 @@ app = {
                             progress.hide();
                             $('#search_query_reset').show();
                             $('.rating_list_wrapper').html(result);
+                            VKQ.updateWindow();
                         });
                     }
                 }
@@ -75,6 +76,7 @@ app = {
                     VKQ.loadQueens(function(result){
                         progress.hide();
                         $('.rating_list_wrapper').html(result);
+                        VKQ.updateWindow();
                     });
                 }
             },
