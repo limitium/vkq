@@ -15,6 +15,9 @@ app = {
         $('#search_query').keypress(app.on.keyup.search).keyup(app.on.keyup.search);
         $('#search_query_reset').click(app.on.click.searchReset);
 
+        $('#call_friend button').click(app.on.click.invite);
+        $('#call_friend2 button').click(app.on.click.invite2);
+        $('#call_friend3 button').click(app.on.click.invite3);
         VKQ.scroll(app.on.scroll.window);
     },
     on:{
@@ -44,6 +47,15 @@ app = {
             }
         },
         click: {
+            invite: function(){
+                VKQ.invite();
+            },
+            invite2: function(){
+                VKQ.invite2();
+            },
+            invite3: function(){
+                VKQ.invite3();
+            },
             search: function(){
                 var progress = $('#search_query_progress');
                 if(!progress.is(":visible")){
@@ -404,6 +416,7 @@ app = {
             });
         }
         setTimeout(VKQ.updateWindow, 500);
+        VK.callMethod("setTitle", "Мандаринка");
     }
 };
 

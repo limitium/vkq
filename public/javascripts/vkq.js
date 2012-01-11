@@ -103,5 +103,15 @@ VKQ = {
         $.get('/queens/preload', params, function(response) {
             callback(response);
         });
+    },
+    invite: function(){
+        VK.callMethod("showInviteBox");
+    },
+    invite2: function(){
+        VK.callMethod("showPaymentBox");
+    },
+    invite3: function(){
+        VK.callMethod("saveWallPost",hash);
+
     }
 };
