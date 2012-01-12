@@ -417,7 +417,7 @@ app = {
         }
         setTimeout(VKQ.updateWindow, 500);
         VK.callMethod("setTitle", "Мандаринка");
-        VKQ.setLocation(server.location);
+        VKQ.setLocation(server.location || server.current_queen._id);
     }
 };
 
