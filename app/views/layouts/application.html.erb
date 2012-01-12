@@ -8,7 +8,7 @@
           api_id: <%= VKQ_CONFIG["app_id"] %>,
           update_profile: <%= @update_profile.to_json %>,
           current_queen: <%= raw @current_queen.to_json :except => :salt %>,
-          location: <%= @location.nil? ? "" : @location %>
+          location: <%= @location.nil? ? 0 : @location %>
       };
   </script>
   <%= stylesheet_link_tag :all, :recursive => true %>
