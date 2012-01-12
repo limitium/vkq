@@ -19,6 +19,7 @@ class QueensController < ApplicationController
   def show
     @queen = !params[:id].nil? ? Queen.find(params[:id]) : @current_queen
     @rates = @queen.rates_page params[:page]
+    @location = @queen._id;
   end
 
   def update

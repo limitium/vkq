@@ -110,8 +110,8 @@ VKQ = {
     invite2: function(){
         VK.callMethod("showPaymentBox");
     },
-    invite3: function(){
-        VK.callMethod("saveWallPost",hash);
+    setLocation: function(location){
+        VK.callMethod("setLocation",location);
 
     }
 };

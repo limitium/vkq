@@ -25,6 +25,7 @@ class Queen
   field :university_name
   field :graduation, :type => Integer
 
+  field :balance, :type => Integer, :default => 0
   field :rating, :type => Integer, :default => 0
   field :salt
   field :updated_at, :type => Integer
