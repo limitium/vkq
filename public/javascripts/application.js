@@ -48,13 +48,13 @@ app = {
         },
         click: {
             invite: function(){
-                VKQ.invite();
+                app.invite();
             },
             invite2: function(){
-                VKQ.invite2();
+                app.invite();
             },
             invite3: function(){
-                VKQ.invite3();
+                app.invite();
             },
             search: function(){
                 var progress = $('#search_query_progress');
@@ -96,11 +96,13 @@ app = {
                 var but = $(this);
                 var queenId = but.attr('queen');
                 var val = but.hasClass("rating_up") ? 1 : -1;
-                var msg = '<div>'+
+                var msg = '<div class="box_body">'+
+                            '<div>'+
                             '<div>'+$('.name_' + queenId).html() + ' получит "' + (val == 1 ? '+' : '-') + app.getForce(server.current_queen.rating) + '" в рейтинг от вас!</div>'+
                             '<textarea />'+
                             '<div class="counter">140</div>'+
-                        '</div>';
+                            '</div>'+
+                            '</div>';
 
                 var sendVote = function(){
                     var progress = $('.progress',box);
@@ -206,6 +208,61 @@ app = {
             }
         }
         return false;
+    },
+    invite: function(){
+        var inviter =
+            '<div class="clear_fix">'+
+                '<div class="search_isearch fl_l">'+
+                    '<div style="display: block;" class="box_body">'+
+                        '<div class="search_input_cont">'+
+                            '<div class="input_back_wrap no_select">'+
+                              '<div class="input_back" style="margin: 1px; padding: 5px 5px 5px 20px;">'+
+                                '<div class="input_back_content" style="color: rgb(119, 119, 119);">Начните вводить любое имя или фамилию'+
+                                '</div>'+
+                              '</div>'+
+                            '</div>'+
+                            '<input style="width: 353px;" type="text" value="" id="search_query" class="text">'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+                '<div class="fl_l" id="search_query_reset"></div>'+
+            '</div>';
+
+        inviter +=
+            '<div class="scrollbar_cont" style="margin-left: 541px; height: 420px;"><div class="scrollbar_inner undefinedscrollbar_hovered" style="height: 62px; margin-top: 0px;"></div></div>';
+
+        inviter +=
+                '<div id="flist_scroll_wrap" class="clear_fix" style="overflow: hidden;background-color: white;">' +
+'<table height="100%" cellspacing="0" cellpadding="0" width="100%" class="flist">'+
+'<tbody><tr><td class="flist_col flist_left_col">'+
+'<div class="summary_wrap"><div class="summary">Ваши друзья</div></div>'+
+'<div id="flist_all_list">'+
+'<div id="flist_cell18138771"><table onmousedown="return Privacy.flistSelect(18138771, this, event);" class="flist_cell no_select"><tbody><tr>'+
+'<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+'<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+'<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+'</tr></tbody></table></div>'+
+'</div>'+
+'</td><td class="flist_col">'+
+'<div class="summary_wrap"><div id="flist_sel_summary" class="summary">Друзья в списке</div></div>'+
+'<div id="flist_sel_list"><div id="flist_sel_cell139739482"><table onmousedown="return Privacy.flistSelect(139739482, this, event);" class="flist_cell no_select"><tbody><tr>'+
+'<td class="flist_item_img"><img align="middle" src="http://cs5462.vkontakte.ru/u139739482/e_a79e7c40.jpg"></td>'+
+'<td><div class="flist_item_name">Елена Оконченко</div></td>'+
+'<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+'</tr></tbody></table></div>'+
+'<div style="display: none;" id="flist_info" class="flist_info no_select">Вы можете выбрать друзей в списке слева.</div>'+
+'</div>'+
+'</td></tr>'+
+'</tbody></table>'+
+'</div>';
+        var box = app.showMessage({
+            title: 'Приглашение друзей',
+            content: inviter,
+            okText: 'Пригласить',
+            cancelText: 'Отмена',
+            okCb: function(){}
+        });
+
     },
     checkPosition: function(queenId){
         var rows = $('table.rating_list tbody > tr.queen').get();
@@ -321,7 +378,7 @@ app = {
               '</div>'+
               '<div class="box_title">'+opt.title+'</div>'+
             '</div>'+
-            '<div class="box_body">'+opt.content+'</div>'+
+            opt.content+
             '<div class="box_controls_wrap">'+
               '<div class="box_controls">'+
                 '<table cellspacing="0" cellpadding="0" class="fl_r">'+

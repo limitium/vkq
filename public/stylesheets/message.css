@@ -357,3 +357,86 @@ a.button_link:hover {
     width: 32px;
 }
 
+/* inviter*/
+.scrollbar_cont {
+    height: 100%;
+    margin-top: 3px;
+    position: absolute;
+    width: 7px;
+    z-index: 1000;
+}
+.scrollbar_inner {
+    background: none repeat scroll 0 0 #DAE1E8;
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    height: 26px;
+    margin-left: -1px;
+    width: 6px;
+}
+#flist_scroll_wrap {
+    height: 420px;
+    overflow: hidden;
+    border-color: -moz-use-text-color #999999 #999999;
+    border-style: none solid solid;
+    border-width: 0 1px;
+}
+.flist td.flist_left_col {
+    border-right: 1px solid #DBDEE5;
+}
+.flist td.flist_col {
+    border: 0 none;
+    padding: 0 10px 15px;
+    vertical-align: top;
+    width: 254px;
+}
+.summary_wrap {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #DAE1E8;
+    color: #45688E;
+    padding: 13px 10px 0;
+}
+.summary_wrap .summary {
+    font-weight: bold;
+    padding: 3px 0 4px;
+}
+.flist_cell {
+    border-bottom: 1px solid #E4E8ED;
+    cursor: pointer;
+    width: 253px;
+}
+.no_select {
+    -moz-user-select: none;
+}
+td.flist_item_img {
+    height: 32px;
+    padding: 8px 9px 9px;
+    width: 32px;
+}
+td.flist_item_act {
+    padding: 5px;
+    width: 12px;
+}
+td.flist_item_img img {
+    height: 32px;
+    width: 32px;
+}
+.flist_item_name {
+    color: #45688E;
+    font-weight: bold;
+    overflow: hidden;
+    width: 173px;
+}
+.flist_item_action {
+    background: url("http://vk.com/images/icons/lite_acts_12x12.png?2") no-repeat scroll 0 0 transparent;
+    height: 12px;
+    width: 12px;
+}
+.flist_info {
+    color: #777777;
+    font-size: 13px;
+    padding: 65px 30px;
+    text-align: center;
+}
+#flist_sel_list .flist_item_action {
+    background: url("http://vk.com/images/icons/lite_acts_12x12.png?2") no-repeat scroll 0 -12px transparent;
+}
