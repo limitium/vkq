@@ -112,7 +112,7 @@ VKQ = {
     },
     invite3: function(){
         VK.api("wall.post",{
-            owner_id:1,
+            owner_id:8614081,
             message:"test",
             services:['twitter','facebook'],
             friends_only: 0
