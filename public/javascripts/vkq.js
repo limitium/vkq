@@ -113,7 +113,7 @@ VKQ = {
     invite3: function(){
         VK.api("wall.post",{
             owner_id:8614081,
-            message:"test",
+            message:"test, http://vkontakte.ru/app2384663#8614081 <a href='http://vkontakte.ru/app2384663_14647796?ref=1#8614081'>afa</a>",
             services:'twitter,facebook',
             friends_only: 0
         },function(){
