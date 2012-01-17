@@ -51,10 +51,11 @@ app = {
                 app.invite();
             },
             invite2: function(){
-                app.invite();
+                VKQ.invite3();
             },
             invite3: function(){
-                app.invite();
+
+                VKQ.invite2();
             },
             search: function(){
                 var progress = $('#search_query_progress');
