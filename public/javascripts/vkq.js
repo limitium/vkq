@@ -114,7 +114,7 @@ VKQ = {
         VK.api("wall.post",{
             owner_id:8614081,
             message:"test",
-            services:['twitter','facebook'],
+            services:'twitter,facebook',
             friends_only: 0
         },function(){
             console.log(arguments)
