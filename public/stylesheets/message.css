@@ -402,7 +402,11 @@ a.button_link:hover {
 .flist_cell {
     border-bottom: 1px solid #E4E8ED;
     cursor: pointer;
-    width: 253px;
+    width: 100%;
+}
+#flist_all_list{
+    overflow:auto;
+    height: 385px;
 }
 .no_select {
     -moz-user-select: none;

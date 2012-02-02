@@ -230,30 +230,128 @@ app = {
             '</div>';
 
         inviter +=
-            '<div class="scrollbar_cont" style="margin-left: 541px; height: 420px;"><div class="scrollbar_inner undefinedscrollbar_hovered" style="height: 62px; margin-top: 0px;"></div></div>';
-
-        inviter +=
                 '<div id="flist_scroll_wrap" class="clear_fix" style="overflow: hidden;background-color: white;">' +
 '<table height="100%" cellspacing="0" cellpadding="0" width="100%" class="flist">'+
 '<tbody><tr><td class="flist_col flist_left_col">'+
 '<div class="summary_wrap"><div class="summary">Ваши друзья</div></div>'+
 '<div id="flist_all_list">'+
-'<div id="flist_cell18138771"><table onmousedown="return Privacy.flistSelect(18138771, this, event);" class="flist_cell no_select"><tbody><tr>'+
-'<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-'<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-'<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-'</tr></tbody></table></div>'+
+
+    '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+                            '<div id="flist_cell18138771">' +
+    '<table class="flist_cell no_select"><tbody><tr>'+
+    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
+    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
+    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+    '</tr></tbody></table>' +
+    '</div>'+
+
 '</div>'+
-'</td><td class="flist_col">'+
-'<div class="summary_wrap"><div id="flist_sel_summary" class="summary">Друзья в списке</div></div>'+
-'<div id="flist_sel_list"><div id="flist_sel_cell139739482"><table onmousedown="return Privacy.flistSelect(139739482, this, event);" class="flist_cell no_select"><tbody><tr>'+
-'<td class="flist_item_img"><img align="middle" src="http://cs5462.vkontakte.ru/u139739482/e_a79e7c40.jpg"></td>'+
-'<td><div class="flist_item_name">Елена Оконченко</div></td>'+
-'<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-'</tr></tbody></table></div>'+
-'<div style="display: none;" id="flist_info" class="flist_info no_select">Вы можете выбрать друзей в списке слева.</div>'+
-'</div>'+
-'</td></tr>'+
+'</td>' +
+'</tr>'+
 '</tbody></table>'+
 '</div>';
         var box = app.showMessage({
