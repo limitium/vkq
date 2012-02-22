@@ -399,6 +399,9 @@ a.button_link:hover {
     font-weight: bold;
     padding: 3px 0 4px;
 }
+.flist_cell:hover {
+    background: none repeat scroll 0 0 #EDF1F5
+}
 .flist_cell {
     border-bottom: 1px solid #E4E8ED;
     cursor: pointer;

@@ -26,6 +26,8 @@ app = {
                 if(this.value.length){
                     if(e.keyCode == 13){
                         $('#search_submit').trigger("click");
+                    }else if(e.keyCode == 27){
+                        $('#search_query_reset').trigger("click");
                     }else{
                         $('#search_query_reset').show();
                         $('div.input_back_content').hide();
@@ -48,7 +50,21 @@ app = {
         },
         click: {
             invite: function(){
-                app.invite();
+                var friends = [];
+                friends.push({uid:123,name:"olololsh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"qweqweqw",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"asdadasd",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"zxczczxc",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"dfgdfgdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"xcvxcvxcv",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"cvbnvnvbn",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"vbnnfhrth",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"ertythrgtbdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"e35yghtrh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                friends.push({uid:123,name:"ve5grtbh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                app.invite(friends);
             },
             invite2: function(){
                 VKQ.invite3();
@@ -210,7 +226,7 @@ app = {
         }
         return false;
     },
-    invite: function(){
+    invite: function(friends){
         var inviter =
             '<div class="clear_fix">'+
                 '<div class="search_isearch fl_l">'+
@@ -222,138 +238,25 @@ app = {
                                 '</div>'+
                               '</div>'+
                             '</div>'+
-                            '<input style="width: 353px;" type="text" value="" id="search_query" class="text">'+
+                            '<input style="width: 353px;" type="text" value="" id="isearch_query" class="text">'+
                         '</div>'+
                     '</div>'+
                 '</div>'+
-                '<div class="fl_l" id="search_query_reset"></div>'+
+                '<div class="fl_l" id="isearch_query_reset"></div>'+
             '</div>';
 
-        inviter +=
-                '<div id="flist_scroll_wrap" class="clear_fix" style="overflow: hidden;background-color: white;">' +
-'<table height="100%" cellspacing="0" cellpadding="0" width="100%" class="flist">'+
-'<tbody><tr><td class="flist_col flist_left_col">'+
-'<div class="summary_wrap"><div class="summary">Ваши друзья</div></div>'+
-'<div id="flist_all_list">'+
+        inviter += '<div id="flist_scroll_wrap" class="clear_fix" style="overflow: hidden;background-color: white;">' +
+            '<table height="100%" cellspacing="0" cellpadding="0" width="100%" class="flist">'+
+            '<tbody><tr><td class="flist_col flist_left_col">'+
+            '<div class="summary_wrap"><div class="summary">Ваши друзья</div></div>'+
+            '<div id="flist_all_list">';
 
-    '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
-                            '<div id="flist_cell18138771">' +
-    '<table class="flist_cell no_select"><tbody><tr>'+
-    '<td class="flist_item_img"><img align="middle" src="http://vkontakte.ru/images/deactivated_c.gif"></td>'+
-    '<td><div class="flist_item_name">Станислав Владимирович</div></td>'+
-    '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
-    '</tr></tbody></table>' +
-    '</div>'+
 
-'</div>'+
-'</td>' +
-'</tr>'+
-'</tbody></table>'+
-'</div>';
+        inviter += '</div>'+
+            '</td>' +
+            '</tr>'+
+            '</tbody></table>'+
+            '</div>';
         var box = app.showMessage({
             title: 'Приглашение друзей',
             content: inviter,
@@ -361,7 +264,56 @@ app = {
             cancelText: 'Отмена',
             okCb: function(){}
         });
+        var loadFriends = function(q){
+            var list="";
+              $.each(friends, function(){
+                if(!q || (q && this.name.match(q))){
+                    list += '<div id="flist_cell'+this.uid+'">' +
+                        '<table class="flist_cell no_select"><tbody><tr>'+
+                        '<td class="flist_item_img"><img align="middle" src="'+this.photo+'"></td>'+
+                        '<td><div class="flist_item_name">'+this.name+'</div></td>'+
+                        '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
+                        '</tr></tbody></table>' +
+                        '</div>';
+                }
+            });
+            $("#flist_all_list").html(list);
+        };
+        $(".button_blue.ok",box).remove();
 
+        $("div.input_back_content",box).click(function(){
+            $('#isearch_query').focus();
+        });
+        $('#isearch_query').focus(function(){
+            $('.input_back_content',box).css('color','rgb(192, 200, 208)')
+        });
+        $('#isearch_query').blur(function(){
+            $('.input_back_content',box).css('color','rgb(119, 119, 119)')
+        });
+        $('#isearch_query_reset').click(function(){
+            $('#isearch_query').val("");
+            $('#isearch_query').trigger('keypress');
+
+            $('#isearch_query_reset').hide();
+            loadFriends(null);
+        });
+        var onKeyUp = function(e){
+            if(e.keyCode != 27){
+                if(this.value.length){
+                    loadFriends(this.value);
+                    $('#isearch_query_reset').show();
+                    $('div.input_back_content',box).hide();
+                }else{
+                    $('#isearch_query_reset').hide();
+                    $('div.input_back_content',box).show();
+                }
+            }else{
+                $('#isearch_query_reset').trigger('click');
+            }
+        };
+        $('#isearch_query').keypress(onKeyUp).keyup(onKeyUp);
+
+        loadFriends(null);
     },
     checkPosition: function(queenId){
         var rows = $('table.rating_list tbody > tr.queen').get();
@@ -577,9 +529,9 @@ app = {
     }
 };
 
-//$(document).ready(function() {
-//    app.start();
-//});
-VKQ.run(server.api_id, app.start);
+$(document).ready(function() {
+    app.start();
+});
+//VKQ.run(server.api_id, app.start);
 
 

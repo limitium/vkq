@@ -161,7 +161,7 @@
     width: 485px;
 }
 
-#search_query {
+#search_query,#isearch_query {
     background: url("http://vk.com/images/magglass.png") no-repeat scroll 5px 6px #FFFFFF;
     outline: medium none;
     padding: 5px 5px 5px 20px;
@@ -239,7 +239,7 @@ input.text, input.search, textarea {
     display: none;
 }
 
-#search_query_reset {
+#search_query_reset, #isearch_query_reset {
     background: url("http://vk.com/images/icons/input_clear.gif") no-repeat scroll 7px 7px transparent;
     cursor: pointer;
     display: none;
@@ -251,7 +251,13 @@ input.text, input.search, textarea {
     width: 8px;
     z-index: 100;
 }
-#search_query_reset:hover {
+
+#isearch_query_reset {
+margin-top: 16px;
+margin-left: -40px;
+}
+
+#search_query_reset:hover,#isearch_query_reset:hover {
     opacity:1;
 }
 
