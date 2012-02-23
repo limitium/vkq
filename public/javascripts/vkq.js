@@ -119,8 +119,6 @@ VKQ = {
         },cb);
     },
     getFriends: function(cb){
-        console.log();
-
          VK.api("friends.get",{
              fields: "uid, first_name, last_name, nickname, photo_rec"
          }, cb);
