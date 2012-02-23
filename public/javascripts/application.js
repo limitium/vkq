@@ -51,7 +51,7 @@ app = {
                 if(!$("#call_friend img").length){
                     $("#call_friend button").html("<img src='http://vk.com/images/upload.gif' />");
 
-                    VKQ.getFriends(server.current_queen._id,function(){
+                    VKQ.getFriends(function(){
                         console.log(arguments);
                         var friends = [];
                         friends.push({uid:8614081,name:"olololsh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});

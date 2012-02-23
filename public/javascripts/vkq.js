@@ -118,11 +118,10 @@ VKQ = {
             friends_only: 0
         },cb);
     },
-    getFriends: function(queen, cb){
-        console.log(queen);
+    getFriends: function(cb){
+        console.log();
 
          VK.api("friends.get",{
-             uid: queen,
              fields: ["uid", "first_name", "last_name", "nickname","photo_rec"]
          }, cb);
     },
