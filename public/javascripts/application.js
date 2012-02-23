@@ -51,23 +51,27 @@ app = {
                 if(!$("#call_friend img").length){
                     $("#call_friend button").html("<img src='http://vk.com/images/upload.gif' />");
 
-                    var friends = [];
-                    friends.push({uid:8614081,name:"olololsh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"qweqweqw",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"asdadasd",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"zxczczxc",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"dfgdfgdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"xcvxcvxcv",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"cvbnvnvbn",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"vbnnfhrth",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"ertythrgtbdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"e35yghtrh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                    friends.push({uid:8614081,name:"ve5grtbh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    VKQ.getFriends(server.current_queen._id,function(){
+                        console.log(arguments);
+                        var friends = [];
+                        friends.push({uid:8614081,name:"olololsh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"qweqweqw",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"asdadasd",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"zxczczxc",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"dfgdfgdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"xcvxcvxcv",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"cvbnvnvbn",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"vbnnfhrth",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"ertythrgtbdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"e35yghtrh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                        friends.push({uid:8614081,name:"ve5grtbh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
 
-                    app.invite(friends);
-                    $("#call_friend button").html("Позвать друга");
+                        app.invite(friends);
+                        $("#call_friend button").html("Позвать друга");
+                    });
+
                 }
             },
             invite2: function(){
