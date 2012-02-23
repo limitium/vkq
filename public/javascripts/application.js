@@ -26,8 +26,6 @@ app = {
                 if(this.value.length){
                     if(e.keyCode == 13){
                         $('#search_submit').trigger("click");
-                    }else if(e.keyCode == 27){
-                        $('#search_query_reset').trigger("click");
                     }else{
                         $('#search_query_reset').show();
                         $('div.input_back_content').hide();
@@ -50,21 +48,27 @@ app = {
         },
         click: {
             invite: function(){
-                var friends = [];
-                friends.push({uid:123,name:"olololsh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"qweqweqw",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"asdadasd",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"zxczczxc",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"dfgdfgdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"xcvxcvxcv",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"cvbnvnvbn",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"vbnnfhrth",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"ertythrgtbdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"e35yghtrh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                friends.push({uid:123,name:"ve5grtbh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                app.invite(friends);
+                if(!$("#call_friend img").length){
+                    $("#call_friend button").html("<img src='http://vk.com/images/upload.gif' />");
+
+                    var friends = [];
+                    friends.push({uid:8614081,name:"olololsh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"qweqweqw",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"asdadasd",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"zxczczxc",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"dfgdfgdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"xcvxcvxcv",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"cvbnvnvbn",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"vbnnfhrth",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"ertythrgtbdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"e35yghtrh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+                    friends.push({uid:8614081,name:"ve5grtbh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
+
+                    app.invite(friends);
+                    $("#call_friend button").html("Позвать друга");
+                }
             },
             invite2: function(){
                 VKQ.invite3();
@@ -268,7 +272,7 @@ app = {
             var list="";
               $.each(friends, function(){
                 if(!q || (q && this.name.match(q))){
-                    list += '<div id="flist_cell'+this.uid+'">' +
+                    list += '<div class="friend_row" id="flist_cell'+this.uid+'">' +
                         '<table class="flist_cell no_select"><tbody><tr>'+
                         '<td class="flist_item_img"><img align="middle" src="'+this.photo+'"></td>'+
                         '<td><div class="flist_item_name">'+this.name+'</div></td>'+
@@ -312,7 +316,10 @@ app = {
             }
         };
         $('#isearch_query').keypress(onKeyUp).keyup(onKeyUp);
-
+        $(document).delegate('.friend_row', 'click', function(){
+            var uid = this.id.substr(10);
+            VKQ.postMsg(uid,"jopa ti!",function(){});
+        });
         loadFriends(null);
     },
     checkPosition: function(queenId){
@@ -532,6 +539,6 @@ app = {
 $(document).ready(function() {
     app.start();
 });
-//VKQ.run(server.api_id, app.start);
+VKQ.run(server.api_id, app.start);
 
 
