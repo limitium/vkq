@@ -50,12 +50,11 @@ app = {
             invite: function(){
                 if(!$("#call_friend img").length){
                     $("#call_friend button").html("<img src='http://vk.com/images/upload.gif' />");
-
                     VKQ.getFriends(function(data){
                         app.invite(data.response);
                         $("#call_friend button").html("Позвать друга");
+                        VKQ.updateWindow();
                     });
-
                 }
             },
             invite2: function(){
