@@ -318,7 +318,7 @@ app = {
         $('#isearch_query').keypress(onKeyUp).keyup(onKeyUp);
         $(document).delegate('.friend_row', 'click', function(){
             var uid = this.id.substr(10);
-            VKQ.postMsg(uid,"jopa ti!",function(){});
+            VKQ.postMsg(uid,"Выручай! http://vk.com/app2384663#"+uid+" нужен твой голос.",function(){});
         });
         loadFriends(null);
     },
