@@ -105,7 +105,7 @@ VKQ = {
         });
     },
     invite3: function(){
-        VK.callMethod("showInviteBox");
+        VK.callMethod("showSettingsBox",1283);
     },
     invite2: function(){
         VK.callMethod("showPaymentBox");
