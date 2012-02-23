@@ -51,24 +51,8 @@ app = {
                 if(!$("#call_friend img").length){
                     $("#call_friend button").html("<img src='http://vk.com/images/upload.gif' />");
 
-                    VKQ.getFriends(function(){
-                        console.log(arguments);
-                        var friends = [];
-                        friends.push({uid:8614081,name:"olololsh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"qweqweqw",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"asdadasd",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"zxczczxc",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"dfgdfgdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"xcvxcvxcv",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"ertertert",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"cvbnvnvbn",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"vbnnfhrth",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"ertythrgtbdfg",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"e35yghtrh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-                        friends.push({uid:8614081,name:"ve5grtbh",photo:"http://vkontakte.ru/images/deactivated_c.gif"});
-
-                        app.invite(friends);
+                    VKQ.getFriends(function(data){
+                        app.invite(data.response);
                         $("#call_friend button").html("Позвать друга");
                     });
 
@@ -275,11 +259,11 @@ app = {
         var loadFriends = function(q){
             var list="";
               $.each(friends, function(){
-                if(!q || (q && this.name.match(q))){
+                if(!q || (q && (this.first_name.match(q) || this.last_name.match(q)))){
                     list += '<div class="friend_row" id="flist_cell'+this.uid+'">' +
                         '<table class="flist_cell no_select"><tbody><tr>'+
-                        '<td class="flist_item_img"><img align="middle" src="'+this.photo+'"></td>'+
-                        '<td><div class="flist_item_name">'+this.name+'</div></td>'+
+                        '<td class="flist_item_img"><img align="middle" src="'+this.photo_rec+'"></td>'+
+                        '<td><div class="flist_item_name">'+this.first_name+' '+this.last_name+'</div></td>'+
                         '<td class="flist_item_act"><div class="flist_item_action"></div></td>'+
                         '</tr></tbody></table>' +
                         '</div>';
