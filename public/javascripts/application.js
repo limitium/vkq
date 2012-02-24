@@ -166,7 +166,7 @@ app = {
         },
         scroll: {
             window: function(top, height) {
-                console.log(arguments)
+                console.log(arguments);
                 if (top - 152 == $(document).height() - height){
                     app.preloadVotes();
                     app.preloadQueens();

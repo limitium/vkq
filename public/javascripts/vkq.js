@@ -65,8 +65,15 @@ VKQ = {
     updateWindow: function() {
         var body = $('body');
         var html = $('html');
+        console.log(html.width());
+        console.log(body.width());
+        console.log(Math.max(body.width(),html.width()));
+        console.log(html.height());
+        console.log(body.height());
+        console.log(Math.max(body.height(),html.height()));
         VK.External.resizeWindow(Math.max(body.width(),html.width()), Math.max(body.height(),html.height()));
     },
+
 
     scroll: function(callback) {
         VK.addCallback("onScroll", callback);
