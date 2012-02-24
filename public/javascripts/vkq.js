@@ -63,8 +63,9 @@ VKQ = {
         });
     },
     updateWindow: function() {
-        var page = $('#page');
-        VK.External.resizeWindow(page.width(), page.height());
+        var body = $('body');
+        var html = $('html');
+        VK.External.resizeWindow(Math.max(body.width(),html.width()), Math.max(body.height(),html.height()));
     },
 
     scroll: function(callback) {
