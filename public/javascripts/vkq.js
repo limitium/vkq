@@ -63,8 +63,8 @@ VKQ = {
         });
     },
     updateWindow: function() {
-        var body = $('page');
-        var html = $('html');
+        var body = $('body');
+        var html = $('page');
         console.log(html.width());
         console.log(body.width());
         console.log(Math.max(body.width(),html.width()));
