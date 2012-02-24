@@ -65,12 +65,6 @@ VKQ = {
     updateWindow: function() {
         var body = $('.popup_box_container');
         var html = $('#page');
-        console.log(html.width());
-        console.log(body.width());
-        console.log(Math.max(body.width(),html.width()));
-        console.log(html.outerHeight(1));
-        console.log(body.outerHeight(1));
-        console.log(Math.max(body.outerHeight(1),html.outerHeight(1)));
         VK.External.resizeWindow(Math.max(body.width(),html.width()), Math.max(body.outerHeight(1),html.outerHeight(1)));
     },
 
