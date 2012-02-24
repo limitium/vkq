@@ -166,7 +166,7 @@ app = {
         },
         scroll: {
             window: function(top, height) {
-                console.log(arguments);
+                $(".top_result_baloon,.popup_box_container,.top_result_baloon_wrap fixed").css({"margin-top": 170 + top + "px"});
                 if (top + height >=  $(document).height() + 150){
                     app.preloadVotes();
                     app.preloadQueens();
