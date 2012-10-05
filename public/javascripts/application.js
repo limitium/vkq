@@ -529,10 +529,14 @@ app = {
         VKQ.setLocation(server.location || server.current_queen._id);
     }
 };
+$(document).ready(function() {
+    if(server.env =="development"){
+        console.log('dev start')
+        app.start();
+    }else{
+        VKQ.run(server.api_id, app.start);
+    }
+});
 
-//$(document).ready(function() {
-//    app.start();
-//});
-VKQ.run(server.api_id, app.start);
 
 
