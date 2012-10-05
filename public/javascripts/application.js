@@ -18,7 +18,16 @@ app = {
         $('#call_friend button').click(app.on.click.invite);
         $('#call_friend2 button').click(app.on.click.invite2);
         $('#call_friend3 button').click(app.on.click.invite3);
+
+        setInterval(function(){
+            var timer = $(".queen-timeout");
+            if(timer.length){
+                timer.html(app.timeout.get(timer.attr("data-queen")));
+            }
+        },1000);
+
         VKQ.scroll(app.on.scroll.window);
+
     },
     on:{
         keyup: {
@@ -112,22 +121,34 @@ app = {
                             '</div>'+
                             '</div>';
 
+                var timeout = app.timeout.get(queenId);
+                if(timeout){
+                    app.timeout.show(queenId);
+                    return false;
+                }
+
                 var sendVote = function(){
                     var progress = $('.progress',box);
                     if(!progress.is(":visible")){
                         progress.show();
                         $('.box_x_button,.cancel button,.ok button',box).unbind('click');
                         var message = $('textarea',box).val().substr(0,140);
-                        VKQ.vote(queenId, val, message, function(stats) {
-                            app.updateStats(queenId, val, stats);
-                            app.addLog(queenId, val, message);
-                            app.checkPosition(queenId);
+                        VKQ.vote(queenId, val, message, function(resp) {
+                            app.timeout.set(queenId, parseInt(resp.timeout));
                             app.hideMessage();
-                            app.showBaloon({
-                                title: 'Голос учтен.',
-                                content: 'Вы проголосовали '+(val == 1 ? 'за ' : 'против ')+'<a href="/queen/'+queenId+'">'+$('.name_' + queenId).html()+'</a>'
-                            });
-                            VKQ.updateWindow();
+
+                            if( typeof resp.rating != 'undefined'){
+                                app.updateStats(queenId, val, resp);
+                                app.addLog(queenId, val, message);
+                                app.checkPosition(queenId);
+                                app.showBaloon({
+                                    title: 'Голос учтен.',
+                                    content: 'Вы проголосовали '+(val == 1 ? 'за ' : 'против ')+'<a href="/queen/'+queenId+'">'+$('.name_' + queenId).html()+'</a>'
+                                });
+                                VKQ.updateWindow();
+                            }else{
+                                app.timeout.show(queenId);
+                            }
                         });
                     }
                 };
@@ -166,7 +187,7 @@ app = {
         },
         scroll: {
             window: function(top, height) {
-                $(".top_result_baloon,.popup_box_container,.top_result_baloon_wrap fixed").css({"margin-top": 170 + top + "px"});
+                $(".top_result_baloon,.popup_box_container,.top_result_baloon_wrap").css({"margin-top": 170 + top + "px"});
                 if (top + height >=  $(document).height() + 150){
                     app.preloadVotes();
                     app.preloadQueens();
@@ -479,22 +500,30 @@ app = {
         setTimeout(function(){$('.top_result_baloon_wrap').hide()},2000);
     },
     timeout: {
+        show: function(queenId){
+            app.showMessage({
+                title: 'Не торопитесь',
+                content: '<div class="box_body">Вы не можете голосовать за <a href="/queen/'+queenId+'">'+$('.name_' + queenId).html()+'</a> раньше чем через <span class="queen-timeout" data-queen="'+queenId+'">' + app.timeout.get(queenId) + '</span></div>',
+                okText: 'Хочу!',
+                cancelText: 'Ок',
+                okCb: function(){}
+            });
+        },
         set: function(queenId, timeout){
-            app.timeout[queenId] = new Date().setTime(new Date().getTime() + timeout);
+             app.timeout[queenId] = new Date().setTime(new Date().getTime() + timeout * 1000);
         },
         get: function(queenId){
             if(typeof app.timeout[queenId] != 'undefined'){
                 var timeout = app.timeout[queenId] - new Date().getTime();
-                console.log(timeout);
                 if(timeout > 0){
-                    /* Get 1 hour in milliseconds, ie 1000*60*60 */
-                    var one_hour = 3600000;
+                    /* Get 1 hour in milliseconds, ie 60*60 */
+                    var one_hour = 36000000;
                     var elapsedHours = Math.floor(timeout / one_hour );
 
                     /* Milliseconds still unaccounted for – less than an hour’s worth. */
                     timeout = timeout % one_hour;
 
-                    /* Get 1 minute in milliseconds, ie 1000*60 */
+                    /* Get 1 minute in milliseconds, ie 60 */
                     var one_minute = 60000;
                     var elapsedMinutes = Math.floor(timeout / one_minute );
 
@@ -505,6 +534,8 @@ app = {
                     var one_second = 1000;
                     var elapsedSeconds = Math.round(timeout / one_second);
                     return (elapsedHours < 10?"0":"")+elapsedHours+":"+(elapsedMinutes < 10?"0":"")+elapsedMinutes+":"+(elapsedSeconds < 10?"0":"")+elapsedSeconds;
+                }else{
+                    delete app.timeout[queenId];
                 }
             }
         }
@@ -530,9 +561,13 @@ app = {
     }
 };
 
-//$(document).ready(function() {
-//    app.start();
-//});
-VKQ.run(server.api_id, app.start);
+if (parent.frames.length == 0) {
+   $(document).ready(function() {
+        app.start();
+    });
+}else{
+    VKQ.run(server.api_id, app.start);
+}
+
 
 

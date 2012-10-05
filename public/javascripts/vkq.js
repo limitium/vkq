@@ -28,13 +28,15 @@ VKQ = {
 
         var code =
                 'var profile = API.getProfiles({"uids": ' + VK.params.viewer_id + ', ' + fields_param + '})[0];' +
-                        'return {"profile":profile,"country_name":API.places.getCountryById({"cids":profile.country})@.name,"city_name":API.places.getCityById({"cids":profile.city})@.name};';
+                        'return {"profile":profile,"country_name":API.places.getCountryById({"cids":profile.country})@.name,"city_name":API.places.getCityById({"cids":profile.city})@.name,"balance":API.getUserBalance(),"settings":API.getUserSettings()};';
 
         // Check empty city and country
         VK.api('execute', {'code': code}, function(data) {
             var profile = data.response.profile;
             profile.country_name = data.response.country_name ? data.response.country_name[0] : "";
             profile.city_name = data.response.city_name ? data.response.city_name[0] : "";
+            profile.balance = data.response.balance;
+            profile.settings = data.response.settings;
             callback(profile);
         });
     },

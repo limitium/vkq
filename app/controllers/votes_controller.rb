@@ -3,14 +3,19 @@ class VotesController < ApplicationController
   # POST /votes.xml
   def create
     if data_is_valid?
-      cleanup
-      vote_add_voter_data
-      @vote = Vote.new(params[:vote])
-      if @vote.save!
-        queen_add_vote_data
-        render :json => {:rating => @queen.rating, :position => @queen.position}
+      to = get_timeout
+      if to == 0
+        cleanup
+        vote_add_voter_data
+        @vote = Vote.new(params[:vote])
+        if @vote.save!
+          queen_add_vote_data
+          render :json => {:rating => @queen.rating, :position => @queen.position, :timeout => 3600 }
+        else
+          render :json => @vote.errors, :status => :unprocessable_entity
+        end
       else
-        render :json => @vote.errors, :status => :unprocessable_entity
+        render :json => {:timeout => to }
       end
     end
   end
@@ -23,6 +28,12 @@ class VotesController < ApplicationController
   end
 
   private
+
+  def get_timeout
+    now = Time.now.to_i
+    last_vote = Vote.first(:conditions => {:voter => @current_queen._id, :rated => params[:vote][:rated] }, :sort => [[:created_at, :desc]])
+    !last_vote.nil? && last_vote.created_at > now - 3600 ? 3600 - now + last_vote.created_at : 0
+  end
 
   def cleanup
     params[:vote][:value] = @current_queen.force * (params[:vote][:value].to_i == 1 ? 1 : -1)

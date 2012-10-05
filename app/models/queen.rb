@@ -24,8 +24,9 @@ class Queen
   field :university, :type => Integer
   field :university_name
   field :graduation, :type => Integer
-
   field :balance, :type => Integer, :default => 0
+  field :settings, :type => Integer, :default => 0
+
   field :rating, :type => Integer, :default => 0
   field :salt
   field :updated_at, :type => Integer
@@ -33,7 +34,7 @@ class Queen
 
   field :last_vote, :type => Hash
 
-  attr_accessible :_id, :first_name, :last_name, :nickname, :domain, :sex, :bdate, :city, :city_name, :country, :country_name, :photo, :photo_rec, :photo_medium_rec, :photo_big, :rate, :mobile_phone, :home_phone, :faculty, :faculty_name, :university, :university_name, :graduation
+  attr_accessible :_id, :first_name, :last_name, :nickname, :domain, :sex, :bdate, :city, :city_name, :country, :country_name, :photo, :photo_rec, :photo_medium_rec, :photo_big, :rate, :mobile_phone, :home_phone, :faculty, :faculty_name, :university, :university_name, :graduation, :balance, :settings
   key :_id
 
   index :_id, :unique => true
