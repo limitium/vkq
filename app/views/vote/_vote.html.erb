@@ -15,8 +15,7 @@
           <%= name_link @voter %>
         </div>
         <div class="rate">
-          <div class="rate_<%= rate.value>0 ? "plus" :"minus" %>">
-          </div>
+          <div class="rate_mark"><%= queen.last_vote['value'] > 0 ? "+" :"-" %></div>
           <div class="rate_value">
             <%= rate.value.abs %>
           </div>

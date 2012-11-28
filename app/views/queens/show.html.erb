@@ -1,7 +1,7 @@
 <div class="queen" queen="<%= @queen._id %>">
   <div class="narrow_column fl_l">
     <div class="avatar">
-      <%= image_tag @queen.photo_big, :alt=>"#{@queen.first_name} #{@queen.last_name}", :class=>"photo_big_#{@queen._id}" %>
+      <%= image_tag @queen.photo_big, :alt => "#{@queen.first_name} #{@queen.last_name}", :class => "photo_big_#{@queen._id}" %>
     </div>
     <div style="cursor: default;" class="rate_line stage0">
       <div class="rating_<%= @queen._id %> rating rate_text"><%= @queen.rating %></div>
@@ -64,10 +64,9 @@
   </div>
   <div class="wide_column fl_r">
     <h4>
-      <div class="name name_<%= @queen.id %>">
-        <%= "#{@queen.first_name} #{@queen.last_name}" %>
-      </div>
+      <a class="name name_<%= @queen.id %>" href="http://vk.com/id<%= @queen.id %>"><%= "#{@queen.first_name} #{@queen.last_name}" %> в VK</a>
     </h4>
+
     <div class="position_module">
       <div class="module_header" href="<%= url_for queen_show_path(@queen) %>">
         <div class="header_top clear_fix">

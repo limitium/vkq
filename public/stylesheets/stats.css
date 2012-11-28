@@ -65,23 +65,19 @@
     position: absolute;
     right: 15px;
 }
-.rate_plus, .rate_minus {
-    /*margin-left: 10px;*/
-    background: url("/images/buttons/plusminus.gif") no-repeat scroll 0 0 transparent;
+.rate_value,.rate_mark {
+    font-weight: bold;
+    font-size: 20px;
+    font-style: italic;
+    color: #5F7D9D;
+}
+.rate_mark{
     height: 16px;
     width: 20px;
     display: inline-block;
 }
 
-.rate_plus {
-    background-position: 0 -16px;
-}
-
 .rate_value {
-    font-weight: bold;
-    font-size: 20px;
-    font-style: italic;
-    color: #5F7D9D;
     display: inline-block;
     margin-left: -5px;
 }

@@ -40,8 +40,7 @@
           </div>
           <div class="vote">
             <% if !queen.last_vote.nil? %>
-                <div class="rate_<%= queen.last_vote['value'] > 0 ? "plus" :"minus" %>">
-                </div>
+                <div class="rate_mark"><%= queen.last_vote['value'] > 0 ? "+" :"-" %></div>
                 <div class="rate_value">
                   <%= queen.last_vote['value'].abs %>
                 </div>
