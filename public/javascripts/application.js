@@ -367,11 +367,12 @@ app = {
         var cq = server.current_queen;
         var rates = $('#rates');
         var link = '<a href="/queen/' + cq._id + '"><img src="' + cq.photo_rec + '" class=" photo_rec_' + cq._id + '" alt="' + cq.last_name + ' ' + cq.first_name + '"></a>';
-        var vote = '<div class="rate_'+(val>0?"plus":"minus")+'"> '+
-                    ' </div>'+
+        var vote = '<div class="rate_mark">'+
+                      val>0?"+":"-" +
+                    '</div>'+
                     '<div class="rate_value"> '+
                       app.getForce(cq.rating)+
-                    ' </div>';
+                    '</div>';
 
         if(rates.length){
             var row = $('<tr' + (val > 0 ? "" : ' class="minus"') + '>' +
