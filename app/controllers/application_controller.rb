@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     if Rails.env == "development"
       return !params[:viewer_id].nil?
     end
-    request.referer[0, 30] == "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}" &&
+    request.referer[0, 24] == "http://vk.com/app#{VKQ_CONFIG["app_id"]}" &&
     params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
   end
 
@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
   end
 
   def to_vk
-    redirect_to "http://vkontakte.ru/app#{VKQ_CONFIG["app_id"]}"
+    redirect_to "http://vk.com/app#{VKQ_CONFIG["app_id"]}"
   end
 
   def signed_in?
