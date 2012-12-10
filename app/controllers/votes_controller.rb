@@ -10,12 +10,12 @@ class VotesController < ApplicationController
         @vote = Vote.new(params[:vote])
         if @vote.save!
           queen_add_vote_data
-          render :json => {:rating => @queen.rating, :position => @queen.position, :timeout => 3600 }
+          render :json => {:rating => @queen.rating, :position => @queen.position, :timeout => 3600}
         else
           render :json => @vote.errors, :status => :unprocessable_entity
         end
       else
-        render :json => {:timeout => to }
+        render :json => {:timeout => to}
       end
     end
   end
@@ -31,7 +31,7 @@ class VotesController < ApplicationController
 
   def get_timeout
     now = Time.now.to_i
-    last_vote = Vote.first(:conditions => {:voter => @current_queen._id, :rated => params[:vote][:rated] }, :sort => [[:created_at, :desc]])
+    last_vote = Vote.first(:conditions => {:voter => @current_queen._id, :rated => params[:vote][:rated]}, :sort => [[:created_at, :desc]])
     !last_vote.nil? && last_vote.created_at > now - 3600 ? 3600 - now + last_vote.created_at : 0
   end
 
@@ -45,11 +45,11 @@ class VotesController < ApplicationController
   def get_voter_hash
     {
         :_id => @current_queen._id,
-        :first_name =>@current_queen.first_name,
-        :last_name =>@current_queen.last_name,
-        :nickname =>@current_queen.nickname,
-        :photo_rec =>@current_queen.photo_rec,
-        :rating =>@current_queen.rating
+        :first_name => @current_queen.first_name,
+        :last_name => @current_queen.last_name,
+        :nickname => @current_queen.nickname,
+        :photo_rec => @current_queen.photo_rec,
+        :rating => @current_queen.rating
     }
   end
 

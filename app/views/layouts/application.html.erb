@@ -41,7 +41,7 @@
       <div id="header">
         <h1 id="title">
           <%= name_link @current_queen %>
-          <b> (<b class="rating_<%= @current_queen.id %>"><%= @current_queen.rating %></b>)</b>
+          <b> | <b class="rating_<%= @current_queen.id %>"><%= @current_queen.rating %></b></b>
         </h1>
         <% if controller.action_name != "list" %>
             <a href="/queens" class="top_nav_link">К списку участников</a>

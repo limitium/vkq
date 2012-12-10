@@ -13,7 +13,7 @@
                 <span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>
               <% else %>
                   <span class="position position_<%= queen._id %>"><%= index + 1 + (@queens.current_page - 1)*@per_page %></span>
-                (<span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>)
+                | <span class="rating rating_<%= queen._id %>"><%= queen.rating %></span>
               <% end %>
     </span>
         <%= name_link queen %>
