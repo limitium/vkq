@@ -187,7 +187,7 @@ app = {
         },
         scroll: {
             window: function(top, height) {
-                $(".top_result_baloon,.popup_box_container,.top_result_baloon_wrap").css({"margin-top": 170 + top + "px"});
+                $(".top_result_baloon,.popup_box_container,.top_result_baloon_wrap").css({"margin-top": 100 + top + "px"});
                 if (top + height >=  $(document).height() + 150){
                     app.preloadVotes();
                     app.preloadQueens();
@@ -326,9 +326,9 @@ app = {
         };
         $('#isearch_query').keypress(onKeyUp).keyup(onKeyUp);
         $(document).delegate('.friend_row', 'click', function(){
-            var uid = server.current_queen._id;
+            var uid = this.id.substr(10);
             var row = this;
-            VKQ.postMsg(uid,"Выручай! http://vk.com/app2384663#"+uid+" нужен твой голос.",function(){
+            VKQ.postMsg(uid,"Выручай! http://vk.com/app2384663#"+server.current_queen._id+" нужен твой голос.",function(){
                 app.showBaloon({
                     title: 'Приглашение выслано.',
                     content: 'Вы позвали '+$(".flist_item_name",row).html()
@@ -368,7 +368,7 @@ app = {
         var rates = $('#rates');
         var link = '<a href="/queen/' + cq._id + '"><img src="' + cq.photo_rec + '" class=" photo_rec_' + cq._id + '" alt="' + cq.last_name + ' ' + cq.first_name + '"></a>';
         var vote = '<div class="rate_mark">'+
-                      val>0?"+":"-" +
+                      (val>0?"+":"-") +
                     '</div>'+
                     '<div class="rate_value"> '+
                       app.getForce(cq.rating)+
@@ -556,7 +556,7 @@ app = {
                 VKQ.updateWindow();
             });
         }
-        setTimeout(VKQ.updateWindow, 500);
+        VKQ.updateWindow();
         VK.callMethod("setTitle", "Мандаринка");
         VKQ.setLocation(server.location || server.current_queen._id);
     }

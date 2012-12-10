@@ -65,9 +65,11 @@ VKQ = {
         });
     },
     updateWindow: function() {
-        var body = $('.popup_box_container');
-        var html = $('#page');
-        VK.External.resizeWindow(Math.max(body.width(),html.width()), Math.max(body.outerHeight(1),html.outerHeight(1)));
+        setTimeout(function(){
+            var body = $('.popup_box_container');
+            var html = $('#page');
+            VK.External.resizeWindow(Math.max(body.width(),html.width()), Math.max(body.outerHeight(1),html.outerHeight(1)));
+        }, 300);
     },
 
 

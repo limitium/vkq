@@ -1,6 +1,7 @@
 # Be sure to restart your server when you modify this file.
 
-Vkq::Application.config.session_store :cookie_store, :key => '_vkq_session'
+Vkq::Application.config.session_store :cookie_store, :key => '_vkq_session',
+                                      :expire_after => 2.years
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
