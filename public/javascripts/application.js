@@ -282,7 +282,7 @@ app = {
             var list = "", reg = new RegExp(q, 'gi');
 
             $.each(friends, function () {
-                if (!q || (q && (this.first_name.match(reg) || this.last_name.match(req)))) {
+                if (!q || (q && (this.first_name.match(reg) || this.last_name.match(reg)))) {
                     list += '<div class="friend_row" id="flist_cell' + this.uid + '">' +
                         '<table class=g"flist_cell no_select"><tbody><tr>' +
                         '<td class="flist_item_img"><img align="middle" src="' + this.photo_rec + '"></td>' +
