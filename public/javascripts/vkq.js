@@ -111,10 +111,11 @@ VKQ = {
         });
     },
     invite3: function(){
-        VK.callMethod("showSettingsBox",1283);
+//        VK.callMethod("showSettingsBox",1283);
+        VK.callMethod("showMerchantPaymentBox",0);
     },
     invite2: function(){
-        VK.callMethod("showPaymentBox");
+        VK.callMethod("showPaymentBox",0);
     },
     postMsg: function(queen, msg, cb){
         VK.api("wall.post",{
