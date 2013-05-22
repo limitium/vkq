@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   def filter_user
     if check_params
       sign_in_or_up
+    elsif from_vk?
+      to_vk unless !sig_valid?
     else
       to_vk unless signed_in?
     end
@@ -15,7 +17,7 @@ class ApplicationController < ActionController::Base
       return !params[:viewer_id].nil?
     end
     request.referer[0, 24] == "http://vk.com/app#{VKQ_CONFIG["app_id"]}" &&
-    params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
+        params[:auth_key] == Digest::MD5.hexdigest("#{VKQ_CONFIG["app_id"]}_#{params[:viewer_id]}_#{VKQ_CONFIG["api_secret"]}")
   end
 
   def sign_in_or_up
@@ -82,5 +84,18 @@ class ApplicationController < ActionController::Base
     request.env['firebug.logs'] << [type.to_sym, message.to_s]
   end
 
+  def from_vk?
+    !params[:sig].nil? and !params[:app_id].nil? and !params[:user_id].nil?
+  end
+
+  def sig_valid?
+    sig = params[:sig]
+    params.delete("sig")
+    summury
+    params.sort.map do |key, value|
+      summary+="#{key}=#{value}"
+    end
+    sig == Digest::MD5.hexdigest(summary+sig)
+  end
 end
 

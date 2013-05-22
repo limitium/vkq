@@ -12,6 +12,7 @@ Vkq::Application.routes.draw do
   get "/votes/preload" => "votes#preload"
   post "/vote" => "votes#create"
 
+  post "/callback" => "vk#handle"
 #  get "/queens" => "queens#index"
 #  get "/queens/new" => "queen#new"
 #  get "/queens/:id" => "queen#show"
